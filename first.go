@@ -4,11 +4,14 @@ import (
 	"fmt" // 导入 fmt 包，打印字符串是需要用到
 )
 
-func a() { // 声明 main 主函数
+func a() {
 	fmt.Println("this is the Hello World!") // 打印 Hello World!
+
 }
 
-func main() {
+func main() { // 声明 main 主函数
+	fmt.Println("a")
+	fmt.Println("bc") // todo 同一行需要加分号 否则报错
 	a()
 }
 
