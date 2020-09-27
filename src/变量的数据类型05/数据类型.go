@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 /**
 	一： 基本数据类型
@@ -32,22 +35,42 @@ func main() {
 	有符号的整数类型
 	int8   1字节  -128 ~ 127
 	int16  2字节  -2^16  ~ 2^16-1
-	int32  3字节  -2^31 ~ 2^31-1
-	int64  4字节  -2^64 ~ 2^64-1
+	int32  4字节  -2^31 ~ 2^31-1
+	int64  8字节  -2^64 ~ 2^64-1
 
 	无符号的整数类型
 	uint8    1字节	0 ~255  = 2^8-1
 	uint16   2字节	0 ~ 2^16-1
-	uint32   3字节	0 ~ 2^32-1
-	uint64   4字节	0 ~2^64-1
+	uint32   4字节	0 ~ 2^31-1
+	uint64   8字节	0 ~2^64-1
 
 	默认：
-	int 有符号  32系统
-	uint 无符号  32
-
+	int 有符号  32系统 -2^31 ~ 2^31-1  64位系统 -2^64 ~ 2^64-1
+	uint 无符号  -2^31 ~ 2^31-1  64位系统 -2^64 ~ 2^64-1
+	rune 有符号  与int32一样    -2^31 ~ 2^32 - 1
+	byte 无符号  与uint8等价    0-255  当要存储字符时选用byte
 	*/
 
 	var unum1 uint = 31
 	fmt.Println(unum1)
 
+	var t1 rune = -1
+	fmt.Println("t1 : ", t1)
+
+	//var t2 byte  = -1 // 报错
+	var t2 byte = 5
+	fmt.Println("t2 :", t2)
+
+	/**
+	整形使用细节
+	*/
+	var n1 = 100                // 默认为int类型
+	fmt.Printf("n1 的类型 %T", n1) // 查看某一个数据的类型
+
+	// 查看某个变量的占用细节的大小和数据类型
+	var y1 int64 = 9
+	fmt.Printf("y1 的数据类型是 %T 占用的字节是 %d", y1, unsafe.Sizeof(y1))
+
+	// 满足开发要求的情况，尽量使用数据类型小的数据
+	// bit  1byte=8bit
 }
