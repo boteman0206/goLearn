@@ -29,6 +29,14 @@ import (
 8： map
 */
 
+/**
+基本数据类型的默认值： 格式化 %v，按照变量的值来输出
+	int 0，
+	float 0,
+	bool false,
+	string ""
+*/
+
 func main() {
 
 	/**
