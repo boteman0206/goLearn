@@ -67,5 +67,10 @@ func main() {
 	parseBool1, e := strconv.ParseBool("1") // 转换的时候居然能识别 1 0
 	fmt.Println("parsebool = ", parseBool, "e = ", e)
 	fmt.Println("parsebool1 = ", parseBool1, "e = ", e)
+	i2, err := strconv.ParseInt("131", 10, 64) // bitsize 0 8 16 32 64
+	fmt.Println(i2, err)
+	if err == nil {
+		fmt.Println("err is ", err)
+	}
 
 }
