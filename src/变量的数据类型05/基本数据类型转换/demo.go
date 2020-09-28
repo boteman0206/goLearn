@@ -29,7 +29,7 @@ func main() {
 	var n4 float64
 
 	//n3 = b + a  // 不同的类型不能直接相加，必须显示的转换
-	n4 = b + 30 // 正确  ?? 为啥这个没错呢
+	n4 = b + 30 // todo 正确  ?? 为啥这个没错呢
 
 	var name1 = 30
 	fmt.Printf("name1 %T \n", name1)
