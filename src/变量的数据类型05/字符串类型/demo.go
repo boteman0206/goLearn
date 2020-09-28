@@ -7,7 +7,7 @@ string的使用
 1： 默认值是 ""
 2:  go中的字符串是不可变的，不能修改
 3: 使用反引号输出原生字符串
-
+4： 字符串的拼接  +号实现, 换行+要留在上面
 */
 func main() {
 
@@ -26,4 +26,9 @@ func main() {
 
 	str3 := `name\nhello""world`
 	fmt.Println("反引号输出： ", str3)
+
+	var str4 = "hello" + "world" // +拼接
+	//换行+要留在上面
+	fmt.Println("str4: ", str4)
+
 }
