@@ -30,4 +30,14 @@ func main() {
 		fmt.Println(name, string(name))
 	}
 
+	/**
+	字符使用的细节
+	1： 使用中文的时候保存要用int因为码值已经超过ascii码了
+	2： go语言使用utf-8编码
+	3： %c使用格式化
+	4： 字符类型可以进行运算
+	*/
+
+	fmt.Println("字符运算：", 'a'+'b')
+
 }
