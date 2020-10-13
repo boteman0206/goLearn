@@ -21,4 +21,11 @@ func main() {
 	//指针也有地址
 	fmt.Println("ptr指针的地址：", &ptr) // 0xc000006030
 
+	//案例：
+	var num int = 9
+	var pptr *int = &num
+	fmt.Println("修改之前：", num)
+	*pptr = 100
+	fmt.Println("修改之后： ", num)
+
 }
