@@ -59,6 +59,9 @@ func main() {
 	fmt.Println(formatBool)
 	fmt.Println(formatInt)
 	fmt.Println(formatInt2)
+
+	i4, err2 := strconv.ParseInt("988", 10, 32)
+	fmt.Println("i4 : ", i4, err2)
 	itoa := strconv.Itoa(988)
 	fmt.Println("直接转换int ", itoa)
 
@@ -73,4 +76,6 @@ func main() {
 		fmt.Println("err is ", err)
 	}
 
+	i3, error4 := strconv.ParseBool("爱仕达多")        // 错误的无法转换
+	fmt.Println("i3 : ", i3, " error4 : ", error4) // i4打印错误
 }
