@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 func main() {
@@ -38,5 +40,20 @@ func main() {
 	for key, value := range addr {
 		fmt.Println("key : ", key, "  value : ", string(value))
 	}
+
+	/**
+	go语言没有while和do while循环，使用for代替
+	*/
+	//for {
+	//	fmt.Println("while 循环。。。。")
+	//}
+
+	/**
+	生成随机种子数
+	*/
+	//rand.Seed(time.Now().Unix()); // 随机种子
+	rand.Seed(time.Now().UnixNano()) // 更精确
+	intn := rand.Intn(100)           // [0, 100) 不包括100
+	fmt.Println("随机数 ：", intn)
 
 }
