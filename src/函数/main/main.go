@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 import "../demo"     // 引用方式一： 包名demo和文件包的名demo2不一致
 import "../test"     // 引用方式二： 包名test和文件包名test一致
 import abc "../test" // 别名的方式导入，使用时候用abc去调用
@@ -26,4 +28,8 @@ func main() {
 	// cd到main包的文件目录下
 	//go build -o my.exe 变编译成二进制文件 取别名
 	//go build ./main.go 变编译成二进制文件 名称为main.exe
+
+	//返回多个值得在计算方式
+	i, i2 := demo2.MultiNum(30, 4)
+	fmt.Println("第一个： ", i, " 第二个值： ", i2)
 }
