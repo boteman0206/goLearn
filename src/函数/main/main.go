@@ -22,4 +22,8 @@ func main() {
 
 	s1 := abc.Test("hello ,", "world!")
 	fmt.Println("别名: ", s1)
+
+	// cd到main包的文件目录下
+	//go build -o my.exe 变编译成二进制文件 取别名
+	//go build ./main.go 变编译成二进制文件 名称为main.exe
 }
