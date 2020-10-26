@@ -29,7 +29,41 @@ func main() {
 	//go build -o my.exe 变编译成二进制文件 取别名
 	//go build ./main.go 变编译成二进制文件 名称为main.exe
 
-	//返回多个值得在计算方式
+	//返回多个值得在计算方式, 可以使用_下划线来站位进行忽略
 	i, i2 := demo2.MultiNum(30, 4)
 	fmt.Println("第一个： ", i, " 第二个值： ", i2)
+
+	digui1(4)
+	fmt.Println("============")
+	digui2(4)
+	fmt.Println("fib========")
+	fmt.Println(fib(5))
+}
+
+func digui1(n int) {
+	if n > 2 {
+		n--
+		digui1(n)
+	}
+	fmt.Println("n = ", n)
+}
+
+func digui2(n int) {
+	if n > 2 {
+		n--
+		digui2(n)
+	} else {
+		fmt.Println("n = ", n)
+	}
+
+}
+
+//斐波那契数列
+func fib(n int) int {
+	// 1,1,2,3,5,8
+	if n == 2 || n == 1 {
+		return 1
+	} else {
+		return fib(n-1) + fib(n-2)
+	}
 }
