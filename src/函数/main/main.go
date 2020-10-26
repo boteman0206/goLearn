@@ -38,6 +38,17 @@ func main() {
 	digui2(4)
 	fmt.Println("fib========")
 	fmt.Println(fib(5))
+
+	type myInt int // 定义类型
+	var num1 myInt
+	num1 = 900
+	fmt.Println(num1)
+
+	sum, sub := getSumAndSub(12, 99)
+	fmt.Println("sum ： ", sum, " sub : ", sub)
+
+	tt := sumTT(1, 2, 32, 3, 4)
+	fmt.Println("TT : ", tt)
 }
 
 func digui1(n int) {
@@ -66,4 +77,32 @@ func fib(n int) int {
 	} else {
 		return fib(n-1) + fib(n-2)
 	}
+}
+
+/**
+函数注意事项
+1： 基本数据类型和数组都是值传递
+2: 如果希望函数内的变量能够修改函数外的变量，可以使用指针的方式来操作
+3： 没有函数的重载
+4： 函数也是数据类型， 可以赋值给一个变量，
+5： int取别名 type myInt int;
+6： 支持对函数返回值的命名
+7: go语言支持可变参数
+*/
+
+func getSumAndSub(n1, n2 int) (sum, sub int) {
+	sum = n1 + n2
+	sub = n1 - n2
+	return // 直接通过名称返回 (sum, sub int)
+}
+
+//可变参数
+func sumTT(n1 int, args ...int) int {
+	var sum1 int
+	for e := range args {
+		fmt.Println("e: ", args[e])
+		sum1 += args[e]
+	}
+	sum1 += n1
+	return sum1
 }
