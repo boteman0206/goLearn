@@ -12,8 +12,17 @@ var (
 	y2 = "pop"
 )
 
+/**
+name := "jack"  // 在函数外会报错
+
+等价于这两句，但是不能再函数外面赋值
+var name1 string
+name1 = "jack"
+*/
+
 func main() {
 
+	fmt.Println(name1)
 	/**
 	一： 单个变量的基本使用
 	*/
