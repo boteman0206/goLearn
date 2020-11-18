@@ -18,3 +18,11 @@ type Dog struct {
 func (a Animols) Speak() {
 	fmt.Println("animous :", a.Name)
 }
+
+func (a Animols) Test() {
+	fmt.Println("animous 的test方法 :", a.Name)
+}
+
+func (p Dog) Test() {
+	fmt.Println("dog的专用方法。。。", p.Name)
+}

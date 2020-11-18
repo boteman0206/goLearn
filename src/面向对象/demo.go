@@ -40,7 +40,20 @@ func main() {
 	dog.Animols.Name = "牧羊犬"
 	dog.Animols.Age = 12
 
-	// 公用方法使用
+	// 继承中公用方法使用
 	dog.Animols.Speak()
 	cat.Animols.Speak()
+	cat.Speak()
+	dog.Speak()
+
+	dog.Test()         // 会首先使用dog的Test方法，没有的时候在使用Animous的Test方法
+	dog.Animols.Test() // 这个会直接使用animous的Test
+
+	//todo 注意事项
+	/*
+		1: 结构体可以使用匿名结构体中的所有字段和方法（包括大写和小写）
+		2：子类的字段会覆盖父类结构体中的字段，先去子类中找对应的字段（就近访问原则）
+
+	*/
+
 }
