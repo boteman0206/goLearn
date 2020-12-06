@@ -31,6 +31,9 @@ func main() {
 		go test1(i) // 开启两百个协程, 使用map会发生并发修改异常
 	}
 
+	// 休眠十秒
+	time.Sleep(10 * time.Second)
+
 	for e, v := range myMap {
 		fmt.Println(e, " v: ", v)
 	}
