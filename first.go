@@ -6,7 +6,6 @@ import (
 
 func a() {
 	fmt.Println("this is the Hello World!") // 打印 Hello World!
-
 }
 
 func main() { // 声明 main 主函数
