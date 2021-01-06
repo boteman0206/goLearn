@@ -46,13 +46,37 @@ func main() {
 	row.Scan(&id, &name, &password)
 	fmt.Println("map : ", id, " ", name, " ", password)
 
+	//查询多行数据
 	rows, i := db.Query("select * from user ")
 	if i != nil {
-		fmt.Println("iiiiiii", i)
+		fmt.Println("iiiiiii： ", i)
 	}
 	for rows.Next() {
 		rows.Scan(&id, &name, &password)
 		fmt.Println("查询多行： ", id, " ", name, " ", password)
+	}
+
+	defer rows.Close()
+
+	/**
+	todo 预处理方式插入多条语句
+	*/
+	sqlStr := "insert into user(name, password) values(?, ?)"
+
+	stmt, i2 := db.Prepare(sqlStr)
+	defer stmt.Close()
+
+	if i2 != nil {
+		fmt.Println("i2 error : ", i2)
+	}
+	var m = map[string]string{
+		"a1": "1234",
+		"a2": "32123",
+		"a3": "2132",
+	}
+
+	for k, v := range m {
+		stmt.Exec(k, v)
 	}
 
 }
