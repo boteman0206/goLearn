@@ -1,7 +1,8 @@
 package main
 
 import "fmt"
-import "./pputil"
+
+//import _ "./pputil"
 
 /**
 	1：基本数据类型，变量存储的就是指，也叫值类型
@@ -30,5 +31,5 @@ func main() {
 	fmt.Println("修改之后： ", num)
 
 	// 使用pputil包下面的变量Pname
-	fmt.Println(pputil.Pname)
+	//fmt.Println(pputil.Pname)
 }
