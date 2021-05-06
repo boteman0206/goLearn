@@ -7,4 +7,5 @@ require (
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/imdario/mergo v0.3.12
 	github.com/jmoiron/sqlx v1.3.3
+	github.com/tidwall/gjson v1.7.5
 )

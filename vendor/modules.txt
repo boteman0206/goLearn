@@ -8,3 +8,9 @@ github.com/imdario/mergo
 # github.com/jmoiron/sqlx v1.3.3
 github.com/jmoiron/sqlx
 github.com/jmoiron/sqlx/reflectx
+# github.com/tidwall/gjson v1.7.5
+github.com/tidwall/gjson
+# github.com/tidwall/match v1.0.3
+github.com/tidwall/match
+# github.com/tidwall/pretty v1.1.0
+github.com/tidwall/pretty
