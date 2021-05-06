@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/unknwon/com"
 	"reflect"
 )
 
@@ -47,4 +48,8 @@ func main() {
 	student.Test()
 
 	reflectMethod(student)
+
+	mustInt := com.StrTo("ffggg").MustInt()
+	fmt.Println(mustInt)
+
 }
