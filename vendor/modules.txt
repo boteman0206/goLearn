@@ -5,6 +5,8 @@ github.com/gomodule/redigo/internal
 github.com/gomodule/redigo/redis
 # github.com/imdario/mergo v0.3.12
 github.com/imdario/mergo
+# github.com/jinzhu/copier v0.3.0
+github.com/jinzhu/copier
 # github.com/jmoiron/sqlx v1.3.3
 github.com/jmoiron/sqlx
 github.com/jmoiron/sqlx/reflectx
