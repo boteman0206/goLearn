@@ -73,7 +73,16 @@ func main() {
 	fmt.Println("map1 data :", map1)
 
 	//todo 查询一行数据
+
+	sqlStr := "SELECT * FROM member WHERE user_id = ?"
+
 	var member1 Member
+	if err := Db.Get(&member1, sqlStr, 4); err != nil {
+		fmt.Printf("get data failed, err:%v\n", err)
+		return
+	}
+	fmt.Printf("id:%d, name:%s, age:%d\n", member1.UserId, member1.Username, member1.Sex, member1.Email)
+
 	row := Db.QueryRow("select * from member where user_id = ?", 4)
 	// todo  必须要这样进行scan
 	fmt.Println(row.Scan(&member1.UserId, &member1.Username, &member1.Sex, &member1.Email))
@@ -81,4 +90,12 @@ func main() {
 		fmt.Println("查询一行失败： ", err1.Error())
 	}
 	fmt.Println("member1 : ", member1)
+
+	// todo 查询count函数
+	var num int
+	str1 := "select count(*) num  from member"
+	queryRow := Db.QueryRow(str1)
+	err1 = queryRow.Scan(&num)
+	fmt.Println(err1, num)
+
 }

@@ -2,27 +2,31 @@ package main
 
 import (
 	"fmt"
-
 	"github.com/jinzhu/copier"
 )
 
 type User struct {
 	Name string
 	Age  int
+	Pets []string
 }
 
 type Employee struct {
 	Name string
 	Age  int
 	Role string
+	Pets []string
 }
 
 func main() {
 	user := User{Name: "dj", Age: 18}
 	employee := Employee{}
+	employee1 := Employee{Pets: []string{"lll"}}
 
 	copier.Copy(&employee, &user)
+	copier.CopyWithOption(&employee1, &user, copier.Option{false, false})
 	fmt.Printf("%#v\n", employee)
+	fmt.Printf("另外的copy %#v\n", employee1)
 	user.Name = "pop"
 	fmt.Println("user : ", user)
 	fmt.Println(employee)
