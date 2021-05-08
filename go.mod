@@ -13,7 +13,5 @@ require (
 	github.com/tidwall/gjson v1.7.5
 	github.com/unknwon/com v1.0.1
 )
-require (
-	github.com/imdario/mergo v0.3.12 // indirect
-	github.com/thedevsaddam/gojsonq/v2 v2.5.2 // indirect
-)
+
+require github.com/thedevsaddam/gojsonq/v2 v2.5.2 // indirect
