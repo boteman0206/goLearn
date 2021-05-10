@@ -1,0 +1,7 @@
+[
+  {
+    "method": "POST",
+    "path": "/users",
+    "name": "main.main.func1"
+  }
+]

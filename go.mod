@@ -14,4 +14,16 @@ require (
 	github.com/unknwon/com v1.0.1
 )
 
-require github.com/thedevsaddam/gojsonq/v2 v2.5.2 // indirect
+require (
+	github.com/go-playground/validator v9.31.0+incompatible
+	github.com/labstack/echo v3.3.10+incompatible
+	github.com/leodido/go-urn v1.2.1 // indirect
+	github.com/limitedlee/microservice v0.1.0
+	github.com/mattn/go-colorable v0.1.8 // indirect
+	github.com/thedevsaddam/gojsonq/v2 v2.5.2
+	github.com/tricobbler/echo-tool v0.0.0-20210415033113-e8a087670120
+	golang.org/x/crypto v0.0.0-20210506145944-38f3c27a63bf // indirect
+	golang.org/x/net v0.0.0-20210508051633-16afe75a6701 // indirect
+	golang.org/x/sys v0.0.0-20210507161434-a76c4d0a0096 // indirect
+	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
+)
