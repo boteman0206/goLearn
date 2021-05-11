@@ -74,6 +74,7 @@ func main() {
 	e.Use(middleware.Logger())
 
 	e.Use(middleware.Recover())
+
 	fmt.Println("echo run ...")
 	// Routes
 	e.POST("/users", createUser)
