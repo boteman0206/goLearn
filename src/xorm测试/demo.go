@@ -118,7 +118,33 @@ func getUser1(c echo.Context) error {
 	mems = make([]models.Member, 0)
 	engine.In("user_Id", 1, 2, 3).Find(&mems)
 
-	return c.JSON(http.StatusOK, mems)
+	// 查询特定的字段
+	var user models.Member
+	engine.Cols("username", "sex").Get(&user)
+	fmt.Println("只有部分字段显示的： ", user)
+
+	// todo 更新部分字段
+	user.Email = "12300@bb.com"
+	user.Username = "更改之后"
+	user.Sex = "其他"
+	engine.Cols("username", "email").Where("user_id = ?", 4).Update(&user)
+
+	// limit字段
+	mems = make([]models.Member, 0)
+	engine.Desc("user_id").Limit(2).Find(&mems)
+	fmt.Println("limit mems : ", mems)
+
+	// todo 直接执行sql语句解析到结构体种
+	mems = make([]models.Member, 0)
+	type groupData struct {
+		Member models.Member `xorm:"extends"`
+		// todo 如果表里面有相同的字段则无法展示，可以在字段前面加上字段去区分
+		Person models.Person `xorm:"extends"`
+	}
+	var joindata = make([]groupData, 0)
+	sql := engine.SQL("SELECT * FROM member a join person b on a.user_id=b.id").Find(&joindata)
+	fmt.Println("sql error : ", sql)
+	return c.JSON(http.StatusOK, joindata)
 }
 
 func main() {
