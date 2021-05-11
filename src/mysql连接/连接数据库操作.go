@@ -82,7 +82,8 @@ func main() {
 		return
 	}
 	fmt.Printf("id:%d, name:%s, age:%d\n", member1.UserId, member1.Username, member1.Sex, member1.Email)
-
+	fmt.Println()
+	fmt.Println("测试tag标签不加有啥用。。。。")
 	row := Db.QueryRow("select * from member where user_id = ?", 4)
 	// todo  必须要这样进行scan
 	fmt.Println(row.Scan(&member1.UserId, &member1.Username, &member1.Sex, &member1.Email))
