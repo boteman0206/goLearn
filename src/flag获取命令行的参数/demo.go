@@ -16,8 +16,8 @@ func main() {
 	/**
 
 
-	E:\goProject\goLearn\src\获取命令行的参数>go build demo.go
-	E:\goProject\goLearn\src\获取命令行的参数>demo.exe abc num
+	E:\goProject\goLearn\src\flag获取命令行的参数>go build demo.go
+	E:\goProject\goLearn\src\flag获取命令行的参数>demo.exe abc num
 	main ===========run
 	strings :  [demo.exe abc num]
 
@@ -27,7 +27,7 @@ func main() {
 	var user string
 	var pwd string
 
-	flag.StringVar(&user, "u", "", "获取用户名")
+	flag.StringVar(&user, "user", "", "获取用户名")
 	flag.StringVar(&pwd, "pwd", "默认值", "获取密码")
 
 	flag.Parse()
@@ -36,7 +36,7 @@ func main() {
 
 	/**
 
-		 E:\goProject\goLearn\src\获取命令行的参数>demo.exe -u "jack" -pwd "qeweq
+		 E:\goProject\goLearn\src\flag获取命令行的参数>demo.exe -u "jack" -pwd "qeweq
 	e"
 		main ===========run
 		strings :  [demo.exe -u jack -pwd qeweqe]

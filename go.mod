@@ -16,6 +16,7 @@ require (
 
 require (
 	github.com/go-playground/validator v9.31.0+incompatible
+	github.com/go-xorm/xorm v0.7.9
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/limitedlee/microservice v0.1.0
