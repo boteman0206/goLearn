@@ -7,6 +7,8 @@ import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"net/http"
+	"vo/src/xorm测试/models"
+	"xorm.io/builder"
 )
 
 var engine *xorm.Engine
@@ -26,12 +28,12 @@ func getUser(c echo.Context) error {
 		fmt.Println("i : ", i, "v: ", v)
 	}
 	fmt.Println("-------------------------")
-	var user Member
+	var user models.Member
 	user.UserId = 11
 	engine.Get(&user)
 	fmt.Println("user : ", user)
 
-	user1 := new(Member)
+	user1 := new(models.Member)
 	user1.Sex = "女"
 	get, err09 := engine.Get(user1)
 	fmt.Println(err09, " has ", get)
@@ -40,10 +42,10 @@ func getUser(c echo.Context) error {
 	todo 查询多条数据使用Find方法，Find方法的第一个参数为slice的指针或Map指针，
 	 	即为查询后返回的结果，第二个参数可选，为查询的条件struct的指针。
 	*/
-	everyone := make([]Member, 0)
+	everyone := make([]models.Member, 0)
 	err12 := engine.Find(&everyone)
 
-	pEveryOne := make([]*Member, 0)
+	pEveryOne := make([]*models.Member, 0)
 	err121 := engine.Find(&pEveryOne)
 	fmt.Println(err12, " --- ", err121)
 
@@ -52,10 +54,10 @@ func getUser(c echo.Context) error {
 	/**
 	todo 使用 map[int]user 查询时候必须要加上  xorm:"not null pk autoincr comment('自增主键') INT(11)"
 	*/
-	Persons := make(map[int64]Person, 0)
+	Persons := make(map[int64]models.Person, 0)
 	err09 = engine.Find(&Persons)
 	fmt.Println("map查询的error ： ", err09)
-	users := make([]Person, 0)
+	users := make([]models.Person, 0)
 	err := engine.Table("person").Where("name like ?", "%a%").Find(&users)
 	fmt.Println(err)
 
@@ -63,11 +65,60 @@ func getUser(c echo.Context) error {
 	/**
 	todo 使用ID查询时候必须要加上  xorm:"not null pk autoincr comment('自增主键') INT(11)"
 	*/
-	var per Person
+	var per models.Person
 	i, err09 := engine.ID(1).Get(&per)
 	fmt.Println("delect i : ", i, " error : ", err09)
 	return c.JSON(http.StatusCreated, Persons)
 
+}
+
+func deleteUser(c echo.Context) error {
+	param := c.QueryParam("id")
+	fmt.Println("param : ", param)
+
+	/**
+	TODO delete删除用户
+	*/
+	var per models.Person
+	engine.ID(1).Delete(&per)
+
+	results, err := engine.QueryInterface(builder.Select("*").From("member"))
+	fmt.Println(err, " result : ", results)
+	for i, res := range results {
+		fmt.Printf("%T !\n", res)
+		fmt.Println("i : ", i, " res : ", res["email"])
+	}
+
+	//todo or条件查询
+	var mems = make([]models.Member, 0)
+	err = engine.Table("member").Or("user_id = ?", 11).Or("user_id= ?", 3).Find(&mems)
+	fmt.Println("mems or 查询: ", err, mems)
+
+	/**
+	// todo 这样是链式的调用复杂的链式调用
+	*/
+	mems = make([]models.Member, 0)
+	//err_new := engine.Table("member").And(builder.Or(builder.Eq{"user_id": 3})).Find(&mems)
+	// 查询user_id=3或者4, 并且性别为女的用户
+	err_new := engine.Table("member").
+		And(builder.Or(builder.Eq{"user_id": 3, "user_Id": 4})).
+		And(builder.Eq{"sex": "女"}).
+		Find(&mems)
+
+	fmt.Println("err_new : ", err_new, mems)
+	return c.JSON(http.StatusOK, mems)
+}
+
+func getUser1(c echo.Context) error {
+	mems := make([]models.Member, 0)
+
+	err := engine.Desc("user_id").Find(&mems)
+	fmt.Println("error : ", err)
+
+	mems = make([]models.Member, 0)
+	engine.In("user_Id", 1, 2, 3).Find(&mems)
+
+	return c.JSON(http.StatusOK, mems)
 }
 
 func main() {
@@ -92,9 +143,10 @@ func main() {
 	fmt.Println("echo run ...")
 	// Routes
 	e.POST("/users/get", getUser)
+	e.GET("/users/get1", getUser1)
 	//e.GET("/users/:id", getUser)
 	//e.PUT("/users/:id", updateUser)
-	//e.DELETE("/users/:id", deleteUser)
+	e.GET("/users/id", deleteUser)
 	// Start server
 	e.Logger.Fatal(e.Start(":9003"))
 

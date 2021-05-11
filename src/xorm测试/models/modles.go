@@ -1,4 +1,4 @@
-package main
+package models
 
 type UserInfo struct {
 	userId   string `xorm:"not null pk VARCHAR(50)"`

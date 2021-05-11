@@ -32,6 +32,7 @@ var defaultConfig1 = redisConfig{
 }
 
 func main() {
+
 	src := Foo{
 		A: "one",
 		B: 2,
@@ -111,6 +112,17 @@ func main() {
 	m["port"] = 1223
 	mergo.Map(&s1, m)
 	fmt.Println("结构体到map：", s1.Port, s1.Address, s1.DBs, s1.address)
+
+	//todo 如果map的类型不是interface
+	/**
+	todo panic: interface conversion: interface {} is map[string][]uint8, not map[string]interface {}
+	//var s11 redisConfig
+	//m3 := make(map[string][]byte, 1)
+	//m3["address"] = []byte("121.12.31.23")
+	//m3["port"] = []byte(string(1223))
+	//mergo.Map(&s11, m3)
+	//fmt.Println("复制非空接口的数据：", s1.Port, s1.Address, s1.DBs, s1.address)
+	*/
 
 }
 
