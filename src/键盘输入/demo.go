@@ -18,6 +18,7 @@ func main() {
 	//方式二
 	fmt.Println("请输入地址: ")
 	fmt.Scanf("%s", &addr)
+
 	fmt.Println(addr)
 
 	fmt.Println("测试密码修改。。。。。")
