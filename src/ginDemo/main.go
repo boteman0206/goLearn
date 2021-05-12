@@ -1,6 +1,9 @@
 package main
 
-import . "github.com/gomodule/redigo/redis"
+import (
+	"fmt"
+	"github.com/gomodule/redigo/redis"
+)
 
 func main() {
 
@@ -13,7 +16,7 @@ func main() {
 	//
 	//engine.Run()
 
-	conn, e := Dial("tcp", "127.0.0.1:6379")
+	conn, e := redis.Dial("tcp", "127.0.0.1:6379")
 	if e != nil {
 		fmt.Println("连接redis失败。。")
 		return
@@ -31,6 +34,7 @@ func main() {
 	fmt.Println("reply : ", reply)
 
 	// 获取数据
-	s, i := String(conn.Do("get", "name1"))
+	s, i := redis.String(conn.Do("get", "name1"))
 	fmt.Println(s, i)
+
 }
