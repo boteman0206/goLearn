@@ -61,7 +61,7 @@ func getUser(c echo.Context) error {
 	err := engine.Table("person").Where("name like ?", "%a%").Find(&users)
 	fmt.Println(err)
 
-	// todo ID主键查询查询
+	// todo ID主键查询查询  务必注意点：使用主键ID和find配合无效
 	/**
 	todo 使用ID查询时候必须要加上  xorm:"not null pk autoincr comment('自增主键') INT(11)"
 	*/
@@ -71,6 +71,16 @@ func getUser(c echo.Context) error {
 	var mem1 models.Member
 	b, err09 := engine.Id(3).Get(&mem1)
 	fmt.Println(b, " id 查询 ： ", err09)
+	//var mem2 models.Member
+	//b1, err091 := engine.ID(3).Get(&mem2)  // todo 使用主键必须配合GET使用
+	//fmt.Println(b1, " id 查询 ： ", err091)
+
+	/**
+	todo 务必注意点：使用主键ID和find配合无效
+		var mem2 []models.Member
+		err09 = engine.ID(3).Find(&mem2)
+		fmt.Println("使用主键ID和find配合无效： ", err09)
+	*/
 
 	return c.JSON(http.StatusCreated, Persons)
 
