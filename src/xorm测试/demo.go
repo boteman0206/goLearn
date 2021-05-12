@@ -61,13 +61,17 @@ func getUser(c echo.Context) error {
 	err := engine.Table("person").Where("name like ?", "%a%").Find(&users)
 	fmt.Println(err)
 
-	// todo ID查询
+	// todo ID主键查询查询
 	/**
 	todo 使用ID查询时候必须要加上  xorm:"not null pk autoincr comment('自增主键') INT(11)"
 	*/
 	var per models.Person
 	i, err09 := engine.ID(1).Get(&per)
 	fmt.Println("delect i : ", i, " error : ", err09)
+	var mem1 models.Member
+	b, err09 := engine.Id(3).Get(&mem1)
+	fmt.Println(b, " id 查询 ： ", err09)
+
 	return c.JSON(http.StatusCreated, Persons)
 
 }
@@ -144,6 +148,10 @@ func getUser1(c echo.Context) error {
 	var joindata = make([]groupData, 0)
 	sql := engine.SQL("SELECT * FROM member a join person b on a.user_id=b.id").Find(&joindata)
 	fmt.Println("sql error : ", sql)
+
+	// todo findAndCount函数使用
+	count, err := engine.Where(builder.Eq{"user_id": 12}).FindAndCount(&mems)
+	fmt.Println("findAndCount 函数的使用： ", count, " err : ", err)
 	return c.JSON(http.StatusOK, joindata)
 }
 

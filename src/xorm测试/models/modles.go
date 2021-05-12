@@ -20,7 +20,7 @@ type Member struct {
 
 // todo 如果表里面有相同的字段则无法展示，在join的时候，可以在字段前面加上字段去区分
 type Person struct {
-	Id   int    `db:"id" xorm:"not null pk autoincr comment('自增主键') INT(11)"`
+	Id   int    `db:"id" xorm:"pk"`
 	Name string `db:"name"`
 	Age  int    `db:"age"`
 
