@@ -156,7 +156,7 @@ func getUser1(c echo.Context) error {
 		Person models.Person `xorm:"extends"`
 	}
 	var joindata = make([]groupData, 0)
-	sql := engine.SQL("SELECT * FROM member a join person b on a.user_id=b.id").Find(&joindata)
+	sql := engine.SQL("SELECT * FROM member a join person.go b on a.user_id=b.id").Find(&joindata)
 	fmt.Println("sql error : ", sql)
 
 	// todo findAndCount函数使用

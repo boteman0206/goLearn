@@ -1,0 +1,9 @@
+
+需要先将https://github.com/go-xorm/cmd下载解压，然后将cmd下面的template文件下的goxorm来生成
+
+生成的命令
+xorm reverse mysql "root:123456@(127.0.0.1:3306)/demo?charset=utf8" C:\Users\Administrator\Downloads\cmd-master\cmd-master\xorm\templates\goxorm
+
+
+可以后面加上要生成的表名，采用的是模糊匹配的方式
+例如要生成指定的user_info表  加上 ./model  user_info

@@ -27,4 +27,6 @@ require (
 	golang.org/x/net v0.0.0-20210508051633-16afe75a6701 // indirect
 	golang.org/x/sys v0.0.0-20210507161434-a76c4d0a0096 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
+	xorm.io/cmd/xorm v0.0.0-20191108140657-006dbf24bb9b // indirect
+	xorm.io/reverse v0.1.1 // indirect
 )
