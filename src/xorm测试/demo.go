@@ -108,18 +108,7 @@ func deleteUser(c echo.Context) error {
 	err = engine.Table("member").Or("user_id = ?", 11).Or("user_id= ?", 3).Find(&mems)
 	fmt.Println("mems or 查询: ", err, mems)
 
-	/**
-	// todo 这样是链式的调用复杂的链式调用
-	*/
-	mems = make([]models.Member, 0)
-	//err_new := engine.Table("member").And(builder.Or(builder.Eq{"user_id": 3})).Find(&mems)
-	// 查询user_id=3或者4, 并且性别为女的用户
-	err_new := engine.Table("member").
-		And(builder.Or(builder.Eq{"user_id": 3, "user_Id": 4})).
-		And(builder.Eq{"sex": "女"}).
-		Find(&mems)
-
-	fmt.Println("err_new : ", err_new, mems)
+	fmt.Println("err_new : ", mems)
 	return c.JSON(http.StatusOK, mems)
 }
 
@@ -165,6 +154,50 @@ func getUser1(c echo.Context) error {
 	return c.JSON(http.StatusOK, joindata)
 }
 
+func testManyChoose(c echo.Context) error {
+	where := engine.Table("member").Where("1=1")
+	if 1 == 1 {
+		where.And("user_id = ? ", 3)
+	}
+	if 2 == 2 {
+		where.And("sex = ?", "男")
+	}
+	if 3 == 3 {
+		where.And("username like ?", "%student%")
+	}
+	var mem []models.Member
+	err := where.Find(&mem)
+	fmt.Println("获取的用户信息： ", mem)
+
+	//todo 使用链式的builder调用
+	filter := builder.Select("*")
+	if 1 == 1 {
+		filter.Or(builder.Eq{"user_id": 3}).Or(builder.Eq{"user_id": 4})
+	}
+	if 2 == 2 {
+		filter.And(builder.Eq{"sex": "男"})
+	}
+	if 3 == 3 {
+		filter.And(builder.Like{"username", "student"})
+	}
+	sql, i, err := filter.From("member").ToSQL()
+	fmt.Println("filter : ", sql, i, err)
+	var mem1 []models.Member
+	err = engine.SQL(sql, i...).Find(&mem1)
+	fmt.Println("filter 构造过滤： ", mem1, err)
+	/**
+	// todo 这样是链式的调用复杂的链式调用
+	*/
+	mems := make([]models.Member, 0)
+	//err_new := engine.Table("member").And(builder.Or(builder.Eq{"user_id": 3})).Find(&mems)
+	// 查询user_id=3或者4, 并且性别为女的用户
+	engine.Table("member").
+		Or(builder.Eq{"user_id": 3}, builder.Eq{"user_id": 4}).
+		And(builder.Eq{"sex": "女"}).
+		Find(&mems)
+
+	return err
+}
 func main() {
 	var err error
 	engine, err = xorm.NewEngine("mysql", "root:123456@(localhost:3306)/demo?charset=utf8")
@@ -191,6 +224,7 @@ func main() {
 	//e.GET("/users/:id", getUser)
 	//e.PUT("/users/:id", updateUser)
 	e.GET("/users/id", deleteUser)
+	e.GET("/users/testManyChoose", testManyChoose)
 	// Start server
 	e.Logger.Fatal(e.Start(":9003"))
 
