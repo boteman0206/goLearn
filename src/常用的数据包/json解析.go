@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 type People struct {
@@ -34,4 +35,10 @@ func main() {
 	//unmarsha2 := json.Unmarshal(marshal, t1) // 这样执行没有值  Unmarshal(non-pointer main.People)
 	fmt.Println(unmarshal, t1)
 
+	//json转成map
+	var map1 map[string]interface{}
+	decoder := json.NewDecoder(strings.NewReader(string(marshal))).Decode(&map1)
+
+	fmt.Println(map1)
+	fmt.Println("decoder: ", decoder)
 }
