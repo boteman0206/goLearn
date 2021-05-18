@@ -10,6 +10,8 @@ func main() {
 
 	e := echo.New()
 
+	// todo 前置的和路由级别的还是会走， group和router的不会走了
+	e.GET("/first", get)
 	// 注册路由之前的中间件
 	e.Pre(func(handlerFunc echo.HandlerFunc) echo.HandlerFunc {
 		return func(context echo.Context) error {
