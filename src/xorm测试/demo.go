@@ -6,6 +6,7 @@ import (
 	"github.com/go-xorm/xorm"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	"github.com/spf13/cast"
 	"net/http"
 	"vo/src/xorm测试/models"
 	"xorm.io/builder"
@@ -171,6 +172,7 @@ func testManyChoose(c echo.Context) error {
 
 	//todo 使用链式的builder调用
 	filter := builder.Select("*")
+
 	if 1 == 1 {
 		filter.Or(builder.Eq{"user_id": 3}).Or(builder.Eq{"user_id": 4})
 	}
@@ -196,8 +198,36 @@ func testManyChoose(c echo.Context) error {
 		And(builder.Eq{"sex": "女"}).
 		Find(&mems)
 
+	toSQL, i2, err := builder.ToSQL(builder.And(builder.Eq{"a": 1}, builder.Like{"b", "c"}, builder.Neq{"d": 2}))
+	fmt.Println(toSQL, i2, err)
+
 	return err
 }
+
+func filterSql(c echo.Context) error {
+	//方式三使用builder构造复杂查询
+	queryString := c.QueryString
+	name := c.QueryParam("name")
+	id := c.QueryParam("id")
+	fmt.Println("id : ", id, "name : ", name, "queryString : ", queryString())
+	toInt := cast.ToInt(id)
+	from := builder.Select("*").From("member")
+	if toInt > 0 {
+		from.And(builder.Eq{"user_id": id})
+	}
+	if len(name) > 0 {
+		from.And(builder.Like{"username", name})
+	}
+	sql, i, err := from.ToSQL()
+
+	fmt.Println("拼接的完整的sql和参数： ", sql, i, err)
+
+	var mem []models.Member
+	err = engine.SQL(sql, i...).Find(&mem)
+	fmt.Println("error : ", err)
+	return c.JSON(http.StatusOK, mem)
+}
+
 func main() {
 	var err error
 	engine, err = xorm.NewEngine("mysql", "root:123456@(localhost:3306)/demo?charset=utf8")
@@ -225,6 +255,7 @@ func main() {
 	//e.PUT("/users/:id", updateUser)
 	e.GET("/users/id", deleteUser)
 	e.GET("/users/testManyChoose", testManyChoose)
+	e.GET("/users/filter", filterSql)
 	// Start server
 	e.Logger.Fatal(e.Start(":9003"))
 
