@@ -16,4 +16,18 @@ func main() {
 	fmt.Println(t, err)
 
 	//time.ParseInLocation()
+
+	slice1 := []int{5, 23, 10, 2, 61, 33}
+
+	ints := slice1[1:4:6]
+	fmt.Println(ints, len(ints), cap(ints))
+
+	mapWarehouseGoodsStocks := make(map[string]int32, 0)
+	v := struct {
+		Goodsid string
+		Stock   int
+	}{"乐视薯片", 18}
+	mapWarehouseGoodsStocks[v.Goodsid] = mapWarehouseGoodsStocks[v.Goodsid] + int32(v.Stock)
+
+	fmt.Println("mapWarehouseGoodsStocks :", mapWarehouseGoodsStocks)
 }
