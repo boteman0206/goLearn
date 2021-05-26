@@ -67,6 +67,24 @@ func deleteUser(c echo.Context) error {
 	return c.NoContent(http.StatusNoContent)
 }
 
+//todo 测试请求头的参数
+
+func getHeader(c echo.Context) error {
+
+	// 只能是请求上下文set数据才能获取
+	app_id := c.Get("app_id")
+
+	s := c.Request().Header.Get("app_id")
+	fmt.Println("s :  ", s)
+	// 设置
+	c.Set("app_id", "mytestAppid")
+	app_id1 := c.Get("app_id")
+	//app_id_string := app_id.(string)
+	fmt.Println("获取的请求头的参数appId： ", app_id, app_id1)
+
+	return c.JSON(http.StatusOK, "ok")
+}
+
 func main() {
 	e := echo.New()
 
@@ -78,6 +96,7 @@ func main() {
 	fmt.Println("echo run ...")
 	// Routes
 	e.POST("/users", createUser)
+	e.GET("/getHeader", getHeader)
 	//e.GET("/users/:id", getUser)
 	//e.PUT("/users/:id", updateUser)
 	//e.DELETE("/users/:id", deleteUser)
