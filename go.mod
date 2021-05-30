@@ -25,9 +25,9 @@ require (
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/thedevsaddam/gojsonq/v2 v2.5.2
 	github.com/tricobbler/echo-tool v0.0.0-20210415033113-e8a087670120
-	github.com/tricobbler/rp-kit v0.0.0-20210122083012-26ae9209dc92
 	golang.org/x/crypto v0.0.0-20210506145944-38f3c27a63bf // indirect
 	golang.org/x/net v0.0.0-20210508051633-16afe75a6701 // indirect
+	golang.org/x/sync v0.0.0-20190423024810-112230192c58
 	golang.org/x/sys v0.0.0-20210507161434-a76c4d0a0096 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	xorm.io/builder v0.3.7
