@@ -28,6 +28,10 @@ func main() {
 
 	val := reflect.ValueOf(&test)
 	typ := reflect.TypeOf(test)
+
+	t := val.Type()
+	fmt.Println("value 和 type的互换 ： ", t, typ)
+
 	/*
 		之前使用，test := &CoderTest{}指针传递出错 of.NumField()必须是指针
 		todo panic: reflect: call of reflect.Value.NumField on ptr Value
