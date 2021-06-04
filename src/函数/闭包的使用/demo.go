@@ -4,6 +4,8 @@ package main
 
  */
 
+import "fmt"
+
 func main() {
 
 	one := nextOne()

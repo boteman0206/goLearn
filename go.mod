@@ -15,6 +15,10 @@ require (
 )
 
 require (
+	github.com/coreos/etcd v3.3.25+incompatible // indirect
+	github.com/coreos/go-semver v0.3.0 // indirect
+	github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf // indirect
+	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20200428022330-06a60b6afbbc // indirect
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/go-playground/validator/v10 v10.4.1
@@ -27,6 +31,8 @@ require (
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/thedevsaddam/gojsonq/v2 v2.5.2
 	github.com/tricobbler/echo-tool v0.0.0-20210415033113-e8a087670120
+	go.etcd.io/etcd v3.3.25+incompatible
+	go.uber.org/zap v1.17.0 // indirect
 	golang.org/x/crypto v0.0.0-20210506145944-38f3c27a63bf // indirect
 	golang.org/x/net v0.0.0-20210508051633-16afe75a6701 // indirect
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
