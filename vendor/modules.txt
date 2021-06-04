@@ -89,6 +89,10 @@ github.com/modern-go/concurrent
 github.com/modern-go/reflect2
 # github.com/spf13/cast v1.3.1
 github.com/spf13/cast
+# github.com/techoner/gophp v0.2.0
+github.com/techoner/gophp
+github.com/techoner/gophp/serialize
+github.com/techoner/gophp/utils
 # github.com/thedevsaddam/gojsonq/v2 v2.5.2
 github.com/thedevsaddam/gojsonq/v2
 # github.com/tidwall/gjson v1.7.5

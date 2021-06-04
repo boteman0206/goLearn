@@ -29,6 +29,7 @@ require (
 	github.com/lib/pq v1.7.0 // indirect
 	github.com/limitedlee/microservice v0.1.0
 	github.com/mattn/go-colorable v0.1.8 // indirect
+	github.com/techoner/gophp v0.2.0
 	github.com/thedevsaddam/gojsonq/v2 v2.5.2
 	github.com/tricobbler/echo-tool v0.0.0-20210415033113-e8a087670120
 	go.etcd.io/etcd v3.3.25+incompatible
