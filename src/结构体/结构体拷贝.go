@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/jinzhu/copier"
+	"reflect"
 )
 
 type Dog struct {
@@ -72,5 +73,33 @@ func main() {
 	fmt.Println("s2 : ", s2)
 	fmt.Println("s22 : ", s22)
 	fmt.Println("s23 de zhi ", s23)
+
+	//todo 使用反射包, 这种只能作用于slice 但是试验发现不是深拷贝  pass掉
+	st1 := []FamilyMember{
+		{
+			Name:    "jack",
+			Age:     12,
+			Parents: []string{"dog", "cat"},
+		},
+	}
+
+	st2 := []FamilyMember{
+		{
+			Name:    "",
+			Age:     0,
+			Parents: []string{},
+		},
+	}
+	of1 := reflect.ValueOf(st1)
+	of2 := reflect.ValueOf(st2)
+	i := reflect.Copy(of2, of1)
+	fmt.Println(" i : ", i)
+	fmt.Println("of1 :", of1)
+	fmt.Println("of2 : ", of2)
+
+	i2 := of2.Interface().([]FamilyMember)
+	fmt.Println(i2)
+	i2[0].Parents[0] = "pop"
+	fmt.Println(i2, "of1 : ", of1, " of2: ", of2)
 
 }
