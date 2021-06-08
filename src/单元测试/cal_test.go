@@ -51,3 +51,5 @@ FAIL    _/E_/goProject/goLearn/src/单元测试     0.136s
 6: 形式参数必须是t *testing.T
 
 */
+
+// todo 单元测试可以配合 https://github.com/stretchr/testify   asset来断言实现这个包实现了断言
