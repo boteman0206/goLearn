@@ -74,6 +74,8 @@ github.com/labstack/gommon/bytes
 github.com/labstack/gommon/color
 github.com/labstack/gommon/log
 github.com/labstack/gommon/random
+# github.com/legofun/symmetric-cipher v0.0.0-20210106065757-f1de798730ba
+github.com/legofun/symmetric-cipher
 # github.com/leodido/go-urn v1.2.1
 github.com/leodido/go-urn
 # github.com/limitedlee/microservice v0.1.0

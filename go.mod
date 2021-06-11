@@ -25,6 +25,7 @@ require (
 	github.com/go-resty/resty/v2 v2.6.0
 	github.com/go-xorm/xorm v0.7.9
 	github.com/labstack/echo v3.3.10+incompatible
+	github.com/legofun/symmetric-cipher v0.0.0-20210106065757-f1de798730ba
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/lib/pq v1.7.0 // indirect
 	github.com/limitedlee/microservice v0.1.0
