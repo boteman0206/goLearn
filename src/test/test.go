@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	symmetricCipher "github.com/legofun/symmetric-cipher"
+	//kit "github.com/tricobbler/rp-kit"
 )
 
 func EnEHRMobile() {
@@ -11,6 +12,8 @@ func EnEHRMobile() {
 
 	fmt.Println(enMobile)
 	fmt.Println(reEnMobile)
+
+	//fmt.Println(kit.JsonEncode())
 }
 
 func main() {

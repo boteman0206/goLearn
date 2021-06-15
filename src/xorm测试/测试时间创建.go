@@ -41,3 +41,12 @@ func main() {
 	fmt.Println(" err: ", err, "insert : ", insert)
 
 }
+
+/**
+
+todo
+	location, err = time.LoadLocation("Asia/Shanghai")
+	engine.TZLocation = location
+	root:123456@(localhost:3306)/demo?charset=utf8&parseTime=true&loc=Local
+	加上&loc=Local是可以更新正确的时间
+*/
