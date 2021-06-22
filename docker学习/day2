@@ -1,7 +1,7 @@
 
+容器的相关操作
 
-
-docker run： 启动镜像
+docker run： 启动容器
 --name="Name" 容器的名字
 -d    后台运行
 -it   交互式界面
@@ -10,6 +10,8 @@ docker run： 启动镜像
 
 退出容器： exit
 容器不停止退出： ctrl + p + q
+
+
 
 
 
@@ -24,3 +26,9 @@ docker rm 容器id: 删除容器，不能删除运行的容器
 -f :强制删除云运行中的容器
 docker rm -f $(docker ps -aq)  强制删除所有的容器
 
+
+
+docker start 容器id    启动容器
+docker resatrt 容器id   重启容器
+docker stop  容器id    停止当前正在运行的容器
+docker kill 容器id     强制停止当前的容器

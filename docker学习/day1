@@ -1,5 +1,8 @@
 
 
+镜像的相关操作
+
+
 docker info： docker的基本信息，包括版本之类的
 docker 命令 --help： 帮助命令
 命令帮助文档 -- https://docs.docker.com/reference/
