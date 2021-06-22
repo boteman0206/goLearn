@@ -1,0 +1,25 @@
+
+
+docker info： docker的基本信息，包括版本之类的
+docker 命令 --help： 帮助命令
+命令帮助文档 -- https://docs.docker.com/reference/
+
+
+
+docker images： 查看本机的所有镜像
+-a: 显示所有的镜像
+-q: 只显示id，可以配合起来做批量删除操作
+
+
+docker search： 搜索镜像
+
+
+-- 官方网址： https://hub.docker.com/search?q=mysql&type=image
+docker pull mysql: 下载mysql，不指定默认最近的版本
+
+
+docker rmi -f:  删除镜像：可以通过id和name来删除
+批量删除所有的镜像： docker rmi -f $(docker images -aq)
+
+
+
