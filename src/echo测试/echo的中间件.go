@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/labstack/echo"
+	"github.com/tricobbler/rp-kit/cast"
 	"net/http"
 )
 
@@ -48,5 +49,9 @@ func main() {
 }
 
 func get(c echo.Context) error {
+	s := c.Request().Header.Get("default")
+	num := cast.ToInt32(s)
+	fmt.Println("s 的默认值： ", s)
+	fmt.Println("num 的默认值转换： ", num)
 	return c.JSON(http.StatusOK, "get 方法。。。")
 }

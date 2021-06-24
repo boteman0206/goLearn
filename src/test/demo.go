@@ -2,14 +2,17 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"time"
 )
 
 func main() {
 
-	split := strings.Split(":11011", ":")
-	fmt.Println("split : ", split)
-	for i, v := range split {
-		fmt.Println("i : ", i, " v : ", v)
-	}
+	//split := strings.Split(":11011", ":")
+	//fmt.Println("split : ", split)
+	//for i, v := range split {
+	//	fmt.Println("i : ", i, " v : ", v)
+	//}
+
+	var maxUpdateDate time.Time
+	fmt.Println(maxUpdateDate)
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"example/xorm测试/models"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
@@ -8,7 +9,6 @@ import (
 	"github.com/labstack/echo/middleware"
 	"github.com/spf13/cast"
 	"net/http"
-	"vo/src/xorm测试/models"
 	"xorm.io/builder"
 )
 
@@ -230,7 +230,7 @@ func filterSql(c echo.Context) error {
 
 func main() {
 	var err error
-	engine, err = xorm.NewEngine("mysql", "root:123456@(localhost:3306)/demo?charset=utf8")
+	engine, err = xorm.NewEngine("mysql", "root:pw123456@(localhost:3306)/demo?charset=utf8")
 	if err != nil {
 		fmt.Println("err2 : ", err.Error())
 		return
@@ -256,7 +256,21 @@ func main() {
 	e.GET("/users/id", deleteUser)
 	e.GET("/users/testManyChoose", testManyChoose)
 	e.GET("/users/filter", filterSql)
+	e.GET("/users/count", countUser)
 	// Start server
 	e.Logger.Fatal(e.Start(":9003"))
 
+}
+
+func countUser(context echo.Context) error {
+	i, e := engine.Table("user_info").Count()
+	fmt.Println("i = ", i, " e: ", e)
+
+	var user models.UserInfo
+	user.Sex = "男" // 可以添加搜索条件，查询出来的还是数量的值
+	//2021/06/24 16:17:42.130705 [SQL] SELECT count(*) FROM `user_info` WHERE `sex`=? []interface {}{"男"}
+	count, e := engine.Table("user_info").Count(&user)
+	fmt.Println("count _= ", count, e) //  SELECT count(*) FROM `user_info` WHERE `id`=? []interface {}{1}
+
+	return context.JSON(200, "this is success")
 }

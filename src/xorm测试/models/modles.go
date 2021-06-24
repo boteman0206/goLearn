@@ -1,10 +1,11 @@
 package models
 
 type UserInfo struct {
-	userId   string `xorm:"not null pk VARCHAR(50)"`
-	userName string `xorm:"default 'NULL' comment('批次号') VARCHAR(50)"`
-	sex      string `xorm:"default 'NULL' comment(性别，男女)"`
-	email    string `xorm:"default 'NULL' comment(邮箱账号)"`
+	Id       int    `xorm:"pk"`
+	UserId   string `xorm:"not null pk VARCHAR(50)"`
+	UserName string `xorm:"default 'NULL' comment('批次号') VARCHAR(50)"`
+	Sex      string `xorm:"default 'NULL' comment(性别，男女)"`
+	Email    string `xorm:"default 'NULL' comment(邮箱账号)"`
 }
 
 func (u *UserInfo) TableName() string {
