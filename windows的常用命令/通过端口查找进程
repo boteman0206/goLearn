@@ -1,0 +1,12 @@
+
+
+netstat -ano|findstr "9091"
+
+
+
+taskkill /f /pid 2052 /t
+
+参数：
+/f：强制杀死进程
+/pid 2052：指定要杀死进程的 pid=2052
+/t：杀死该进程和该进程启动的子进程
