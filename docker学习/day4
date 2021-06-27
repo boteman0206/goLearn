@@ -34,6 +34,25 @@ docker commit -a="pengwei" -m="cp webapps" 容器id tomcat:v1（新的镜像名�
 使用dataGrip可以直接连接（删除容器，挂载到本地的数据并不会丢失）
 
 
+具名挂载和匿名挂载方式
+具名挂载： -v /my/custom:/etc/mysql/conf.d  挂载的时候指定名称（一般都是用具名挂载）
+
+匿名挂载：-v /etc/mysql/conf.d 匿名挂载的路径是自动生成的路径名称，目录一般都是在安装的docker工作目录
+
+其他参数 ro 权限制度  -v /etc/mysql/conf.d:ro
+        rw 可读可写
+
+docker volume ls 查看所有的volume挂载情况
+docker volume inspect 挂载路径   可以查看挂载的路径
+
+
+
+
+
+
+
+
+
 
 
 
