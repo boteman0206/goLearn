@@ -6,6 +6,8 @@ docker run： 启动容器
 -d    后台运行
 -it   交互式界面
 -p    指定端口 -p 8080:80
+    -p 主机端口：容器端口（常用）
+    -p 容器端口
 -P    随机指定端口
 
 退出容器： exit
@@ -19,6 +21,7 @@ docker run： 启动容器
 docker ps 命令： 列出当前正在运行的容器
 -a  列出当前正在运行的容器+历史运行过的容器
 -n=2  显示最近创建的2个容器
+-q  只显示容器的编号
 
 
 
@@ -32,3 +35,39 @@ docker start 容器id    启动容器
 docker resatrt 容器id   重启容器
 docker stop  容器id    停止当前正在运行的容器
 docker kill 容器id     强制停止当前的容器
+
+
+
+查看容器的日志：
+ docker logs -ft 容器id ： 以交互式的方式查看全部的日志
+ --tail  10  指定条数10条
+ -n=10 也是指定条数
+
+
+查看进程中信息
+docker top 容器的id
+
+
+
+查看容器的元数据信息
+ docker inspect 容器id
+
+
+进入当前的容器
+方式一： docker attach 容器id              // 区别直接进入当前的命令终端
+方式二： docker exec -it 容器id /bin/bash  // 会开启新的终端
+
+
+
+
+从容器内拷贝文件到主机上（这个是将容器内的文件拷贝到本机目录）-- 这个改变了容器内的文件貌似不会同步到外部去
+docker cp 容器id:/容器的目录  .(本地文件夹下)
+步骤：
+查看当前主机目录 --> 进入容器内部--> 新建文件test.go
+命令： C:\Users\Administrator>docker cp 890:/go/src/app/test.go  .
+
+
+
+
+安装tomcat的镜像安装的注意点：
+需要将webapps.dist下面的文件copy到webapps下面才可以访问 ，端口是8080
