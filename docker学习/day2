@@ -68,6 +68,8 @@ docker cp 容器id:/容器的目录  .(本地文件夹下)
 
 
 
+docker status 查看cpu运行状态
 
-安装tomcat的镜像安装的注意点：
-需要将webapps.dist下面的文件copy到webapps下面才可以访问 ，端口是8080
+
+
+使用portainer来提供一个container的界面管理工具  -- portainer.io

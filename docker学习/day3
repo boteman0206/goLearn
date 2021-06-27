@@ -1,0 +1,21 @@
+package docker学习
+
+
+
+安装tomcat的镜像安装的注意点：
+需要将webapps.dist下面的文件copy到webapps下面才可以访问 ，端口是8080
+
+
+
+
+部署es+kibana的练习
+
+单机模式部署
+docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.6.2
+如果占用的内存过大，可以使用-e的参数来限制内存的大小
+
+
+
+
+
+
