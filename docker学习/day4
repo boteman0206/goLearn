@@ -2,3 +2,38 @@
 
 docker镜像原理
 
+分层的文件系统
+
+
+docker commit 提交容器成为一个新的副本
+docker commit -a="pengwei" -m="cp webapps" 容器id tomcat:v1（新的镜像名称:tag）
+-a  指定作者信息
+-m  提交的描述信息
+
+
+
+
+容器的数据卷（重点内容）
+总结： 容器的持久化和同步操作，容器间也是可以数据共享的（多个容器使用同一个目录），可以理解为双向绑定
+
+1：使用数据卷
+方式一： 使用命令来挂载数据卷  -v 主机目录:容器的目录
+注意windows10中：本地路径不能像通常那样写作D:/，而是要写成/D/，否则会报错Error response from daemon: invalid mode
+要挂载的路径/home/root/a_dir/原先就存在
+
+
+
+实战同步mysql的数据(持久化操作)
+官方命令： docker run --name some-mysql -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+
+自己的使用命令： docker run -d -p 3301:3306 -v /E/dockerLearn/mysqlData:/var/lib/mysql  -v /E/dockerLearn/mysqlCustom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 --name mysql02 mysql
+注意点：
+-v /E/dockerLearn/mysqlData:/var/lib/mysql  挂载mysql的数据
+-v /E/dockerLearn/mysqlCustom:/etc/mysql/conf.d  挂载mysql的配置文件
+-e MYSQL_ROOT_PASSWORD=123456  设置密码123456
+使用dataGrip可以直接连接（删除容器，挂载到本地的数据并不会丢失）
+
+
+
+
+
