@@ -218,7 +218,7 @@ SHELL 指令可以指定 RUN ENTRYPOINT CMD 指令的 shell，Linux 中默认为
     EXPOSE 8000
 
     # 相当于直接执行生成的.exe文件
-    ENTRYPOINT ["./awesomeProject"]   // 注意这个入口的路径是go的项目模块名 module awesomeProject
+    ENTRYPOINT ["./awesomeProject"]   // 注意这个入口的路径是go的项目模块名 module awesomeProject  //注意这里ENTRYPOINT换成cmd并不会执行
 
 
     实例二：（直接在容器内执行）
