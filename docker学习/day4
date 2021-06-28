@@ -47,6 +47,11 @@ docker volume inspect 挂载路径   可以查看挂载的路径
 
 
 
+=======================wiodows10的匿名数据卷挂在位置========================
+
+默认的windows10的文件挂在路径： \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes
+
+
 
 
 
