@@ -5,14 +5,14 @@ Dockerfile 是一个文本文件，其内包含了一条条的 指令(Instructio
 
 
 
-FROM 指定基础镜像
+====== FROM 指定基础镜像===============
 
 FROM nginx
 RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 
 
 
-RUN 执行命令
+=======RUN 执行命令=======================
 
 RUN 指令是用来执行命令行命令的。由于命令行的强大能力，RUN 指令在定制镜像时是最常用的指令之一。
 其格式有两种：
@@ -20,12 +20,69 @@ RUN 指令是用来执行命令行命令的。由于命令行的强大能力，R
     RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
     方式二： exec 格式：RUN ["可执行文件", "参数1", "参数2"]，这更像是函数调用中的格式
 
+=================COPY 复制文件======================
+COPY 指令将从构建上下文目录中 <源路径> 的文件/目录复制到新的一层的镜像内的 <目标路径> 位置。比如：
+    方式一： COPY [--chown=<user>:<group>] <源路径>... <目标路径>
+    方式二（命令行格式）： COPY [--chown=<user>:<group>] ["<源路径1>",... "<目标路径>"]
+
+<源路径> 可以是多个，甚至可以是通配符，其通配符规则要满足 Go 的 filepath.Match 规则，如：
+    COPY hom* /mydir/
+    COPY hom?.txt /mydir/
+<目标路径> 可以是容器内的绝对路径，也可以是相对于工作目录的相对路径（工作目录可以用 WORKDIR 指令来指定）。目标路径不需要事先创建，如果目录不存在会在复制文件前先行创建缺失目录。
+
+如果源路径为文件夹，复制的时候不是直接复制该文件夹，而是将文件夹中的内容复制到目标路径。
+
+
+
+
+=====================ADD 更高级的复制文件（）=====================================
+注意： 在 Docker 官方的 Dockerfile 最佳实践文档 中要求，尽可能的使用 COPY
+ADD 指令和 COPY 的格式和性质基本一致。但是在 COPY 基础上增加了一些功能。
+如果 <源路径> 为一个 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，ADD 指令将会自动解压缩这个压缩文件到 <目标路径> 去。
+FROM scratch
+ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /
+...
+但在某些情况下，如果我们真的是希望复制个压缩文件进去，而不解压缩，这时就不可以使用 ADD 命令了。
+
+
+
+========================CMD 容器启动命令========================================
+CMD 指令的格式和 RUN 相似，也是两种格式：
+    shell 格式：CMD <命令>
+    exec 格式：CMD ["可执行文件", "参数1", "参数2"...]
+    参数列表格式：CMD ["参数1", "参数2"...]。在指定了 ENTRYPOINT 指令后，用 CMD 指定具体的参数。
+在指令格式上，一般推荐使用 exec 格式，这类格式在解析时会被解析为 JSON 数组，因此一定要使用双引号 "，而不要使用单引号。
+
+
+注意点： （https://yeasy.gitbook.io/docker_practice/image/dockerfile/cmd）
+    Docker 不是虚拟机，容器中的应用都应该以前台执行，而不是像虚拟机、物理机里面那样，用 systemd 去启动后台服务，容器内没有后台服务的概念。
+    错误的使用：CMD service nginx start  然后发现容器执行后就立即退出了。甚至在容器内去使用 systemctl 命令结果却发现根本执行不了。这就是因为没有搞明白前台、后台的概念，没有区分容器和虚拟机的差异，依旧在以传统虚拟机的角度去理解容器。
+    正确的做法是直接执行 nginx 可执行文件  CMD ["nginx", "-g", "daemon off;"]
+
+
+
+==========================ENTRYPOINT 入口点=====================================================
+https://yeasy.gitbook.io/docker_practice/image/dockerfile/entrypoint
+ENTRYPOINT 的格式和 RUN 指令格式一样，分为 exec 格式和 shell 格式
+
+ENTRYPOINT 的目的和 CMD 一样，都是在指定容器启动程序及参数。ENTRYPOINT 在运行时也可以替代，不过比 CMD 要略显繁琐，需要通过 docker run 的参数 --entrypoint 来指定。
+当指定了 ENTRYPOINT 后，CMD 的含义就发生了改变，不再是直接的运行其命令，而是将 CMD 的内容作为参数传给 ENTRYPOINT 指令，换句话说实际执行时，将变为：
 
 
 
 
 
-docker build的注意点：（相关文章）
+==============================ENV 设置环境变量====================================================
+
+
+
+
+
+
+
+
+
+==============docker build的注意点：（相关文章）============================
 一般来说，应该会将 Dockerfile 置于一个空目录下，或者项目根目录下。如果该目录下没有所需文件，那么应该把所需文件复制一份过来。如果目录下有些东西确实不希望构建时传给 Docker 引擎，那么可以用 .gitignore 一样的语法写一个 .dockerignore，该文件是用于剔除不需要作为上下文传递给 Docker 引擎的。
 那么为什么会有人误以为 . 是指定 Dockerfile 所在目录呢？这是因为在默认情况下，如果不额外指定 Dockerfile 的话，会将上下文目录下的名为 Dockerfile 的文件作为 Dockerfile。
 这只是默认行为，实际上 Dockerfile 的文件名并不要求必须为 Dockerfile，而且并不要求必须位于上下文目录中，比如可以用 -f ../Dockerfile.php 参数指定某个文件作为 Dockerfile。
