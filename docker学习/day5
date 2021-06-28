@@ -255,3 +255,14 @@ SHELL 指令可以指定 RUN ENTRYPOINT CMD 指令的 shell，Linux 中默认为
     ENTRYPOINT ["./awesomeProject"]
 
 总结，其实测试的时候可以直接使用-v挂载的技术，然后在本地生成.exe文件然后在docker内部执行即可。
+第一步： 先下载golang的官方镜像
+第二步： 直接挂载文件到本地的项目路径，然后暴露端口
+docker run -it -p 9000:8007  -v E:\ginBeegoProject\awesomeProject:/go/src/data golang /bin/bash
+第三步： 可以先配置代理，然后运行
+export  GO111MODULE = on
+export  GOPROXY = https://goproxy.cn,direct
+go mod tidy
+第三步： go run main.go 这个端口要和刚才内部的端口一直，直接运行即可
+
+不知道能否直接在docker执行exe文件？？？？？
+
