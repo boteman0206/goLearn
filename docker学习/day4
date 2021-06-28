@@ -5,7 +5,7 @@ docker镜像原理
 分层的文件系统
 
 
-docker commit 提交容器成为一个新的副本
+docker commit 提交容器成为一个新的副本(一般是测试使用来提交一个镜像,尽量还是使用dockerfile)
 docker commit -a="pengwei" -m="cp webapps" 容器id tomcat:v1（新的镜像名称:tag）
 -a  指定作者信息
 -m  提交的描述信息

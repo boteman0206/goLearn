@@ -35,3 +35,12 @@ docker pull dl.dockerpool.com:5000/ubuntu:12.04
 $ docker image ls -f dangling=true   // 查看虚悬的镜像文件，可以随意删除
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 <none>              <none>              00285df0df87        5 days ago          342 MB
+
+
+
+$ docker image ls ubuntu   // 更具仓库名称获取镜像
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              18.04               329ed837d508        3 days ago          63.3MB
+ubuntu              bionic              329ed837d508        3 days ago          63.3MB
+
+
