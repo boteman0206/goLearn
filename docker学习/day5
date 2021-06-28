@@ -5,20 +5,31 @@ Dockerfile 是一个文本文件，其内包含了一条条的 指令(Instructio
 
 
 
-====== FROM 指定基础镜像===============
+================================ FROM 指定基础镜像===============
 
 FROM nginx
 RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 
 
 
-=======RUN 执行命令=======================
+================================RUN 执行命令=======================
 
 RUN 指令是用来执行命令行命令的。由于命令行的强大能力，RUN 指令在定制镜像时是最常用的指令之一。
 其格式有两种：
     方式一： shell 格式：RUN <命令>，就像直接在命令行中输入的命令一样。刚才写的 Dockerfile 中的 RUN 指令就是这种格式。
     RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
     方式二： exec 格式：RUN ["可执行文件", "参数1", "参数2"]，这更像是函数调用中的格式
+
+注意点： 之前说过每一个 RUN 都是启动一个容器、执行命令、然后提交存储层文件变更
+错误实例：
+    RUN cd /app
+    RUN echo "hello" > world.txt
+    如果将这个 Dockerfile 进行构建镜像运行后，会发现找不到 /app/world.txt 文件，或者其内容不是 hello。原因其实很简单，在 Shell 中，连续两行是同一个进程执行环境，因此前一个命令修改的内存状态，会直接影响后一个命令；而在 Dockerfile 中，这两行 RUN 命令的执行环境根本不同，是两个完全不同的容器。这就是对 Dockerfile 构建分层存储的概念不了解所导致的错误。
+    因此如果需要改变以后各层的工作目录的位置，那么应该使用 WORKDIR 指令
+正确的做法:
+    WORKDIR /app
+    RUN echo "hello" > world.txt
+
 
 =================COPY 复制文件======================
 COPY 指令将从构建上下文目录中 <源路径> 的文件/目录复制到新的一层的镜像内的 <目标路径> 位置。比如：
@@ -91,12 +102,66 @@ ENTRYPOINT 的目的和 CMD 一样，都是在指定容器启动程序及参数�
 格式为：
     VOLUME ["<路径1>", "<路径2>"...]
     VOLUME <路径>
+默认的windows10的文件挂在路径： \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes
+
+
+================================EXPOSE 暴露端口=========================================================
+格式为 EXPOSE <端口1> [<端口2>...]
+
+EXPOSE 指令是声明容器运行时提供服务的端口，这只是一个声明，在容器运行时并不会因为这个声明应用就会开启这个端口的服务。在 Dockerfile 中写入这样的声明有两个好处，一个是帮助镜像使用者理解这个镜像服务的守护端口，以方便配置映射；另一个用处则是在运行时使用随机端口映射时，也就是 docker run -P 时，会自动随机映射 EXPOSE 的端口。
+
+要将 EXPOSE 和在运行时使用 -p <宿主端口>:<容器端口> 区分开来。-p，是映射宿主端口和容器端口，换句话说，就是将容器的对应端口服务公开给外界访问，而 EXPOSE 仅仅是声明容器打算使用什么端口而已，并不会自动在宿主进行端口映射。
+
+
+==============================WORKDIR 指定工作目录=================================================
+格式为 WORKDIR <工作目录路径>
+使用 WORKDIR 指令可以来指定工作目录（或者称为当前目录），以后各层的当前目录就被改为指定的目录，如该目录不存在，WORKDIR 会帮你建立目录。
+
+
+如果你的 WORKDIR 指令使用的相对路径，那么所切换的路径与之前的 WORKDIR 有关：
+    WORKDIR /a
+    WORKDIR b
+    WORKDIR c
+    RUN pwd
+
+    RUN pwd 的工作目录为 /a/b/c。
 
 
 
+=============================USER 指定当前用户=============================
+格式：USER <用户名>[:<用户组>]
+USER 指令和 WORKDIR 相似，都是改变环境状态并影响以后的层。WORKDIR 是改变工作目录，USER 则是改变之后层的执行 RUN, CMD 以及 ENTRYPOINT 这类命令的身份。
 
 
 
+====================================HEALTHCHECK 健康检查==================================
+
+格式：
+    HEALTHCHECK [选项] CMD <命令>：设置检查容器健康状况的命令
+    HEALTHCHECK NONE：如果基础镜像有健康检查指令，使用这行可以屏蔽掉其健康检查指令
+
+
+
+=======================================ONBUILD 为他人作嫁衣裳=================================
+格式：ONBUILD <其它指令>。
+ONBUILD 是一个特殊的指令，它后面跟的是其它指令，比如 RUN, COPY 等，而这些指令，在当前镜像构建时并不会被执行。只有当以当前镜像为基础镜像，去构建下一级镜像的时候才会被执行。
+Dockerfile 中的其它指令都是为了定制当前镜像而准备的，唯有 ONBUILD 是为了帮助别人定制自己而准备的。
+
+
+
+===============================LABEL 为镜像添加元数据==================================
+LABEL 指令用来给镜像以键值对的形式添加一些元数据（metadata）。
+
+LABEL <key>=<value> <key>=<value> <key>=<value> ...
+我们还可以用一些标签来申明镜像的作者、文档地址等
+LABEL org.opencontainers.image.authors="yeasy"
+LABEL org.opencontainers.image.documentation="https://yeasy.gitbooks.io"
+
+
+
+==============================SHELL 指令=========================================
+格式：SHELL ["executable", "parameters"]
+SHELL 指令可以指定 RUN ENTRYPOINT CMD 指令的 shell，Linux 中默认为 ["/bin/sh", "-c"]
 
 
 
@@ -127,5 +192,30 @@ ENTRYPOINT 的目的和 CMD 一样，都是在指定容器启动程序及参数�
     docker build - < Dockerfile  或者 cat Dockerfile | docker build -
 方式三： 从标准输入中读取上下文压缩包进行构建
     $ docker build - < context.tar.gz
+
+
+
+
+
+构建实力:
+
+    # 构建dockerfile文件
+
+    FROM golang:alpine
+
+
+    # 设置环境变量必须的不然可能会报错
+    ENV  GO111MODULE on
+    ENV GOPROXY "https://goproxy.cn,direct"
+
+
+    WORKDIR $GOPATH/src/github.com/EDDYCJY/go-gin-example
+    COPY .  $GOPATH/src/github.com/EDDYCJY/go-gin-example
+
+    RUN go build .
+
+    EXPOSE 8000
+
+    ENTRYPOINT ["./go-gin-example"]
 
 
