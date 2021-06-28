@@ -26,3 +26,12 @@ docker rmi -f:  删除镜像：可以通过id和name来删除
 
 
 
+// 可以指定服务器去拉取镜像速度更快
+docker pull dl.dockerpool.com:5000/ubuntu:12.04
+
+
+
+
+$ docker image ls -f dangling=true   // 查看虚悬的镜像文件，可以随意删除
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+<none>              <none>              00285df0df87        5 days ago          342 MB
