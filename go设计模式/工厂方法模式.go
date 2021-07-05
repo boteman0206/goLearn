@@ -43,12 +43,12 @@ type PlusOperator struct {
 	*OperatorBase
 }
 
-//Result 获取结果
+//Result 获取结果 做加法
 func (o PlusOperator) Result() int {
 	return o.a + o.b
 }
 
-//MinusOperatorFactory 是 MinusOperator 的工厂类
+//MinusOperatorFactory 是 MinusOperator 的工厂类实现做减法
 type MinusOperatorFactory struct{}
 
 func (MinusOperatorFactory) Create() Operator {
@@ -62,7 +62,7 @@ type MinusOperator struct {
 	*OperatorBase
 }
 
-//Result 获取结果
+//Result 获取结果 做减法的工厂
 func (o MinusOperator) Result() int {
 	return o.a - o.b
 }
