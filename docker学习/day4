@@ -51,13 +51,13 @@ docker volume inspect 挂载路径   可以查看挂载的路径
 
 默认的windows10的文件挂在路径： \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes
 
+Docker 挂载数据卷的默认权限是读写，用户也可以通过 :ro 指定为只读。
+$ sudo docker run -d -P --name web -v /src/webapp:/opt/webapp:ro  加了 :ro 之后，就挂载为只读了
 
 
 
-
-
-
-
-
+// apt-get安装包
+apt-get update
+apt-get install -yqq inetutils-ping
 
 
