@@ -44,3 +44,8 @@ func main() {
 		fmt.Println("[]string test is empty !")
 	}
 }
+
+/**
+Golang官方建议，当声明空数组时，推荐使用第一种方法；但万事不是绝对的，当在Json编码时，推荐的是后两种方式，因为一个nil空数组会被编码为null，
+但非nil空数组会被编码为JSON array []，这样方便前端解析。
+*/
