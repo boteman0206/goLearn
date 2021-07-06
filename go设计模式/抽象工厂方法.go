@@ -56,7 +56,7 @@ type XMLDetailDAO struct{}
 
 // SaveOrderDetail ...
 func (*XMLDetailDAO) SaveOrderDetail() {
-	fmt.Print("xml detail save")
+	fmt.Println("xml detail save")
 }
 
 //XMLDAOFactory 是RDB 抽象工厂实现
@@ -77,6 +77,8 @@ func main() {
 	factory := XMLDAOFactory{}
 	dao := factory.CreateOrderMainDAO()
 	dao.SaveOrderMain()
+	detailDAO := factory.CreateOrderDetailDAO()
+	detailDAO.SaveOrderDetail()
 
 	rdbdaoFactory := RDBDAOFactory{}
 	mainDAO := rdbdaoFactory.CreateOrderMainDAO()
