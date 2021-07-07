@@ -10,7 +10,7 @@ docker network ls : 查看现有逇网络
 
 
 
-2: 通过自定义的网络来实现
+2: 通过自定义的网络来实现  创建网卡
 docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet
 
 
@@ -24,3 +24,18 @@ docker network inspect mynet  可以查看详情
 
 
 docker exec -it tomcat-01-net ping tomcat-02-net  可以直接通过name去ping
+
+
+
+
+网络连通
+docker network connect
+一个容器两个ip ：docker network connect mynet tomcat01 将mynet和tomcat01容器打通，执行命令之后会将tomcat01加到mynet的网络中，然后在tomcat01中能直接pingmynet的网络ip
+
+
+
+
+
+
+
+
