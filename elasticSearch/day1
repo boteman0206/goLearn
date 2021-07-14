@@ -1,0 +1,30 @@
+
+
+下载安装 ELK (elasticsearch  logstash  kibana)
+
+bin: 启动文件
+config 配置文件
+    log4j2 日志配置文件
+    jvm.options  java 虚拟机相关的配置，如果电脑的内存不够需要需要修改
+    elasticsearch.yml elasticsearch的配置 端口more你是 9200
+lib  相关的jar包
+modules 功能模块
+plugins 插件 ik分词
+
+
+安装可视化界面es head的插件 需要有node.js   (其实没啥用，只是看看es的状态)
+github下载地址： elasticsearch-head
+启动之后需要配置跨域在es的配置文件中：
+    http.cors.enabled: true
+    http.cors.allow-origin: "*"
+启动 npm install
+    npm run start
+
+
+
+安装kibana
+端口： 5601
+添加汉化：kibana.yml文件   i18n.locale: "en" 换成   i18n.locale: "zh-CN"
+
+
+
