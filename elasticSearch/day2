@@ -1,0 +1,28 @@
+
+
+主要概念：
+集群
+分片
+索引                      数据库
+类型 types                数据的类型（弃用）
+映射(mapping)             它们定义了当前类型下的数据结构，类似于数据库表中的列
+文档 doc                  一条条的数据
+
+关系数据库 ⇒ 数据库 ⇒ 表 ⇒ 行 ⇒ 列(Columns)
+Elasticsearch ⇒ 索引 ⇒ 类型 ⇒ 文档 ⇒ 字段(Fields)
+
+
+倒排索引
+
+IK分词器：如果使用中文建议使用ik分词器（注意需要和es的版本相对应）
+https://github.com/medcl/elasticsearch-analysis-ik/releases
+下载安装到es的文件plugins文件下创建一个ik的文件
+分词方式： ik_smart 最少切分    ik_max_world 全部列举所有可能
+
+--》 特殊的词语需要自己加到分词的字典中  1: 在ik的config下面添加自己的字典  2: 然后将字典添加到IKAnalyzer.cfg文件中
+
+
+
+
+
+
