@@ -20,9 +20,76 @@ https://github.com/medcl/elasticsearch-analysis-ik/releases
 分词方式： ik_smart 最少切分    ik_max_world 全部列举所有可能
 
 --》 特殊的词语需要自己加到分词的字典中  1: 在ik的config下面添加自己的字典  2: 然后将字典添加到IKAnalyzer.cfg文件中
+在kinaba中测试分词效果
+GET _analyze
+{
+  "analyzer": "ik_smart",
+  "text": "中国共产党"
+}
+
+GET _analyze
+{
+  "analyzer": "ik_max_word",
+  "text": "中国共产党"
+}
 
 
 
+
+
+
+基本操作：
+ "_version" : 3,表示修改的次数
+ 类型是text才会执行分词，keyword不会被分词器解析
+
+新增
+PUT /pengwei/user/3
+{
+  "name":"张三",
+  "age":28,
+  "desc": "法外狂徒",
+  "tag": "火枪"
+}
+
+
+更新：post_update
+POST pengwei/user/1/_update
+{
+  "doc": {
+    "name": "修改之后的名称1"
+  }
+}
+只会更新name其他的都会保留，和put方式不同，put不传值会覆盖为空，建议用post
+
+删除
+DELETE pengwei  直接删除索引，下面的所有数据全部清空
+
+获取
+模糊查询：
+GET /pengwei/user/1
+
+GET /pengwei/user/_search?q="jack"
+
+
+GET pengwei/user/_search
+{
+  "query": {
+    "match": {
+      "name": "jack"
+    }
+  },
+  "_source":["name", "age"],  // 直返会过滤的字段name和age
+  "sort":{
+    "age":"asc"   // 排序
+  },
+  "from":0,  // 分页from
+  "size":10  // 显示的条数
+}
+
+must --》 相当于and
+should ---》 相当于or
+
+term // 精确查询
 
 
 
