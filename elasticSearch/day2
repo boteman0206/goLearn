@@ -90,6 +90,12 @@ must --》 相当于and
 should ---》 相当于or
 
 term // 精确查询
-
-
+GET /pengwei/user/_search
+{
+  "query":{
+    "term": {
+      "name.keyword": "中国"  // 需要设置keyword，只会查询出name=中国  https://zhuanlan.zhihu.com/p/270426807
+    }
+  }
+}
 
