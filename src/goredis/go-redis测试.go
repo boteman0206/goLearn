@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/limitedlee/microservice/common/config"
-	"github.com/tricobbler/rp-kit/cast"
 	"time"
 )
 
@@ -19,9 +17,13 @@ func GetRedisConn() *redis.Client {
 	//	}
 	//}
 
-	var db = cast.ToInt(config.GetString("redis.DB"))
-	var addr = config.GetString("redis.Addr")
-	var pwd = config.GetString("redis.Password")
+	//var db = cast.ToInt(config.GetString("redis.DB"))
+	//var addr = config.GetString("redis.Addr")
+
+	addr := "10.1.1.242:6679"
+	pwd := "MkdGH*3ldf"
+	db := 0
+	//var pwd = config.GetString("redis.Password")
 
 	//glog.Info("redis connections:" + addr + ",paw:" + pwd)
 
@@ -34,6 +36,8 @@ func GetRedisConn() *redis.Client {
 		PoolSize:     512,
 		MaxConnAge:   30 * time.Second,
 	})
+
+	//redisHandle1.
 	_, err := redisHandle1.Ping().Result()
 	if err != nil {
 		panic(err)
@@ -46,6 +50,11 @@ func main() {
 	conn := GetRedisConn()
 	defer conn.Close()
 
+	get := conn.Get("testpw")
+	//conn.Do()
+	fmt.Println("get : ", get)
+
+	return
 	// 使用pipeline管道
 	//pipeline := conn.Pipeline()
 	//defer pipeline.Close()
