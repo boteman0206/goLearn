@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/360EntSecGroup-Skylar/excelize"
+	"github.com/golang/glog"
 
 	"github.com/spf13/cast"
 	"log"
@@ -22,15 +23,16 @@ func main() {
 	//	fmt.Println(err)
 	//}
 
-	i := make([]map[string]string, 0)
-
-	m1 := map[string]string{"name": "jack", "age": "78", "addr": "beijing"}
-	m2 := map[string]string{"name": "jack1", "age": "781", "addr": "shanghai"}
-	m3 := map[string]string{"name": "jack2", "age": "781", "addr": "nanjing"}
-	i2 := append(i, m1, m2, m3)
-	var header = []string{"name", "age", "addr"}
-
-	ExportExcle(i2, header)
+	//i := make([]map[string]string, 0)
+	//
+	//m1 := map[string]string{"name": "jack", "age": "78", "addr": "beijing"}
+	//m2 := map[string]string{"name": "jack1", "age": "781", "addr": "shanghai"}
+	//m3 := map[string]string{"name": "jack2", "age": "781", "addr": "nanjing"}
+	//i2 := append(i, m1, m2, m3)
+	//var header = []string{"name", "age", "addr"}
+	//
+	//ExportExcle(i2, header)
+	ExportDemo1()
 }
 
 //导出数据
@@ -60,6 +62,20 @@ func ExportExcle(data []map[string]string, heard []string) {
 	f.SetActiveSheet(index)
 
 	err := f.SaveAs("./成绩表1112.xlsx")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func ExportDemo1() {
+	f := excelize.NewFile()
+	header := []string{"门店ID", "门店名称", "所属大区", "省", "城市", "商品名称", "商品类别", "商品类目", "店内商品分类", "渠道", "状态"}
+	for i := 0; i < len(header); i++ {
+		glog.Info("cell: ", cast.ToString(65+i)+"1")
+		f.SetCellValue("Sheet1", string(65+i)+"1", header[i])
+	}
+
+	err := f.SaveAs("./demo1.xlsx")
 	if err != nil {
 		log.Fatal(err)
 	}
