@@ -1,13 +1,13 @@
 package main
 
 import (
-	"example/xorm测试/models"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"github.com/spf13/cast"
+	"godemo/src/xorm测试/models"
 	"net/http"
 	"xorm.io/builder"
 )
@@ -143,11 +143,15 @@ func getUser1(c echo.Context) error {
 	type groupData struct {
 		Member models.Member `xorm:"extends"`
 		// todo 如果表里面有相同的字段则无法展示，可以在字段前面加上字段去区分
-		Person models.Person `xorm:"extends"`
+		//Person models.Person `xorm:"extends"`
+		Name string
 	}
 	var joindata = make([]groupData, 0)
-	sql := engine.SQL("SELECT * FROM member a join person.go b on a.user_id=b.id").Find(&joindata)
+	sql := engine.SQL("SELECT * FROM member a join demo1.person b on a.user_id=b.id").Find(&joindata)
 	fmt.Println("sql error : ", sql)
+	var joindata1 = make([]groupData, 0)
+	err = engine.Table("member").Alias("a").Join("inner", "demo1.person b", "a.user_id=b.id").Where("b.id = ?", 1).Find(&joindata1)
+	fmt.Println("ppppppppp:", err)
 
 	// todo findAndCount函数使用
 	count, err := engine.Where(builder.Eq{"user_id": 12}).FindAndCount(&mems)
@@ -230,14 +234,16 @@ func filterSql(c echo.Context) error {
 
 func main() {
 	var err error
-	engine, err = xorm.NewEngine("mysql", "root:pw123456@(localhost:3306)/demo?charset=utf8")
+	engine, err = xorm.NewEngine("mysql", "root:1234@(localhost:3306)/demo?charset=utf8")
+	//1234 和pw123456
 	if err != nil {
 		fmt.Println("err2 : ", err.Error())
 		return
 	}
+	//engine.Table("")
 	engine.ShowSQL(true)
 	//todo 同步数据库
-	//err = engine.Sync2(new(UserInfo))
+	//err = engine.Sync2(new(models.Member), new(models.Person), new(models.UserInfo))
 	if err != nil {
 		fmt.Println("同步数据库异常： ", err.Error())
 	}
