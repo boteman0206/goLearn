@@ -146,11 +146,15 @@ func getUser1(c echo.Context) error {
 		//Person models.Person `xorm:"extends"`
 		Name string
 	}
+
+	/**
+	todo 使用join的时候在maridb的时候居然不能指定table 否则会出问题
+	*/
 	var joindata = make([]groupData, 0)
-	sql := engine.SQL("SELECT * FROM member a join demo1.person b on a.user_id=b.id").Find(&joindata)
+	sql := engine.SQL("SELECT * FROM member a join person b on a.user_id=b.id").Find(&joindata)
 	fmt.Println("sql error : ", sql)
 	var joindata1 = make([]groupData, 0)
-	err = engine.Table("member").Alias("a").Join("inner", "demo1.person b", "a.user_id=b.id").Where("b.id = ?", 1).Find(&joindata1)
+	err = engine.Table("member").Alias("a").Join("inner", "person b", "a.user_id=b.id").Where("b.id = ?", 1).Find(&joindata1)
 	fmt.Println("ppppppppp:", err)
 
 	// todo findAndCount函数使用
