@@ -64,7 +64,7 @@ func Print1to20() int {
 	return res
 }
 
-//todo 命令行执行 go test -bench=.     （程序只会跑带BenchMark的部分）
+//todo 命令行执行 go test -bench=. -benchmem  可以查看程序的执行时间和内存分配   （程序只会跑带BenchMark的部分）
 
 /**
 
@@ -94,3 +94,13 @@ FAIL    _/E_/goProject/goLearn/src/单元测试     0.136s
 */
 
 // todo 单元测试可以配合 https://github.com/stretchr/testify   asset来断言实现这个包实现了断言
+
+func TestDemo(t *testing.T) {
+
+	t.Log("开始。。。")
+	t.Skip("直接跳出了。。。")
+	t.FailNow()
+	t.Log("结束。。。")
+}
+
+// todo 测试覆盖率并输出文件内容到fib.out go test -covermode=count -coverprofile fib.out
