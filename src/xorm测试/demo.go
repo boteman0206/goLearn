@@ -132,6 +132,16 @@ func getUser1(c echo.Context) error {
 	user.Username = "更改之后"
 	user.Sex = "其他"
 	engine.Cols("username", "email").Where("user_id = ?", 4).Update(&user)
+	/**
+	todo update的用法
+	configuration := models.WarehouseRuleConfiguration{
+		DeadStock:1000000,
+		DeadStockDays:999,
+	}
+	i, e := conn.Where("status = ?", 1).In("id", "1","12",3,4,54).Update(&configuration)
+	fmt.Println(i, e)
+
+	*/
 
 	// limit字段
 	mems = make([]models.Member, 0)
