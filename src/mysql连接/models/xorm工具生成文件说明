@@ -7,3 +7,6 @@ xorm reverse mysql "root:123456@(127.0.0.1:3306)/demo?charset=utf8" C:\Users\Adm
 
 可以后面加上要生成的表名，采用的是模糊匹配的方式
 例如要生成指定的user_info表  加上 ./model  user_info
+
+xorm reverse mysql "root:Rp000000@(10.1.1.245:3306)/dc_product?charset=utf8mb4" D:\soft\cmd-master\cmd-master\xorm\templates\goxorm ./model  product_has_stock
+xorm reverse mysql "root:Rp000000@(10.1.1.245:3306)/dc_product?charset=utf8mb4" D:\soft\cmd-master\cmd-master\xorm\templates\goxorm ./model  effective_management

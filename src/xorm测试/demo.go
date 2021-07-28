@@ -148,7 +148,26 @@ func getUser1(c echo.Context) error {
 	}
 
 	/**
-	todo 使用join的时候在maridb的时候居然不能指定table 否则会出问题
+		todo 使用join的时候在maridb的时候居然不能指定table 否则会出问题
+			// 查询所有A8编码对应的SKUID
+			// 下面这样的用法是完全ok的，注意使用select才行
+	func getSkuIdList() ([]models.SkuInfo, error) {
+		var skuInfo []models.SkuInfo
+		err := engine.Table("dc_product.gj_product").Alias("a").
+			Join("inner", "dc_product.gj_sku_third b", "b.product_id = a.id").
+			Where("a.product_type = 1 and b.erp_id = 2").Select("a.name, b.sku_id, b.third_sku_id").Find(&skuInfo)
+		if err != nil {
+			glog.Error("getSkuIdList 查询管家sku失败, err: ", err)
+			return nil, err
+		}
+		//var total int32
+		engine.ShowSQL(true)
+		total1, err1 := engine.Table("dc_product.gj_product").Alias("a").
+			Join("inner", "dc_product.gj_sku_third b", "b.product_id = a.id").
+			Where("a.product_type = 1 and b.erp_id = 2").Select("a.name, b.sku_id, b.third_sku_id").FindAndCount(&skuInfo)
+		fmt.Println(total1, err1)
+		return skuInfo, nil
+	}
 	*/
 	var joindata = make([]groupData, 0)
 	sql := engine.SQL("SELECT * FROM member a join person b on a.user_id=b.id").Find(&joindata)
