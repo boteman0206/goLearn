@@ -19,7 +19,7 @@ func testCron() {
 func main() {
 
 	// 正常的表达式
-	c := cron.New()
+	c := cron.New() // 版本问题 五个参数的话是分开始， 6个参数的话是从秒开始3.0版本的就需要指定cron.WithSeconds()
 	c.AddFunc("0 30 * * * *", func() { fmt.Println("Every hour on the half hour") })
 	c.AddFunc("@hourly", func() { fmt.Println("Every hour") })
 	c.AddFunc("@every 1h30m", func() { fmt.Println("Every hour thirty") })
@@ -34,7 +34,8 @@ func main() {
 		fmt.Println("--------------------")
 	})
 
-	go testCron()
+	//go testCron()
+	c.AddFunc("0 46 17 * * ?", func() { fmt.Println("执行") })
 	c.Start()
 	select {}
 }
