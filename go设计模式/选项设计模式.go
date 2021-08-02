@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"context"
+	"fmt"
+	"sync"
+	"time"
+)
 
 type Options struct {
 	str1 string
@@ -53,4 +58,56 @@ func WithStringOption5(int1 int32) Option {
 func main() {
 
 	InitOptions(WithStringOption1("str1test"), WithStringOption2("str2test"), WithStringOption1("changetest"))
+
+	New(SetTimeout(3*time.Second), SetCheckReadyTimeout(5*time.Microsecond))
+}
+
+//================grpc连接池的案例=====================
+
+const (
+	defaultTimeout    = 100 * time.Second
+	checkReadyTimeout = 5 * time.Second
+	heartbeatInterval = 20 * time.Second
+)
+
+type ConnectionTracker struct {
+	sync.RWMutex
+	timeout           time.Duration
+	checkReadyTimeout time.Duration
+	heartbeatInterval time.Duration
+
+	ctx    context.Context
+	cannel context.CancelFunc
+}
+
+type TrackerOption func(*ConnectionTracker)
+
+func SetTimeout(timeout time.Duration) TrackerOption {
+	return func(o *ConnectionTracker) {
+		o.timeout = timeout
+	}
+}
+
+// SetCheckReadyTimeout custom checkReadyTimeout
+func SetCheckReadyTimeout(timeout time.Duration) TrackerOption {
+	return func(o *ConnectionTracker) {
+		o.checkReadyTimeout = timeout
+	}
+}
+
+func New(opts ...TrackerOption) *ConnectionTracker {
+	ctx, cannel := context.WithCancel(context.Background())
+	ct := &ConnectionTracker{
+		ctx:               ctx,
+		cannel:            cannel,
+		timeout:           defaultTimeout,
+		checkReadyTimeout: checkReadyTimeout,
+		heartbeatInterval: heartbeatInterval,
+	}
+	for _, opt := range opts {
+		opt(ct) // 选项模式
+	}
+
+	fmt.Println("ct data: ", ct)
+	return ct
 }
