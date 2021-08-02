@@ -1,4 +1,5 @@
 
+https://www.ruanyifeng.com/blog/2017/08/elasticsearch.html // 可以参考这篇文章
 
 下载安装 ELK (elasticsearch  logstash  kibana)
 
@@ -6,7 +7,7 @@ bin: 启动文件
 config 配置文件
     log4j2 日志配置文件
     jvm.options  java 虚拟机相关的配置，如果电脑的内存不够需要需要修改
-    elasticsearch.yml elasticsearch的配置 端口more你是 9200
+    elasticsearch.yml elasticsearch的配置 端口默认是 9200
 lib  相关的jar包
 modules 功能模块
 plugins 插件 ik分词
@@ -22,9 +23,36 @@ github下载地址： elasticsearch-head
 
 
 
-安装kibana
+安装kibana   https://www.elastic.co/cn/downloads/past-releases#kibana
 端口： 5601
 添加汉化：kibana.yml文件   i18n.locale: "en" 换成   i18n.locale: "zh-CN"
 
+启动kinaba的时候遇到一个错误： 可以参考这个解决方案   https://blog.csdn.net/m0_37710023/article/details/111357638
+/**
+    curl -X DELETE http://localhost:9200/.kibana*
+*/
+
+查看全部的索引
+curl -X GET "localhost:9200/_cat/indices?v"
 
 
+
+安装logstatsh  https://www.elastic.co/cn/downloads/past-releases#logstash
+使用Nssm命令行管理logstash服务  http://www.nssm.cc/download
+
+
+一：设置logstash的config配置
+
+logstash-default.conf
+
+input {
+stdin{
+	codec => plain{ charset => "GBK" }      // 防止乱码
+}
+}
+
+output {
+	stdout{}elasticsearch {hosts=>"127.0.0.1:9200"}
+}
+
+二：配置文件启动 logstash -f  C:\Users\pengwei\Downloads\logstash-7.8.1\logstash-7.8.1\config\logstash-default.conf
