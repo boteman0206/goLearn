@@ -97,3 +97,5 @@ func main() {
 
 	//logrus.Info("writer: ", writer1.String())
 }
+
+//https://mojotv.cn/2018/12/27/golang-logrus-tutorial#NC4zIExvZ3J1cy1Ib29rIOaXpeW/l+WIhumalA==
