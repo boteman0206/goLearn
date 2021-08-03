@@ -1,4 +1,4 @@
-package main
+package 常用log日志包的集合
 
 import (
 	logredis "github.com/rogierlommers/logrus-redis-hook"

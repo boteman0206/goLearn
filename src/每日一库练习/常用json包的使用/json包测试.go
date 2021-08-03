@@ -1,4 +1,4 @@
-package main
+package 常用json包的使用
 
 import (
 	"encoding/json"

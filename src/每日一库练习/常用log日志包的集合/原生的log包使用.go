@@ -1,4 +1,4 @@
-package main
+package 常用log日志包的集合
 
 import (
 	"io"
