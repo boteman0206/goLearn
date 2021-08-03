@@ -56,3 +56,22 @@ output {
 }
 
 二：配置文件启动 logstash -f  C:\Users\pengwei\Downloads\logstash-7.8.1\logstash-7.8.1\config\logstash-default.conf
+
+http://soft.dog/2015/12/22/elk-basic/  采集日志 将文件D:/RpPet/gitProject/goLearn/src/log.txt采集到es中
+
+input {
+	stdin{}
+	file {
+	    type=>"syslog"
+	    path=>"D:/RpPet/gitProject/goLearn/src/log.txt"
+	    start_position => beginning
+	}
+}
+output {
+	elasticsearch {hosts=>"localhost:9200"}
+	stdout {codec=>rubydebug}
+}
+
+-- start_position => beginning 的作用是从头开始读数据，如果不加这个配置，就会产生类似 tail -f /var/log/messages 的效果，只对新生成的数据进行跟踪，此刻以前的都直接忽略，此配置得在具体环境下考虑使用与否
+-- 这里的rubydebug其实就是codec的一种编码格式， 我们也可以把codec设置成json格式：json_lines  bin/logstash -e 'input{stdin{}}output{stdout{codec=>json_lines}}'
+--  type=>"syslog" 一种时间类型   type=>"web" 随意的设置
