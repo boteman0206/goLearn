@@ -1,6 +1,10 @@
 package main
 
-import "github.com/lunny/log"
+import (
+	"io"
+	"log"
+	"os"
+)
 
 /**
 上面说到log打印的时候默认是自带时间的，那如果除了时间以外，我们还想要别的信息呢，当然log也是支持的。
@@ -19,13 +23,46 @@ LUTC比较特殊，如果我们配置了时间标签，那么如果设置了LUTC
 
 最后一个LstdFlags表示标准的日志抬头信息，也就是默认的，包含日期和具体时间。
 */
-func init() {
+func initLog() {
 	log.SetFlags(log.Ldate | log.Lshortfile)
 }
 
 func main() {
-
+	initLog()
 	log.Print("我就是一条日志")
 	log.Printf("%s,", "谁说我是日志了，我是错误")
+
+	Info.Println("我就是一条日志啊")
+	Warning.Printf("我真的是一条日志哟%s\n", "别骗我")
+	Error.Println("好了，我要报错了")
+
+}
+
+//======================================================
+
+//通过上面的学习，你其实知道了，日志的实现是通过New()函数构造了Logger对象来处理的。
+// 那我们只用构造不同的Logger对象来处理不同类型的日记即可。下面是一个简单的实现：
+var (
+	Info    *log.Logger
+	Warning *log.Logger
+	Error   *log.Logger
+)
+
+func init() {
+	infoFile, err := os.OpenFile("./info.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	warnFile, err := os.OpenFile("./warn.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	errFile, err := os.OpenFile("./errors.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+
+	if infoFile == nil || warnFile == nil || err != nil {
+		log.Fatalln("打开日志文件失败：", err)
+	}
+
+	//Info = log.New(os.Stdout,"Info:",log.Ldate | log.Ltime | log.Lshortfile)
+	//Warning = log.New(os.Stdout,"Warning:",log.Ldate | log.Ltime | log.Lshortfile)
+	//Error = log.New(io.MultiWriter(os.Stderr,errFile),"Error:",log.Ldate | log.Ltime | log.Lshortfile)
+
+	Info = log.New(io.MultiWriter(os.Stderr, infoFile), "Info:", log.Ldate|log.Ltime|log.Lshortfile)
+	Warning = log.New(io.MultiWriter(os.Stderr, warnFile), "Warning:", log.Ldate|log.Ltime|log.Lshortfile)
+	Error = log.New(io.MultiWriter(os.Stderr, errFile), "Error:", log.Ldate|log.Ltime|log.Lshortfile)
 
 }
