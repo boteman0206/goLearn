@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"regexp"
 	"time"
@@ -29,7 +30,9 @@ func main() {
 	reg, _ := regexp.Compile(`\d+`)
 	skuId := reg.FindString("rpc error: code = Unknown desc = 仓库信息不存在，请核实仓库信息！编码：RP0158,")
 	fmt.Println(skuId) //  0158
+	errors.New("mypackage: invalid parameter")
 
+	//json.Marshal()
 }
 
 func compareUpdateDate(t1, t2 time.Time) time.Time {
