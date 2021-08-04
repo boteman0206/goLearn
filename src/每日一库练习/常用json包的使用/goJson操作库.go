@@ -1,4 +1,4 @@
-package 常用json包的使用
+package main
 
 import (
 	"fmt"

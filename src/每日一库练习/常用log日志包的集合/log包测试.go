@@ -1,1 +1,1 @@
-package 常用log日志包的集合
+package main
