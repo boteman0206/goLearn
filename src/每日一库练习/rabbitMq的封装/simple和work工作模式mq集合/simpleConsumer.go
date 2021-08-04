@@ -1,4 +1,4 @@
-package mq集合
+package simple和work工作模式mq集合
 
 import (
 	"fmt"
