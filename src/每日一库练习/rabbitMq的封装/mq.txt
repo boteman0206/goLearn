@@ -1,0 +1,38 @@
+
+一：工作模式
+    1：simple模式 简单工作模式
+
+
+    2： work模式
+
+    3： publish模式
+
+    4： routing模式
+
+    5： topic模式
+
+
+
+
+
+
+
+
+
+
+
+
+二： rabbitMQ 四种类型交换器 Fanout,Direct,Topic和 headers
+    1：Fanout Exchange
+        不处理路由键。你只需要简单的将队列绑定到交换机上。一个发送到交换机的消息都会被转发到与该交换机绑定的所有队列上。
+        很像子网广播，每台子网内的主机都获得了一份复制的消息。Fanout交换机转发消息是最快的
+    2：Direct Exchange
+        处理路由键。需要将一个队列绑定到交换机上，要求该消息与一个特定的路由键完全匹配。
+        这是一个完整的匹配。如果一个队列绑定到该交换机上要求路由键 “test”，则只有被标记为“test”的消息才被转发，不会转发test.aaa，也不会转发dog.123，只会转发test。
+    3：Topic Exchange
+        将路由键和某模式进行匹配。此时队列需要绑定要一个模式上。符号“#”匹配一个或多个词，符号“*”匹配不多不少一个词。因此“audit.#”能够匹配到“audit.irs.corporate”，但是“audit.*” 只会匹配到“audit.irs”。
+    4： Headers
+        Headers类型的exchange使用的比较少，它也是忽略routingKey的一种路由方式。是使用Headers来匹配的。Headers是一个键值对，可以定义成Hashtable。
+        发送者在发送的时候定义一些键值对，接收者也可以再绑定时候传入一些键值对，两者匹配的话，则对应的队列就可以收到消息。匹配有两种方式all和any。
+        这两种方式是在接收端必须要用键值"x-mactch"来定义。all代表定义的多个键值对都要满足，
+        而any则代码只要满足一个就可以了。fanout，direct，topic exchange的routingKey都需要要字符串形式的，而headers exchange则没有这个要求，因为键值对的值可以是任何类型。
