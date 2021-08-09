@@ -1,4 +1,7 @@
 
+http://rabbitmq.mr-ping.com/AMQP/AMQP_0-9-1_Model_Explained.html#amqp-0-9-1-%E7%AE%80%E4%BB%8B
+http://www.topgoer.com/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/go%E6%93%8D%E4%BD%9CRabbitMQ/
+
 一： 基本概念(参照图示表示)
     Broker：标识消息队列服务器实体.
     Virtual Host：虚拟主机。标识一批交换机、消息队列和相关对象。虚拟主机是共享相同的身份认证和加密环境的独立服务器域。每个vhost本质上就是一个mini版的RabbitMQ服务器，拥有自己的队列、交换器、绑定和权限机制。vhost是AMQP概念的基础，必须在链接时指定，RabbitMQ默认的vhost是 /。
