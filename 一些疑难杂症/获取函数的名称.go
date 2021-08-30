@@ -31,6 +31,10 @@ func testName() {
 //再次嵌套的函数
 func testNext() {
 	name := RunFuncName()
+
+	// 获取文件的名称和行号
+	pc, file, line, ok := runtime.Caller(2)
+	fmt.Println(fmt.Sprintf("catch panic error: %v\nFILE: %s\nLINE: %d\nFUNCNAME: %s", pc, file, line, ok))
 	fmt.Println("this func name is ", name)
 }
 
