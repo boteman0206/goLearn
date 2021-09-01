@@ -24,3 +24,10 @@ func main() {
 	//w.ShowAndRun() // 是w.Show() && a.Run()的快捷方式
 
 }
+
+/**
+打包的任务： go get fyne.io/fyne/v2/cmd/fyne
+
+			go build
+			fyne package -icon mylogo.png
+*/
