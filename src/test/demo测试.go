@@ -8,6 +8,10 @@ import (
 func main() {
 
 	te()
+
+	//i := 90 / 0
+	//fmt.Println(i)
+
 }
 
 func te() {
@@ -32,4 +36,5 @@ func arr(r []int) {
 	r[0] = 999
 	fmt.Println("arr2: ", r, len(r), cap(r))
 	fmt.Printf("%p\n", r)
+
 }

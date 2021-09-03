@@ -4,3 +4,59 @@
     1: 层次行数据库    最古老的数据库之一，它把数据通过层次结构（树形结构）的方式表现出来。层次数据库曾经是数据库的主流
     2：关系型数据库    mysql pgSql oracle DB2  SQLServer
     3：非关系型数据库
+
+
+SQL语句及其种类
+    1：DDL（Data Definition Language，数据定义语言）  用来创建或者删除存储数据用的数据库以及数据库中的表等对象。DDL 包含以下几种指令
+        CREATE：创建数据库和表等对象
+        DROP： 删除数据库和表等对象
+        ALTER： 修改数据库和表等对象的结构
+    2：DML（Data Manipulation Language，数据操纵语言）  用来查询或者变更表中的记录。DML 包含以下几种指令
+         SELECT：查询表中的数据
+         INSERT：向表中插入新数据
+         UPDATE：更新表中的数据
+         DELETE：删除表中的数据
+    3：DCL（Data Control Language，数据控制语言）  用来确认或者取消对数据库中的数据进行的变更。除此之外，还可以对 RDBMS 的用户是否有权限操作数据库中的对象（数据库表等）进行设定。DCL 包含以下几种指令
+         COMMIT： 确认对数据库中的数据进行的变更
+         ROLLBACK：取消对数据库中的数据进行的变更
+         GRANT： 赋予用户操作权限
+         REVOKE： 取消用户的操作权限
+
+
+
+字段类型
+    数字类型
+    字符类型
+        1：CHAR 定长字符   我们向 CHAR(8) 类型的列中输入 'abc'的时候，会以 'abc      '（abc 后面有 5 个半角空格）的形式保存起来
+        2：VARCHAR 可变长字符串
+    日期类型
+        1：date  日期类型（年月日）
+        2：datetime  日期时间类型（年月日 时分秒）
+
+
+
+sql的注意点：
+    1： NULL关键字筛选需要： IS NULL 运算符 和 IS NOT NULL;
+    2： Null和任何值做 四则运算都为null
+    3： mysql中任意值除以 0 都为null
+    4:  所有的聚合函数都排除null，例如  sum() MAX() Min()  AVG()
+    5： 只有SELECT子句和HAVING子句（以及ORDER BY子句）中能够使用聚合函数
+    6： COUNT：计算表中的记录数（行数）如果count（某一个字段）会排除null的行数
+    7： GROUP BY 子句中不能使用 SELECT 子句中定义的别名，但是在 ORDER BY 子句中却是允许使用别名的。
+    8： 使用 HAVING 子句时 SELECT 语句的顺序：FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY
+    9： 通过显式方法插入默认值(在 VALUES 子句中指定 DEFAULT 关键字)  INSERT INTO ProductIns (product_id, product_name, product_type,  sale_price, purchase_price, regist_date) VALUES ('0007',  '擦菜板', '厨房用具', DEFAULT, 790, '2009-04-28');
+    10: DROP TABLE 语句可以将表完全删除
+    11: DELETE 语句会留下表（容器），而删除表中的全部数据
+    12: TRUNCATE 。实际上，DELETE 语句在 DML 语句中也属于处理时间比较长的，因此需要删除全部数据行时，使用 TRUNCATE 可以缩短执行时间。
+
+
+ACID特性：
+    ■原子性（Atomicity） 原子性是指在事务结束时，其中所包含的更新处理要么全部执行，要么完全不执行，也就是要么占有一切要么一无所有
+    ■一致性（Consistency）一致性指的是事务中包含的处理要满足数据库提前设置的约束，如主键约束或者 NOT NULL 约束等。
+    ■隔离性（Isolation） 隔离性指的是保证不同事务之间互不干扰的特性。该特性保证了事务之间不会互相嵌套。
+        此外，在某个事务中进行的更改，在该事务结束之前，
+        对其他事务而言是不可见的。因此，即使某个事务向表中添加了记录，在
+        没有提交之前，其他事务也是看不到新添加的记录的。
+    ■持久性（Durability）持久性也可以称为耐久性，指的是在事务（不论是提交还是回滚）结束后，DBMS 能够保证该时间点的数据状态会被保存的特性。即使由于系统故障导致数据丢失，数据库也一定能通过某种手段进行恢复。
+
+   
