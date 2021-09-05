@@ -15,4 +15,106 @@
              COALESCE(NULL, 'test', NULL) AS col_2,
              COALESCE(NULL, NULL, '2009-11-01') AS col_3;
 
+    if函数
+        select if(true , 'a', 'b'); // a
+        select if(8>10, 'a', 'b');  // b
+
+    CASE表达式的语法
+        CASE表达式的语法分为简单CASE表达式:
+            CASE <表达式>
+             WHEN <表达式> THEN <表达式>
+             WHEN <表达式> THEN <表达式>
+             WHEN <表达式> THEN <表达式>
+             . . .
+             ELSE <表达式>
+            END
+
+            select case 1 when 1>2 then 1 else 8 end as num;
+
+        搜索CASE表达式:
+                CASE WHEN <求值表达式> THEN <表达式>
+                    WHEN <求值表达式> THEN <表达式>
+                    WHEN <求值表达式> THEN <表达式>
+                    . . .
+                    ELSE <表达式>
+                   END
+        虽然CASE表达式中的ELSE子句可以省略，但还是希望大家不要省略。
+
+
+
+
+联结函数：
+    union： 1：集合运算符会除去重复的记录:
+            2：作为运算对象的记录的列数必须相同
+            3： 作为运算对象的记录中列的类型必须一致
+            4：可以使用任何SELECT语句，但ORDER BY子句只能在最后使用一次
+            5： 包含重复行的集合运算——ALL选项  union all 在集合运算符中使用ALL选项，可以保留重复行。
+        SELECT product_id, product_name
+           FROM Product
+          UNION
+          SELECT product_id, product_name
+           FROM Product2;
+    交叉联结——CROSS JOIN  ：进行交叉联结时无法使用内联结和外联结中所使用的 ON 子句，
+                       这是因为交叉联结是对两张表中的全部记录进行交叉组合，因此结果中
+                       的记录数通常是两张表中行数的乘积。
+
+窗口函数：
+    一：基本语法： <窗口函数> OVER ([PARTITION BY <列清单>] ORDER BY <排序用列清单>)
+        1： PARTITION BY 能够设定排序的对象范围。本例中，为了按照商品种类进行排序，我们指定了 product_type。
+        2：ORDER BY 能够指定按照哪一列、何种顺序进行排序。为了按照销售单价的升序进行排列，我们指定了 sale_price。此外，窗口函数中的ORDER BY 与 SELECT 语句末尾的 ORDER BY 一样，
+            可以通过关键字ASC/DESC 来指定升序和降序。省略该关键字时会默认按照 ASC，也就是升序进行排序。
+    二：能够作为窗口函数使用的函数：
+        ① 能够作为窗口函数的聚合函数（SUM、AVG、COUNT、MAX、MIN）
+        ② RANK、DENSE_RANK、ROW_NUMBER 等专用窗口函数
+         实例：
+            SELECT product_name, product_type, sale_price,
+             RANK () OVER (PARTITION BY product_type
+             ORDER BY sale_price) AS ranking
+             FROM Product;
+    三：无需指定PARTITION BY 这和使用没有 GROUP BY 的聚合函数时的效果一样，也就是将整个表作为一个大的窗口来使用。
+       实例： SELECT product_name, product_type, sale_price,
+         RANK () OVER (ORDER BY sale_price) AS ranking
+         FROM Product;
+    四： 计算移动平均 参看平均移动.jpg
+        就是将框架指定为“截止到之前 2 行”，也就是将作为汇总对象的记录限
+        定为如下的“最靠近的 3 行”。
+        ● 自身（当前记录）
+        ● 之前 1行的记录
+        ● 之前 2行的记录
+        SELECT product_id, product_name, sale_price,
+         AVG (sale_price) OVER (ORDER BY product_id
+         ROWS 2 PRECEDING) AS moving_avg
+         FROM Product;
+    五： 将当前记录的前后行作为汇总对象
+        ●	之前 1行的记录
+        ●	自身（当前记录）
+        ●	之后 1行的记录
+        SELECT product_id, product_name, sale_price,
+         AVG (sale_price) OVER (ORDER BY product_id
+         ROWS BETWEEN 1 PRECEDING AND 
+         1 FOLLOWING) AS moving_avg
+         FROM Product;
+    六： 在语句末尾使用ORDER BY子句对结果进行排序
+        SELECT product_name, product_type, sale_price,
+         RANK () OVER (ORDER BY sale_price) AS ranking
+         FROM Product
+         ORDER BY ranking;
+
+GROUPING运算符：
+
+
+
+特殊sql：
+    使用子查询： SELECT product_type, product_name, sale_price
+            FROM Product AS P1
+            WHERE sale_price > (SELECT AVG(sale_price)
+                    FROM Product AS P2
+                    WHERE P1.product_type = P2.p) // 子查询本质上还是只是返回一列或者一个的数据
+
+    使用exists查询语句
+            SELECT product_name, sale_price FROM Product AS P
+            WHERE EXISTS (SELECT *
+                 FROM ShopProduct AS SP
+                 WHERE SP.shop_id = '000C'
+                 AND SP.product_id = P.product_id); // 进行多列的行扫描
 
