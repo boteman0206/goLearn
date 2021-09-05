@@ -1,0 +1,18 @@
+
+
+一些特殊的函数：
+
+    extract：从日期中分离出年月日
+            select  extract(year  from current_timestamp);
+            select  extract(month  from current_timestamp);
+    转换函数
+        CAST（转换前的值 AS 想要转换的数据类型）
+            select cast("1000" as unsigned  integer)
+            SELECT CAST('2009-12-14' AS DATE) AS date_col;
+
+        COALESCE——将NULL转换为其他值 COALESCE 是 SQL 特有的函数。该函数会返回可变参数 A 中左侧开始第1个不是 NULL 的值。参数个数是可变的，因此可以根据需要无限增加。
+            SELECT COALESCE(NULL, 1) AS col_1,
+             COALESCE(NULL, 'test', NULL) AS col_2,
+             COALESCE(NULL, NULL, '2009-11-01') AS col_3;
+
+
