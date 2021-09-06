@@ -101,7 +101,15 @@
          ORDER BY ranking;
 
 GROUPING运算符：
-
+    只使用GROUP BY子句和聚合函数是无法同时得出小计和合计的。如果想要同时得到，可以使用GROUPING运算符。（其实可以使用 UNION ALL 写两次sql来拼接行）
+    1：GROUPING 运算符包含以下 3 种 A。
+        ●ROLLUP
+        ●CUBE
+        ●GROUPING SETS
+    2 mysql使用示例 （详见ROLLUP多种统计.jpg）
+        select coalesce(channel_id,'总金额'),channel_id, sum(id) from dc_product.channel_category group by channel_id
+        with rollup
+    3:
 
 
 特殊sql：
