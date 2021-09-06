@@ -1,0 +1,14 @@
+PushZilong() 
+
+
+"美团订单推送子龙接口(/ordercenter/ordersMaster/create)请求参数(1)" and "4100001178565138"
+
+
+这种单子都有问题：（后面证实是正常的单子，运费是美团的）
+
+select * from dc_order.order_promotion where order_sn='4100001177208655';
+
+
+
+select * from dc_order.order_main where channel_id =2 and order_status=30 
+and logistics_code in (2002,1001,1004,2010,3001)  and shop_id in (select code from dc_dispatch.warehouse where category=3 and status =1)  order by create_time desc ;

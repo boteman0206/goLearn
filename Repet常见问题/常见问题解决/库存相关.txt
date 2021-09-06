@@ -1,0 +1,18 @@
+
+inventory-center库存中心
+
+全渠道：(前置仓和前置虚拟仓) 商品信息,每天凌晨3点拉取全渠道的商品信息  
+	task.AddFunc("0 0 3 * * ? ", services.SyncA8VirtualGoodsQtyForQZC) // 每天凌晨3点拉取一次库存
+	
+	mq信息消费：
+		dc_sz_stock_mq_has_stock 在product-center商品中心消费
+	
+	
+	
+	
+门店：子龙推送的门店库存  
+	task.AddFunc("0/2 * * * * ?", services.ToProvideSyncStock)         // 每2秒分钟同步一次库存
+
+oms：电商相关的库存， go SubscribeRabbitMQ("dc_sz_stock_update", "ordercenter") // 实时
+
+

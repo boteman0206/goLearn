@@ -1,0 +1,78 @@
+
+1： 先更具仓库名称查询到对应的仓库信息获取仓库的id
+	select * from dc_dispatch.warehouse where name regexp '万象新天家园店';
+2： 按照商品的货号查询对应的sku_id  
+	 select  * from dc_product.sku_third where third_sku_id in ('ZPWP271','SPGZ093','IC-82C','SPQLSBLMG004');
+
+3： 查询所有的库存信息
+	select * from dc_order.warehouse_goods where goodsid in ('1001250001','1016836001','1020150001','1008143001')
+                                         and warehouse_id=34 group by goodsid;
+
+4：查询是否有锁库的信息
+	select * from dc_order.order_freeze_stock where sku_id in ('1001250001','1016836001','1020150001','1008143001') 
+                                            and warehouse_id=34 group by sku_id;
+
+5：查询仓库关联的门店信息
+	示例只是针对前置仓： select a.id, a.name, a.address, a.code, c.finance_code,c.name from dc_dispatch.warehouse a
+                join dc_dispatch.warehouse_relationship b on a.id = b.warehouse_id
+                join datacenter.store c on c.finance_code=b.shop_id
+where a.id = 34;
+
+6： 查看库存是否已经拉取下来
+http://kibana.petrvet.com/app/kibana#/discover?_g=(refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(columns:!(_source),index:'0723ac30-b2c2-11eb-92a7-fb236700f874',interval:auto,query:(language:kuery,query:'%22%E8%8E%B7%E5%8F%96%E5%BA%93%E5%AD%98%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%22%20%20and%20%22QZCNBGLD%22'),sort:!(!(Createdatetime,desc)))
+查询es日志信息： "获取库存请求参数"  and "QZCNBGLD"        后面的"QZCNBGLD"是仓库的code
+使用商品的A8获取去搜索看是否拉取过库存信息  NPBBLKY002
+
+
+
+7： 通过接口查询实际的库存信息（只有确认上一步拉取到了库存信息才能查询到库存，否则为0）
+查询库存是先去查询redis的数据信息，如果redis中没有采取查询表 dc_order.warehouse_goods的库存
+39.108.77.213:11007
+调用： invetorycenter.proto的GetStockInfo方法
+参数：
+{
+  "source": 2,
+  "is_need_pull": 0,
+  "ProductsInfo": [
+    {
+      "type": 2,
+      "sku_id": 105290,
+      "is_all_virtual": 0,
+      "child_ren": [
+      ],
+      "stock": 0,
+      "finance_code": [
+        "RP0561"
+      ]
+    }
+  ],
+  "stockwarehouse": [
+  ]
+}
+
+8： 查询redis中的库存信息 （这一步其实不需要管只是确认的一个手段，确认redis里面是否有）
+	有一个键值： stock:skui_id 
+
+
+9： 后续一些步骤根据财务编码查询前置仓的和前置虚拟仓的仓库id
+  select * from (
+select CASE w.category
+                      WHEN 3 THEN w.`code`
+                      ELSE wr.shop_id END code,
+                    w.id,
+                    w.name,
+                    w.category,
+                    w.status
+             from dc_dispatch.warehouse w
+                    left join dc_dispatch.warehouse_relationship wr on w.id = wr.warehouse_id
+             where w.status = 1) a where code = 'CX0221';
+
+
+10： 如果查询到对应的仓库没有拉取下来过的话，就重新拉取对应仓库的数商品数据
+
+RunStockByManual方法
+参数：
+{
+  "code": 0,
+  "message": "1722"  // 对应的仓库的id
+}

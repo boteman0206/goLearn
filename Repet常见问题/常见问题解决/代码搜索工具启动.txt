@@ -1,0 +1,13 @@
+docker run --publish 7080:7080 --publish 127.0.0.1:3370:3370  sourcegraph/server:3.31.1
+
+
+配置gitlab的参数
+{
+  "url": "http://git.rpdns.com",
+  "token": "2A_stxuKxUo3SS4EACcp",
+  "projectQuery": [
+    "projects?membership=true&archived=no"
+  ]
+}
+
+http://localhost:7080/site-admin
