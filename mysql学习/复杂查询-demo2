@@ -1,0 +1,29 @@
+
+
+视图：  从SQL 的角度来看视图就是一张表，那么视图和表到底有什么不同呢？区别只有一个，那就是“是否保存了实际的数据”
+    1： 创建视图 用 CREATE VIEW 语句，
+        CREATE VIEW 视图名称(<视图列名1>, <视图列名2>, ……)
+        AS
+        <SELECT语句>      create view demoSum (product_type, sum) as select product_type, sum(sale_price) from demo1 group by product_type
+    2： 尽量避免在视图的基础上创建视图。这是因为对多数 DBMS 来说，多重视图会降低 SQL 的性能
+    3： 定义视图时不能使用ORDER BY子句
+    4： 删除视图 DROP VIEW ProductSum;  在PostgreSQL中，如果删除以视图为基础创建出来的多重视图，由于存在关联的视图，因此会发生如下错误。DROP VIEW ProductSum CASCADE;
+
+
+
+子查询： 子查询就是一次性视图（SELECT语句）。与视图不同，子查询在SELECT语句执行完毕之后就会消失
+
+标量子查询：是必须而且只能返回 1 行 1列的结果，也就是返回表中某一行的某一列的值
+     SELECT product_id, product_name, sale_price
+             FROM Product
+             WHERE sale_price > (SELECT AVG(sale_price)
+             FROM Product);   // 后面的avg()返回的就是一个标量的子查询
+
+
+关联子查询：
+     SELECT product_type, product_name, sale_price
+      FROM Product AS P1 ①
+      WHERE sale_price > (SELECT AVG(sale_price)
+      FROM Product AS P2 ②
+      WHERE P1.product_type = P2.product_type    // where条件是关联查询的关键
+      GROUP BY product_type);
