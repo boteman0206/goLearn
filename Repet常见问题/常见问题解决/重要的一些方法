@@ -1,0 +1,24 @@
+
+
+
+inventory-center
+    1：  // 释放库存
+         icClient := ic.GetInventoryServiceClient()
+      	 r, err := icClient.RPC.FreedStock(icClient.Ctx, &params)
+    2：  //锁定库存
+         client := ic.GetInventoryServiceClient()
+         res, err := client.RPC.FreezeStock(client.Ctx, freezeParams)
+
+order-center
+    1：//MtSubmitOrder 阿闻，美团，饿了么，京东到家，电商订单入口
+      func (s CartService) MtSubmitOrder(ctx context.Context, params *oc.MtAddOrderRequest) (*oc.MtAddOrderResponse, error) {}
+    2：//处理小程序订单支付通知
+      //1:更新处理次数及主订单支付状态
+      //2:拆单，拆单成功；如果是电商单推电商
+      //3:发配送
+      func DealOrderPayNotify(in *models.OrderPayNotify) {}
+
+    3：//手动触发跑redis数据 redis仓库和门店的对应数据 warehouse:store:relation
+      func (t StockService) RunWarehouseRedisByManual(ctx context.Context, in *ic.OmsSyncSotckResponse) (*ic.OmsSyncSotckResponse, error){}
+
+    4：
