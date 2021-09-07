@@ -1,6 +1,13 @@
 
 
 
+
+商品的product_type字段：商品类别（1-实物商品，2-虚拟商品，3-组合商品）
+商品的group_type字段： 组合类型(1:实实组合,2:虚虚组合,3.虚实组合)只有是组合商品才有值
+
+
+
+
 inventory-center
     1：  // 释放库存
          icClient := ic.GetInventoryServiceClient()

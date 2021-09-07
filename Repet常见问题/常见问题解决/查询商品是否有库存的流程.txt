@@ -29,20 +29,48 @@ http://kibana.petrvet.com/app/kibana#/discover?_g=(refreshInterval:(pause:!t,val
 查询库存是先去查询redis的数据信息，如果redis中没有采取查询表 dc_order.warehouse_goods的库存
 39.108.77.213:11007
 调用： invetorycenter.proto的GetStockInfo方法
-参数：
+参数：对应查询前置仓实物商品的数据
 {
-  "source": 2,
-  "is_need_pull": 0,
+  "source": 2,  // 来源：1电商，2本地生活
+  "is_need_pull": 0,  //是否需要拉取子龙库存，只针对子龙使用
   "ProductsInfo": [
     {
-      "type": 2,
+      "type": 2,  //是否组合：1：组合，2：非组合
       "sku_id": 105290,
-      "is_all_virtual": 0,
+      "is_all_virtual": 0,    //是否全部虚拟商品 0:否 1:是
       "child_ren": [
       ],
       "stock": 0,
       "finance_code": [
         "RP0561"
+      ]
+    }
+  ],
+  "stockwarehouse": [
+  ]
+}
+参数： 对应查询前置仓的组合商品的查询
+{
+  "source": 2,
+  "is_need_pull": 0,
+  "ProductsInfo": [
+    {
+      "type": 1,
+      "sku_id": 1041416099,
+      "is_all_virtual": 0,
+      "child_ren": [
+                {
+                  "sku_id":109376,
+                  "rule_num":1  // 组合商品的数量
+              },
+              {
+                "sku_id":1000112001,
+                "rule_num":2
+              }
+      ],
+      "stock": 0,
+      "finance_code": [
+          "CX0256"
       ]
     }
   ],
