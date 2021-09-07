@@ -70,6 +70,7 @@ package mysql学习
 		 GROUP BY income
 		HAVING COUNT(*) >= ALL ( SELECT COUNT(*)
 		 FROM Graduates GROUP BY income);
-
+	5.3： 用 HAVING 子句进行自连接 ：求中位数
+		-- 求中位数的 SQL 语句 ：在 HAVING 子句中使用非等值自连接
 
 */
