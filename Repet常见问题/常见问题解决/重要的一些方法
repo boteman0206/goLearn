@@ -4,6 +4,8 @@
 
 商品的product_type字段：商品类别（1-实物商品，2-虚拟商品，3-组合商品）
 商品的group_type字段： 组合类型(1:实实组合,2:虚虚组合,3.虚实组合)只有是组合商品才有值
+渠道的channel_id: 渠道id（datacenter.platform_channel表）,1阿闻到家,2美团,3饿了么,4京东到家,5阿闻电商,6门店
+订单的来源：user_agent 渠道来源,1-Android,2-iOS,3-小程序,4-公众号,5-Web,6-其它
 
 
 
@@ -18,14 +20,36 @@ inventory-center
 
 order-center
     1：//MtSubmitOrder 阿闻，美团，饿了么，京东到家，电商订单入口
+        1.1：阿闻和电商的支付通知会存到表 dc_order.order_pay_notify中
+        1.2: 美团的数据会存到 dc_order.order_mt_data中，然后定时任务启动执行
+
       func (s CartService) MtSubmitOrder(ctx context.Context, params *oc.MtAddOrderRequest) (*oc.MtAddOrderResponse, error) {}
+
     2：//处理小程序订单支付通知
       //1:更新处理次数及主订单支付状态
-      //2:拆单，拆单成功；如果是电商单推电商
+      //2:拆单，拆单成功；如果是电商单推电商（todo注意：拆单只是针对电商其他的渠道都不会拆单）
       //3:发配送
       func DealOrderPayNotify(in *models.OrderPayNotify) {}
+
+
 
     3：//手动触发跑redis数据 redis仓库和门店的对应数据 warehouse:store:relation
       func (t StockService) RunWarehouseRedisByManual(ctx context.Context, in *ic.OmsSyncSotckResponse) (*ic.OmsSyncSotckResponse, error){}
 
-    4：
+
+    4: 定时任务处理美团订单
+       //MtSubmitOrderData
+       //美团订单数据 落地 将美团订单插入数据库 之后使用异步任务调用MtSubmitOrder方法完成订单数据的真正写入
+       func (s CartService) MtSubmitOrderData(ctx context.Context, params *oc.MtAddOrderRequest) (*oc.MtAddOrderResponse, error)
+
+product-api
+    1: 前端查询购物车的数量接口 POST /product-api/product/stock_new HTTP/1.1
+
+
+
+
+grpc写入数据的方法：
+    grpcContext := models.GrpcContext{Channel: models.PlatformChannel{ChannelId: 2, UserAgent: 6}}
+    ctx := metadata.AppendToOutgoingContext(kit.SetTimeoutCtx(context.Background()), "grpc_context", kit.JsonEncode(grpcContext))
+grpc数据取出：
+    grpcContext := s.LoadGrpcContext(ctx)
