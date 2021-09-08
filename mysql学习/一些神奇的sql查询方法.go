@@ -72,5 +72,13 @@ package mysql学习
 		 FROM Graduates GROUP BY income);
 	5.3： 用 HAVING 子句进行自连接 ：求中位数
 		-- 求中位数的 SQL 语句 ：在 HAVING 子句中使用非等值自连接
+			（比较难理解：大意就是先交叉链接然后通过t2表中的income和t1表的income作比较，取出个数>=总数一半的那个值，如果是奇数会取出一个，如果是偶数取出一个然后取中位数）
+		SELECT AVG(DISTINCT income)
+			 FROM (
+				 SELECT T1.income
+					 FROM Graduates T1, Graduates T2
+				 GROUP BY T1.income HAVING SUM(CASE WHEN T2.income >= T1.income THEN 1 ELSE 0 END)  >= COUNT(*) / 2
+				 AND SUM(CASE WHEN T2.income <= T1.income THEN 1 ELSE 0 END) >= COUNT(*) / 2
+				  ) TMP;
 
 */
