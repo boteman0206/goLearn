@@ -20,7 +20,7 @@
         select if(8>10, 'a', 'b');  // b
 
     CASE表达式的语法
-        CASE表达式的语法分为简单CASE表达式:
+        1：CASE表达式的语法分为简单CASE表达式:
             CASE <表达式>
              WHEN <表达式> THEN <表达式>
              WHEN <表达式> THEN <表达式>
@@ -31,14 +31,29 @@
 
             select case 1 when 1>2 then 1 else 8 end as num;
 
-        搜索CASE表达式:
+        2：搜索CASE表达式:
                 CASE WHEN <求值表达式> THEN <表达式>
                     WHEN <求值表达式> THEN <表达式>
                     WHEN <求值表达式> THEN <表达式>
                     . . .
                     ELSE <表达式>
                    END
-        虽然CASE表达式中的ELSE子句可以省略，但还是希望大家不要省略。
+         虽然CASE表达式中的ELSE子句可以省略，但还是希望大家不要省略。
+        3：聚合函数对不同条件进行统计
+            SELECT pref_name,
+             -- 男性人口
+             SUM( CASE WHEN sex = '1' THEN population ELSE 0 END) AS cnt_m,
+             -- 女性人口
+             SUM( CASE WHEN sex = '2' THEN population ELSE 0 END) AS cnt_f
+             FROM PopTbl2
+             GROUP BY pref_name;
+        4：在update中使用case （可以用来调换两列值）
+            -- 用 CASE 表达式写正确的更新操作
+            UPDATE Salaries
+             SET salary = CASE WHEN salary >= 300000
+             THEN salary * 0.9
+             WHEN salary >= 250000 AND salary < 280000
+             THEN salary * 1.2  ELSE salary END;
 
 
 
