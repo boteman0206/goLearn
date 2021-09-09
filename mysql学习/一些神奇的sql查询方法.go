@@ -80,5 +80,7 @@ package mysql学习
 				 GROUP BY T1.income HAVING SUM(CASE WHEN T2.income >= T1.income THEN 1 ELSE 0 END)  >= COUNT(*) / 2
 				 AND SUM(CASE WHEN T2.income <= T1.income THEN 1 ELSE 0 END) >= COUNT(*) / 2
 				  ) TMP;
+	5.4: 用外连接进行行列转换
+
 
 */
