@@ -29,6 +29,13 @@ http://kibana.petrvet.com/app/kibana#/discover?_g=(refreshInterval:(pause:!t,val
 使用商品的A8获取去搜索看是否拉取过库存信息  NPBBLKY002
 
 
+6: oms的库存
+     // 查询推送的表
+    select * from mq_info where quene='dc_sz_stock_update' and lastdate>'2021-09-09' and content like '%JXYQC01%' and content like '%1019689001%' order by lastdate desc
+    // 查询日志
+    "oms同步库存信息回调" and "JXYQC01" and "20XCXTC04"
+
+
 
 7： 通过接口查询实际的库存信息（只有确认上一步拉取到了库存信息才能查询到库存，否则为0）
 查询库存是先去查询redis的数据信息，如果redis中没有采取查询表 dc_order.warehouse_goods的库存
