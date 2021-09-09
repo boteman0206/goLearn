@@ -61,7 +61,7 @@ package mysql学习
 	当in()中存在子查询、格式化函数等同样也会使索引失效！
 
 
-explain关键字：
+explain关键字： https://zhuanlan.zhihu.com/p/114182767
 	id:选择标识符 SELECT识别符。
 		这是SELECT的查询序列号  我的理解是SQL执行的顺序的标识，SQL从大到小的执行
 			1. id相同时，执行顺序由上至下
