@@ -8,8 +8,8 @@ https://cloud.tencent.com/developer/article/1491329
 https://tech.meituan.com/2014/06/30/mysql-index.html
 https://www.gxlcms.com/mysql-463427.html
 
-https://zhuanlan.zhihu.com/p/352436463
-
+https://zhuanlan.zhihu.com/p/352436463  全面了解MySQL的执行原理
+https://zhuanlan.zhihu.com/p/142491549  MySQL 的 crash-safe 原理解析
 
 一：mysql的分层：
 	1：通过对mysql的两张图： mysql架构图.jpg和mysql的执行图.jpg我们知道 简单来说，MySQL主要分为 Server层 和 存储引擎层：
