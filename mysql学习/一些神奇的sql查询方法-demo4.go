@@ -83,4 +83,118 @@ package mysql学习
 	5.4: 用外连接进行行列转换
 
 
+
+
+存储过程：
+	1:变量名 所有MySQL变量都必须以@开始。
+	2：COMMENT关键字 本例子中的存储过程在CREATE PROCEDURE语句中包含了一个COMMENT值。它不是必需的，但如果给出，将在SHOW PROCEDURE STATUS的结果中显示。
+
+	3：无参数的
+	create procedure productpring()  -- 创建存储过程
+	  begin
+		select max(emp_no) from employees;
+	  end;
+
+
+	call productpring();  -- 执行存储过程
+	drop procedure if exists productpring; -- 删除存储过程
+
+	4：有参数的
+		MySQL支持IN（传递给存储过程）、OUT（从存储过程传出，如这里所用）和INOUT（对存储过程传入和传出）类型的参数
+		-- 有参数的存储过程创建
+		2.1:
+			create procedure productpricing(
+			  out p1_min decimal(8,2),
+			  out p2_max decimal(8,2),
+			  out p3_avg decimal(8,2)
+			)
+			  begin
+				select min(emp_no) into p1_min from employees;
+				select max(emp_no) into p2_max from employees;
+				select avg(emp_no) into p3_avg from employees;
+			  end;
+
+
+		call productpricing(@a, @b, @c); -- 调用
+		select @a, @b, @c;
+
+		2.2: 混合参数这次使用IN和OUT参数
+			create procedure  ordertotal(
+				  in in_data int,
+				  out out_data decimal(10,3)
+				)
+				  begin
+					select sum(emp_no) + in_data  from employees into out_data;
+				  end;
+
+				call ordertotal(12, @p_data);
+				select @p_data;
+
+	5：弯针版本的total
+		drop procedure if exists ordertotalmain;
+		create procedure ordertotalmain(
+		  in onnumber int,
+		  in taxable boolean,
+		out ototal decimal(8,2)
+		) comment '这是一个完整的存储过程示例'
+		  begin
+			  -- 申明一个变量 total
+			declare total decimal(8,2);
+			-- 申明一个int默认值
+			declare tax int default 6;
+
+			-- 查询获取total
+			select sum(emp_no) from employees where emp_no=onnumber into total;
+
+			-- is this true or false
+			if taxable then
+			  -- yes
+			  select total + (total/100*tax) into total;
+			end if;
+			  -- and finally save to out
+			  select total into ototal;
+		  end;
+
+		call ordertotalmain(10001, true , @total);
+		select @total;
+
+	6：检查存储过程：
+		show create procedure ordertotal;
+		SHOW PROCEDURE STATUS like '%ordertotal%';
+
+
+游标：
+	1： 只能用于存储过程 不像多数DBMS，MySQL游标只能用于存储过程（和函数）。
+
+	2：使用示例# 使用游标 mysql的游标只能在存储过程中使用
+		# 使用游标 mysql的游标只能在存储过程中使用
+		create procedure processorders(out num int)
+		  begin
+
+			declare done boolean default 0;
+			declare ordernumbers cursor for
+			  select emp_no from employees;
+
+			declare continue handler for sqlstate '02000' set done =1 ;  ---改变结束条件
+
+			open ordernumbers;  -- 开启游标
+			  repeat  -- 开启循环
+				fetch ordernumbers into num;
+
+			  until done  end repeat;  -- 结束循环
+			close ordernumbers;  -- 关闭游标
+
+		  end;
+
+
+		call processorders(@fetch);
+
+		select @fetch;
+
+
+
+触发器：
+	需要在某个表发生更改时自动处理。这确切地说就是触发器。触发器是MySQL响应以下任意语句而自动执行的一条MySQL语句（或位于BEGIN和END语句之间的一组语句）： DELETE；  INSERT；  UPDATE。
+	1：创建触发器
+
 */
