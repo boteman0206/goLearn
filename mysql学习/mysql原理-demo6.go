@@ -98,4 +98,8 @@ https://zhuanlan.zhihu.com/p/142491549  MySQL 的 crash-safe 原理解析
 		就是在开始读取数据（事务开启）时，不再允许修改操作。重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。
 		但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。
 	SERIALIZABLE(串行化)：只有一个事务提交之后才会执行另一个事务。
+
+
+
+ 美团技术博客索引原理很重要： https://tech.meituan.com/2014/06/30/mysql-index.html
 */
