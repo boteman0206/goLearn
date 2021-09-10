@@ -195,6 +195,22 @@ package mysql学习
 
 触发器：
 	需要在某个表发生更改时自动处理。这确切地说就是触发器。触发器是MySQL响应以下任意语句而自动执行的一条MySQL语句（或位于BEGIN和END语句之间的一组语句）： DELETE；  INSERT；  UPDATE。
-	1：创建触发器
+	1：创建触发器 保持每个数据库的触发器名唯一 用CREATE TRIGGER语句创建
+		CREATE TRIGGER newproduct AFTER INSERT ON products FOR EACH ROW SELECT NEW.name INTO @asd;  // 注意点： mysql trigger的返回值必须使用变量接受，不能直接返回，否则会报错。
+		insert into products values("tes1t", 19, 8);
+		select @asd;
+	2: 在INSERT触发器代码内，可引用一个名为NEW的虚拟表，访问被插入的行；
 
+	3： 仅支持表 只有表才支持触发器，视图不支持（临时表也不支持）。
+
+	4： 每个表最多支持6个触发器（每条INSERT、UPDATE和DELETE的之前和之后）。单一触发器不能与多个事件或多个表关联，所以，如果你需要一个对INSERT和UPDATE操作执行的触发器，则应该定义两个触发器。
+
+	5：触发器失败 如果BEFORE触发器失败，则MySQL将不执行请求的操作。此外，如果BEFORE触发器或语句本身失败，MySQL将不执行AFTER触发器（如果有的话）
+	6：删除触发器  drop trigger newproduct;
+
+	7： 多语句触发器使用begin 。。。 end
+		CREATE TRIGGER deleteorder BEFORE DELETE ON orders FOR EACH ROW
+		  BEGIN
+			INSERT INTO archive_orders (order_num, order_date, cust_id)VALUES(OLD.order num, OLD.order date, OLD.cust_id);
+		  END;
 */
