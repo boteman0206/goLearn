@@ -30,4 +30,9 @@ func main() {
 	mapWarehouseGoodsStocks[v.Goodsid] = mapWarehouseGoodsStocks[v.Goodsid] + int32(v.Stock)
 
 	fmt.Println("mapWarehouseGoodsStocks :", mapWarehouseGoodsStocks)
+
+	a := make([]int, 1, 10)
+	//stringsMap := make(map[int]string)
+
+	fmt.Println(a)
 }
