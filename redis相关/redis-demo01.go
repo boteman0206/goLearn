@@ -27,7 +27,7 @@ package redis相关
 			zadd key score member(添加元素到集合，元素在集合中存在则更新对应score) ： zadd redis.net.cn 0 redis,  zadd redis.net.cn 0 mongodb
             ZRANGEBYSCORE redis.net.cn 0 1000
 
-
+		2.6： Redis 在 2.8.9 版本添加了 HyperLogLog 结构。
 
 	3: 比较常用的mysql的命令： https://www.redis.net.cn/tutorial/3507.html
 		3.1： Redis 键相关的基本命令：
