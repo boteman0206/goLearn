@@ -39,7 +39,7 @@ package redis相关
 5：恢复数据
 	如果需要恢复数据，只需将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可。获取 redis 目录可以使用 CONFIG 命令，如下 CONFIG GET dir
 
-5：设置redis的密码：
+6：设置redis的密码：
 	我们可以通过 redis 的配置文件设置密码参数，这样客户端连接到 redis 服务就需要密码验证，这样可以让你的 redis 服务更安全。
 	CONFIG get requirepass：默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。
     CONFIG set requirepass "w3cschool.cc"   设置密码后，客户端连接 redis 服务就需要密码验证，否则无法执行命令。
