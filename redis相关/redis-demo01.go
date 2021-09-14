@@ -37,6 +37,14 @@ package redis相关
              3.1.3： EXISTS key 检查给定 key 是否存在。 若 key 存在返回 1 ，否则返回 0 。
              3.1.4： EXPIRE key seconds 为给定 key 设置过期时间。
              3.1.5： TYPE key 返回 key 所储存的值的类型。
+             3.1.6: SELECT index 切换到指定的数据库
+             系统命令：
+				1: 获取 redis 服务器的统计信息： info 可以显示redis的详细信息
+				2: 获取redis的服务器时间：time 第一个字符串是当前时间(以 UNIX 时间戳格式表示)，而第二个字符串是当前这一秒钟已经逝去的微秒
+				3: 返回当前数据库的key数量：dbsize
+				4: CONFIG GET parameter 获取指定配置参数的值  示例：config get port  CONFIG GET dir
+				5: FLUSHALL 删除所有数据库的所有key
+				6: FLUSHDB 删除当前数据库的所有key
 
 		3.2： 字符常用命令：
 			3.2.1：GETRANGE key start end 返回 key 中字符串值的子字符 -- 字符串截取
