@@ -35,4 +35,15 @@ func main() {
 	//stringsMap := make(map[int]string)
 
 	fmt.Println(a)
+
+	sprintf := fmt.Sprintf("2,%s", "th090RJ")
+	fmt.Println(sprintf)
+
+	patternkeys := fmt.Sprintf("warehouse:%d:*", 5)
+	fmt.Println(patternkeys)
+
+	s := "asascs"
+	d := "warehouse:" + s
+	fmt.Println(d)
+
 }
