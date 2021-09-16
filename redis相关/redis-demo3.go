@@ -29,4 +29,17 @@ package redis相关
 		1： 随着时间的推移，Redis执行的写命令会越来越多，AOF文件也会越来越大，过大的AOF文件可能会对Redis服务器造成影响，如果使用AOF文件来进行数据还原所需时间也会越长
 		2：AOF重写的目的就是减小AOF文件的体积，不过值得注意的是：AOF文件重写并不需要对现有的AOF文件进行任何读取、分享和写入操作，而是通过读取服务器当前的数据库状态来实现的
 		3：文件重写可分为手动触发和自动触发，手动触发执行bgrewriteaof命令，该命令的执行跟bgsave触发快照时类似的，都是先fork一个子进程做具体的工作
+
+
+redis的分布式锁：
+	https://mp.weixin.qq.com/s/8fdBKAyHZrfHmSajXT_dnA
+
+
+redis的集群模式： // https://segmentfault.com/a/1190000022808576
+	Redis 支持三种集群方案
+		1：主从复制
+		2：哨兵模式（sentinel）
+		3： cluster集群模式(类似于直连)
+			Redis 的哨兵模式基本已经可以实现高可用，读写分离 ，但是在这种模式下每台 Redis 服务器都存储相同的数据，很浪费内存，所以在 redis3.0上加入了 Cluster 集群模式，实现了 Redis 的分布式存储，也就是说每台 Redis 节点上存储不同的内容。
+
 */
