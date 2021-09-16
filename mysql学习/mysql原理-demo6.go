@@ -102,4 +102,9 @@ https://zhuanlan.zhihu.com/p/142491549  MySQL 的 crash-safe 原理解析
 
 
  美团技术博客索引原理很重要： https://tech.meituan.com/2014/06/30/mysql-index.html
+
+
+redis的分布式锁：
+	https://mp.weixin.qq.com/s/8fdBKAyHZrfHmSajXT_dnA
+
 */
