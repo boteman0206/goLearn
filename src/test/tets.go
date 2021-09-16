@@ -46,4 +46,12 @@ func main() {
 	d := "warehouse:" + s
 	fmt.Println(d)
 
+	unix := time.Now().Add(-1 * time.Minute * 5).Unix() // 1631758204
+	fmt.Println(unix)
+	i := time.Now().Unix() // 1631758504
+	fmt.Println(i)
+
+	timeDuration := time.Duration(-1*15) * time.Minute
+
+	fmt.Println(timeDuration)
 }
