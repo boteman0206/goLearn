@@ -105,7 +105,7 @@ select CASE w.category
                     w.status
              from dc_dispatch.warehouse w
                     left join dc_dispatch.warehouse_relationship wr on w.id = wr.warehouse_id
-             where w.status = 1) a where code = 'RP0665';
+             where w.status = 1) a where code = 'RP0491';
 
 
 10： 如果查询到对应的仓库没有拉取下来过的话，就重新拉取对应仓库的数商品数据
