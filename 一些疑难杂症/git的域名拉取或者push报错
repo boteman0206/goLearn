@@ -1,0 +1,12 @@
+
+/**
+    报错详情：
+    Auto fetch failed in external
+    		external: ssh: Could not resolve hostname git.rpdns.com: Name or service not known
+    		Could not read from remote repository.
+*/
+
+
+解决方式：
+在gitbash中   cat /etc/hosts
+在文件中添加 一行对应的域名：  xx.x.x.xxx      git.rpdns.com

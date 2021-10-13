@@ -23,4 +23,6 @@ func main() {
 	//stringE, err := cast.ToStringMapStringE(sname)
 	//fmt.Println(stringE, err)
 
+	s := cast.ToString(18219831)
+	fmt.Println(s)
 }

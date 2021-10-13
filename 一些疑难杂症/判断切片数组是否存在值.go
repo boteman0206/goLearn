@@ -29,4 +29,5 @@ func main() {
 	b, e := Contain("世界", []string{"name", "世界", "中国"})
 
 	fmt.Println(" b: ", b, " e: ", e)
+
 }
