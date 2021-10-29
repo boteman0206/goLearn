@@ -116,3 +116,8 @@ RunStockByManual方法
   "code": 0,
   "message": "1722"  // 对应的仓库的id
 }
+
+
+
+11： 竖屏总是报库存不够的看他们查询的对不对，竖屏前端的查询接口统一在product_api，前面没有加上日志
+"查询库存的参数：" and "ML0024"  and "inventory-center"  可以通过这个查询看他是那个仓库的
