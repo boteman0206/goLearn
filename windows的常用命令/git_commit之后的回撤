@@ -1,0 +1,17 @@
+
+
+
+今天在使用git回退功能的时候，遇到以下错误：
+
+git reset --soft HEAD^：
+
+fatal: ambiguous argument 'HEAD^': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git [...] -- [...]'
+
+查了下原因可能有两种：
+
+因为cmd控制台中换行符默认是^，而不是\ ，所以^符号被git编译为换行符了，解决方案：
+git reset --soft "HEAD^"
+git reset --soft HEAD~[return times]
+该仓库到目前为止只有commit过一次代码，故已经是head版本，也会报这样的错，无需关心直接commit或者rm即可
