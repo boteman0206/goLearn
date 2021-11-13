@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"godemo/src/每日一库练习/rabbitMq的封装/simple和work工作模式mq集合"
+	"godemo/rabbitMq的封装/simple和work工作模式mq集合"
 	"time"
 )
 

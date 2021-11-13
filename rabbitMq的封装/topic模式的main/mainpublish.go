@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"godemo/src/每日一库练习/rabbitMq的封装/topic模式mq"
+	"godemo/rabbitMq的封装/topic模式mq"
 	"strconv"
 	"time"
 )

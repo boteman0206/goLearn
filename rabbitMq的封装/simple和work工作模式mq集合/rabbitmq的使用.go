@@ -24,7 +24,7 @@ func (r *RabbitMQ) PublishSimple(message string) {
 		false,
 		//是否自动删除
 		false,
-		//是否具有排他性
+		//是否具有排他性  true可以有多个消费者
 		false,
 		//是否阻塞处理
 		false,
