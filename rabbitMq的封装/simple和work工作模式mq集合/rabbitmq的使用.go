@@ -21,7 +21,7 @@ func (r *RabbitMQ) PublishSimple(message string) {
 	_, err := r.channel.QueueDeclare(
 		r.QueueName,
 		//是否持久化
-		false,
+		true,
 		//是否自动删除
 		false,
 		//是否具有排他性  true可以有多个消费者
@@ -34,6 +34,7 @@ func (r *RabbitMQ) PublishSimple(message string) {
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	//调用channel 发送消息到队列中
 	r.channel.Publish(
 		r.Exchange,

@@ -60,10 +60,12 @@ func NewRabbitMQSimple(queueName string) *RabbitMQ {
 //simple 模式下消费者
 func (r *RabbitMQ) ConsumeSimple(consumerName string) {
 	//1.申请队列，如果队列不存在会自动创建，存在则跳过创建
+	//r.channel.Qos(1)
+
 	q, err := r.channel.QueueDeclare(
 		r.QueueName,
 		//是否持久化
-		false,
+		true,
 		//是否自动删除
 		false,
 		//是否具有排他性
@@ -82,8 +84,8 @@ func (r *RabbitMQ) ConsumeSimple(consumerName string) {
 		q.Name, // queue
 		//用来区分多个消费者
 		"", // consumer
-		//是否自动应答
-		true, // auto-ack
+		//是否自动应答   false为手动应答
+		false, // auto-ack
 		//是否独有
 		false, // exclusive
 		//设置为true，表示 不能将同一个Conenction中生产者发送的消息传递给这个Connection中 的消费者
@@ -100,6 +102,7 @@ func (r *RabbitMQ) ConsumeSimple(consumerName string) {
 	//启用协程处理消息
 	go func() {
 		for d := range msgs {
+			d.Ack(false) // 设置手动应答
 			//消息逻辑处理，可以自行设计逻辑
 			log.Printf("Received a message: %s  %s", d.Body, consumerName)
 
