@@ -1,5 +1,5 @@
 
-
+osi参考模型：
 1： 应用层
    典型的应用层服务： 文件传输FTP
                    电子邮件 SMTP
@@ -45,4 +45,24 @@
     功能四：比特同步
     功能五： 比特编码
     常用协议： Rj45, 802.3
+
+
+
+tcp/ip参考模型        TCP/IP协议栈
+1：应用层             HTTP/FTP/DNS
+
+2：传输层             TCP/ UDP
+
+3：网际层             IP
+
+4：网络接口层         Ethernet/ ATM/ Frame Relay
+
+
+通用五层参考模型
+1： 应用层    FTP SMTP  HTTP
+2： 传输层    TCP   UDP
+3： 网络层     IP
+4： 数据链路层  Ethernet   PPP
+5： 物理层     比特传输
+
 
