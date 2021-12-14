@@ -170,4 +170,12 @@ func main() {
 		fmt.Printf("%s %d\n", product.Name, product.Code)
 	}
 
+	str := "你n好 你好啊"
+	//var strSlice []string
+	r := linq.FromString(str).Distinct().Count()
+	contains := linq.FromString(str).Contains("n") // todo 注意这种contains无效，不能这么使用
+	fmt.Println("strSlice : ", r, contains)
+	b := strings.Contains(str, "n")
+	fmt.Println(b)
+
 }
