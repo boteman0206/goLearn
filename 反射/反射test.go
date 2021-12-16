@@ -34,8 +34,6 @@ func main() {
 	kind := ofType.Kind()
 	fmt.Println("kind :", kind) // 查看kind的类型
 
-	//ofValue := reflect.ValueOf(data)
-
 	if kind == reflect.Ptr { // todo 如果是指针类型在使用下面的ofType.NumField() 时候要用值，不能用指针
 
 		ofType = ofType.Elem()
@@ -60,6 +58,41 @@ func main() {
 	for i := 0; i < method; i++ {
 		methodName := ofType1.Method(i)
 		fmt.Println(methodName.Name)
+
+		set := methodName.Func.CanSet()
+		fmt.Println(set)
 	}
+
+	// reflect type 貌似是只能看，修改的话只能用 reflect value来改属性的值
+
+	ofValue := reflect.ValueOf(data)
+	if kind == reflect.Ptr { // todo 如果是指针类型在使用下面的ofType.NumField() 时候要用值，不能用指针
+
+		ofValue = ofValue.Elem()
+		//修改完之后的type
+		i := ofValue.Kind()
+		fmt.Println("修改完之后的value : ", i.String(), " 是否等于true ：", i == reflect.Struct)
+	}
+	numField := ofValue.NumField()
+
+	valuePtr := reflect.ValueOf(data).Elem() // todo 使用地址才能修改属性值
+	for i := 0; i < numField; i++ {
+
+		set := valuePtr.Field(i).CanSet()
+		fmt.Println("是否能修改：", set)
+		fieldType := valuePtr.Field(i).Kind()
+		fmt.Println("查询属性的类型：", fieldType)
+		fmt.Println("找到对应的字段的名称：", valuePtr.Type().Field(i).Name)
+		// todo 这里就可以通过字段来修改值了
+
+		if fieldType == reflect.String {
+			valuePtr.Field(i).SetString("修改之后的值")
+		}
+		if fieldType == reflect.Int {
+			valuePtr.Field(i).SetInt(900)
+		}
+	}
+
+	fmt.Println(data)
 
 }
