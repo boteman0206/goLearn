@@ -3,12 +3,17 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"sync"
 )
 
 func testInterface(v interface{}) {
 	of := reflect.ValueOf(v)
+
+	of.Type()
+
 	i := of.Interface()
 	fmt.Println("i 的类型 ： ", i)
+	fmt.Println(fmt.Sprintf("i的类型%T", i))
 	fmt.Println(of.Kind())
 
 	switch of.Type().Kind() {
@@ -21,6 +26,10 @@ func testInterface(v interface{}) {
 		fmt.Println("===", "interesting int ")
 	}
 
+	once := sync.Once{}
+	once.Do(func() {
+		fmt.Println("hello world!")
+	})
 }
 
 func main() {
