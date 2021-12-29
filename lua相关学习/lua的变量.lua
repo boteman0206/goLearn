@@ -10,5 +10,74 @@ print('-------------lua的变量--------')
 
 --[[
 	lua的变量有三种： 全局变量，局部变量，表中的域
-	lua中的变量全是全局变量
+	todo lua中的变量全是全局变量，哪怕是语句块或者函数里面的，除非用local显式申明为局部变量
+	局部变量的作用域为从声明位置开始到所在语句块结束
+	变量的默认值均为nil
 ]]
+
+a = 5    -- 全局变量
+local b = 5  -- 局部变量
+
+function joke()
+    c = 5
+    local d = 6
+end
+
+print("a : ", a)  -- 5
+print("b : ", b)  -- 5
+print("c : ", c)  -- 此时c为nil
+print("d : ", d)  -- nil
+joke() -- 调用函数之后
+
+print("joke c : ", c)  -- c变为全局  5
+print("joke d : ", d) -- d申明的是局部，所以为nil
+
+
+-- Lua 可以对多个变量同时赋值，变量列表和值列表的各个元素用逗号分开，赋值语句右边的值会依次赋给左边的变量。
+
+a, b = 10, 2*a
+print(a, b)
+
+
+-- 遇到赋值语句Lua会先计算右边所有的值然后再执行赋值操作，所以我们可以这样进行交换变量的值
+
+x = 1
+y = 2
+
+x,y = y, x
+print("交换之后的x, y :", x, y )
+
+-- 当变量个数和值的个数不一致时，Lua会一直以变量个数为基础采取以下策略：
+--[[
+    a. 变量个数 > 值的个数             按变量个数补足nil
+    b. 变量个数 < 值的个数             多余的值会被忽略
+]]
+
+a, b, c = 1,2
+print(a,b,c)  -- c 为nil
+
+a, b, c = 0
+print(a,b,c)  -- b,c 为nil
+
+
+function test_01()
+
+    return "num1", "num2"
+end
+
+x, y = test_01()
+print(x, y )
+c, _ = test_01()
+print(c, _)
+
+
+--table中索引的使用
+site = {}
+site["name"] = "jack"
+print(site["name"])
+print(site.name)
+data = rawget(site, "name")  -- 这种方式也是可以的
+print("data : ", data)
+
+
+
