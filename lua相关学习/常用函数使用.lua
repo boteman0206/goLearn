@@ -11,8 +11,17 @@ data1 = select(1, "hello", "world") -- 返回第一个参数
 print(data1)
 data2 = select(3, 1,3,4,5,65,4)  -- 返回第三个参数
 print(data2)
+print(select(3, 1,3,4,5,65,4))  -- 打印3后面的所有参数  4	5	65	4
 data2 = select("#", 1,3,4,5,65,4  ) -- 返回后面的总的参数长度
 print(data2)
 
 
 -- #符号使用
+print('table的长度： ', #{1,23,4}) -- 1： table的长度
+function T1(...)
+    local arg = {...}
+    print("可变参数的长度： ", #{...}, #arg)
+end
+
+T1(1,2,3,4)
+

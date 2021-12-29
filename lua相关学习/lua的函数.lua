@@ -79,3 +79,20 @@ print("avg2 : ", avg2)
 
 
 -- 固定参数加上可变参数
+function fWrite(fmt, ...)
+    return io.write(string.format(fmt, ...))
+end
+
+fWrite("hello\n")
+
+fWrite("%s%s\n", "jack", 'lucy')
+
+
+
+function f(...)
+    a = select(3,...)  -->从第三个位置开始，变量 a 对应右边变量列表的第一个参数
+    print (a)
+    print (select(3,...)) -->打印所有列表参数
+end
+
+f(0,1,2,3,4,5)
