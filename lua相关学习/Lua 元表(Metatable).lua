@@ -108,5 +108,87 @@ print("tt add :" , mytable.key1, mytable.key2, tt.key2)
 
 
 --为表添加操作符
+--todo --add  + 操作符
+function table_maxn(t)
+    local maxn = 0
+    for i, v in pairs(t) do
+        if i > maxn then
+            maxn = i
+        end
+    end
+    return maxn
+end
+
+mytable = setmetatable({1,2,3}, {
+    __add = function(tb1, tb2)
+        for i = 1, table_maxn(tb2) do
+            table.insert(tb1, i+table_maxn(tb1), tb2[i])
+        end
+        return tb1
+    end
+})
+
+secondtable = {4,7,89}
+newtable = mytable + secondtable
+for i, v in pairs(newtable) do
+    print("add new table : ", i, v )
+end
 
 
+--[[
+    __add 键包含在元表中，并进行相加操作。 表中对应的操作列表如下：(注意：__是两个下划线)
+    __add	对应的运算符 '+'.
+    __sub	对应的运算符 '-'.
+    __mul	对应的运算符 '*'.
+    __div	对应的运算符 '/'.
+    __mod	对应的运算符 '%'.
+    __unm	对应的运算符 '-'.
+    __concat	对应的运算符 '..'.
+    __eq	对应的运算符 '=='.
+    __lt	对应的运算符 '<'.
+    __le	对应的运算符 '<='.
+]]
+
+
+
+--todo __call 元方法
+
+function table_maxn(t)
+    local mn = 0
+    for k, v in pairs(t) do
+        if mn < k then
+            mn = k
+        end
+    end
+    return mn
+end
+
+-- 定义元方法__call __call 元方法在 Lua 调用一个值时调用。以下实例演示了计算表中元素的和：
+mytable = setmetatable({10}, {
+    __call = function(self, newtable)
+        sum = 0
+        for i = 1, table_maxn(self) do
+            sum = sum + self[i]
+        end
+        for i = 1, table_maxn(newtable) do
+            sum = sum + newtable[i]
+        end
+        return sum
+    end
+})
+newtable = {10,20,30}
+print("----call :", mytable(newtable))
+
+
+
+-- __tostring 元方法 __tostring 元方法用于修改表的输出行为。以下实例我们自定义了表的输出内容：
+mytable = setmetatable({ 10, 20, 30 }, {
+    __tostring = function(mytable)
+        sum = 0
+        for k, v in pairs(mytable) do
+            sum = sum + v
+        end
+        return "表所有元素的和为 " .. sum
+    end
+})
+print("tostring : ", mytable)
