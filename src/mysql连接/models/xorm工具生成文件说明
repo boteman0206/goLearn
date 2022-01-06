@@ -1,4 +1,7 @@
 
+
+xorm数据库生成工具
+
 需要先将https://github.com/go-xorm/cmd下载解压，然后将cmd下面的template文件下的goxorm来生成
 
 生成的命令
