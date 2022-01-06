@@ -44,5 +44,6 @@ func main() {
 	err = json_iterator.Unmarshal([]byte(sname), &group1)
 	fmt.Println(err, "+++++")
 	fmt.Println(group1)
-
+	get := json_iterator.Get([]byte(sname), "name")
+	fmt.Println(get.ToString())
 }
