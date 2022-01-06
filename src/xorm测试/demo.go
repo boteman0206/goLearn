@@ -187,6 +187,11 @@ func getUser1(c echo.Context) error {
 	fmt.Println("ppppppppp:", err)
 
 	// todo findAndCount函数使用
+	/**
+		todo  findAndCount函数只能使用model去接收数据，
+	          如果使用那种指定数据库表然后用out.Data接收的话就会报错 i, e := conn.Table("abnormal_order_record").Select("*").FindAndCount(&out.Data)
+	*/
+
 	count, err := engine.Where(builder.Eq{"user_id": 12}).FindAndCount(&mems)
 	fmt.Println("findAndCount 函数的使用： ", count, " err : ", err)
 	return c.JSON(http.StatusOK, joindata)
