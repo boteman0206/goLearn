@@ -1,0 +1,23 @@
+
+
+
+
+https://zhuanlan.zhihu.com/p/87725726
+
+
+完整的tag
+git add *
+git commit -m 'v1.0.0'
+git tag v1.0.0
+git push
+git push origin v1.0.0
+
+
+
+
+
+如果我们只是临时打一个tag的话，直接commit到本地，然后直接打tag就行
+git add *
+git commit -m 'v1.0.0'
+git tag v1.0.0
+git push origin v1.0.0
