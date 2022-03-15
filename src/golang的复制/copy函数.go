@@ -20,4 +20,22 @@ func main() {
 
 	// todo copy函数先定义要copy到的对象中 var s = make([]int32, 0)，就是深拷贝
 
+	type user struct {
+		name string
+		age  int32
+	}
+
+	var s1 = []user{{
+		name: "elk",
+		age:  12,
+	}, {
+		name: "abc",
+		age:  10,
+	}}
+
+	var s2 = make([]user, len(s1))
+
+	copy(s2, s1)
+	fmt.Println(s1, " s2 ", s2)
+
 }
