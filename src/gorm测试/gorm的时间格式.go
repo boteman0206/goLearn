@@ -4,7 +4,7 @@ import (
 	"database/sql/driver"
 	"errors"
 	"fmt"
-	"github.com/spf13/cast"
+	//"github.com/spf13/cast"
 	"strings"
 	"time"
 )
@@ -89,6 +89,9 @@ func main() {
 	fmt.Println(jsonTime)
 
 	//myTime := MyTime(cast.ToTime(""))
+
+	f := float64(8100) / 100
+	fmt.Println(f)
 
 }
 
