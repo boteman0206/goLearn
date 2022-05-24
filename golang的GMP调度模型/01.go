@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"godemo/src/model"
 	"runtime"
 )
 
@@ -20,5 +21,12 @@ func main() {
 	fmt.Println(runtime.NumCPU())
 
 	//SetMaxThreads()
+
+	brand := &model.Brand{}
+
+	brand.Name = "abc"
+	brand.Id = 90
+
+	fmt.Println(brand)
 
 }
