@@ -10,3 +10,15 @@
 解决方式：
 在gitbash中   cat /etc/hosts
 在文件中添加 一行对应的域名：  xx.x.x.xxx      git.rpdns.com
+
+
+
+
+
+
+拉取github的代码报错 22或者443错误 ：
+1：首先ping github.com 看一下能不能ping通
+2：如果ping不通 https://www.ipaddress.com/  通过这个可以查询github的地址 列如查询出来是：140.82.112.4
+3： 然后在C:\Windows\System32\drivers\etc 的hosts文件中添加  140.82.112.4   github.com 即可
+
+
