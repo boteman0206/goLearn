@@ -26,6 +26,19 @@ type itab struct {
 	unused [2]byte
 	fun    [1]uintptr // variable sized
 }
+
+一个table是40字节大小
+type itab struct {
+	inter  *interfacetype // 8字节
+	_type  *_type // 8字节
+	link   *itab // 8字节
+	hash   uint32 // 4字节
+	bad    bool   // 1字节
+	inhash bool   // 1字节
+	unused [2]byte // 2字节
+	fun    [1]uintptr // variable sized // 8字节
+}
+
 iface 内部维护两个指针，tab 指向一个 itab 实体， 它表示接口的类型以及赋给这个接口的实体类型。data 则指向接口具体的值，一般而言是一个指向堆内存的指针。
 
 
@@ -58,6 +71,10 @@ type _type struct {
 	str       nameOff
 	ptrToThis typeOff
 }
+
+
+
+
 
 
 
