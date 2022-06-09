@@ -8,7 +8,7 @@ import (
 type Users struct {
 	Phone  string `form:"phone" json:"phone" validate:"required"`
 	Passwd string `form:"passwd" json:"passwd" validate:"required,max=20,min=6"`
-	Code   string `form:"code" json:"code" validate:"required,eqfield=Passwd"` // eqfield标识code字段和passwd的字段必须一样
+	Code   string `form:"code" json:"code" validate:"required,eqfield=Passwd"` // eqfield标识code字段和passwd的字段相同
 }
 
 func main() {
