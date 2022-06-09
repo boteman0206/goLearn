@@ -50,7 +50,7 @@ func main() {
 
 type Person struct {
 	Age  int    `json:"age" form:"age" binding:"required,gt=10"`
-	Name string `json:"name" form:"name" binding:"NotNullAndAdmin"`
+	Name string `json:"name" form:"name"`
 }
 
 func getting(c *gin.Context) {
