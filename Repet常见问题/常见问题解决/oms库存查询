@@ -1,0 +1,24 @@
+
+
+
+// dbevar平台
+select * from dc_oms.product_task_list ptl where task_content =1
+and operation_file_url regexp '\\\{"sku_no":"YPgM108".*?"org_code":"JGBM00037".*?\\\}'
+order by id desc ;
+
+
+// 查询是否同步相关组织下面的货号商品sku  yarn平台
+select * from dc_oms.product_task_list ptl where task_content =1
+and operation_file_url regexp '\\{"sku_no":"2140124001".*?"org_code":"JGBM00044".*?\\}'
+order by id desc
+
+
+// 查询是否有库存
+select * from dc_oms.stock s
+join dc_oms.product_sku_third pst on s.sku_id =pst.sku_id
+join dc_oms.product p on pst.product_id =p.id
+where warehouse_id = 818 and pst.third_sku_id = '2140126001';
+
+
+查询oms库存同步的关键字
+"收到全量同步oms库存"
