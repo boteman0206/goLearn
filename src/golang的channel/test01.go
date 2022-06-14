@@ -13,7 +13,7 @@ func main() {
 		for {
 			select {
 			case st, ok := <-c:
-				fmt.Println(" close chan  ", st, " ok : ", ok) // 这里会阻塞 关闭之后不会阻塞
+				fmt.Println(" close chan  ", st, " ok : ", ok) // 这里会阻塞 关闭之后不会阻塞 ok=false
 				if !ok {
 					return
 				}
