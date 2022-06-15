@@ -54,7 +54,7 @@ type Client struct {
 调用者应该在读取完 resp.Body 后关闭它。如果返回值 resp 的主体未关闭，c 下层的 RoundTripper 接口（一般为 Transport 类型）可能无法重用 resp 主体下层保持的 TCP 连接去执行之后的请求。
 
 
-7:优化使用http读取数据
+7:优化使用http读取数据 todo 使用sync优化http的读写
 https://blog.thinkeridea.com/201901/go/you_ya_de_du_qu_http_qing_qiu_huo_xiang_ying_de_shu_ju.html
 
 */
