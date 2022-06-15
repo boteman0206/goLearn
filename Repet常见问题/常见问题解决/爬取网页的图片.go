@@ -103,7 +103,7 @@ func getData() ([]DownLoad, error) {
 
 	data := []DownLoad{}
 	err = db.Raw("select p.id product_id,st.third_sku_id third_sku_id, p.pic image_url  from dc_product.product p join dc_product.sku_third st on p.id =st.product_id " +
-		"where st.erp_id = 2 and length(pic) > 0 and length(st.third_sku_id) > 0  ").Find(&data).Error
+		"where st.erp_id = 2 and length(pic) > 0 and length(st.third_sku_id) > 0  limit 10 ").Find(&data).Error
 	if err != nil {
 		fmt.Println("err : ", err.Error())
 	}
