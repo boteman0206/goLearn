@@ -4,5 +4,6 @@ vendor/
 .idea/inspectionProfiles/
 go.mod
 go.sum
+.data/img
 
 
