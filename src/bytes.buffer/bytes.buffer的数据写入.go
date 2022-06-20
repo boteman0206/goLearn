@@ -39,4 +39,9 @@ func main() {
 	buf1.WriteRune(r)
 	fmt.Println(buf1.String())
 
+	//q清空数据
+	fmt.Println("====清空数据==========")
+	buf1.Reset()
+	fmt.Println(buf1.String())
+
 }
