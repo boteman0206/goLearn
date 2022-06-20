@@ -1,6 +1,9 @@
 package main
 
 /**
+
+todo  Pool 是 Goroutine 并发安全的。
+
 1 sync.Pool 的使用场景
 一句话总结：保存和复用临时对象，减少内存分配，降低 GC 压力。
 是 sync 包下的一个组件，可以作为保存临时取还对象的一个“池子”。个人觉得它的名字有一定的误导性，因为 Pool 里装的对象可以被无通知地被回收，可能 sync.Cache 是一个更合适的名字。
@@ -30,6 +33,42 @@ sync.Pool 主要是为了解决 Go GC 压力过大问题的，所以一般情况
 使用注意点
 sync.Pool 同样不能被复制。
 好的使用习惯，从 pool.Get 出来的值进行数据的清空（reset），防止垃圾数据污染。
+
+
+
+pool的结构
+type Pool struct {
+   // 用于检测 Pool 池是否被 copy，因为 Pool 不希望被 copy。用这个字段可以在 go vet 工具中检测出被 copy（在编译期间就发现问题）
+   noCopy noCopy  // A Pool must not be copied after first use.
+
+   // 实际指向 []poolLocal，数组大小等于 P 的数量；每个 P 一一对应一个 poolLocal
+   local     unsafe.Pointer
+   localSize uintptr      // []poolLocal 的大小
+
+   // GC 时，victim 和 victimSize 会分别接管 local 和 localSize；
+   // victim 的目的是为了减少 GC 后冷启动导致的性能抖动，让分配对象更平滑；
+   victim     unsafe.Pointer
+   victimSize uintptr
+
+   // 对象初始化构造方法，使用方定义
+   New func() interface{}
+}
+
+poolLocal 结构体
+// Pool.local 指向的数组元素类型
+type poolLocal struct {
+   poolLocalInternal
+   pad [128 - unsafe.Sizeof(poolLocalInternal{})%128]byte
+}
+
+// Local per-P Pool appendix.
+type poolLocalInternal struct {
+   private interface{} // Can be used only by the respective P.
+   shared  poolChain   // 双链表结构，用于挂接 cache 元素
+}
+1、Pool.local 指针指向的就是 poolLocal 数组。
+2、poolLocal struct 中真实有用的只有 poolLocalInternal struct。其中的 pad 字段是用于内存填充，对齐 cache line，防止伪共享(false sharing)的性能问题。
+
 
 
 */

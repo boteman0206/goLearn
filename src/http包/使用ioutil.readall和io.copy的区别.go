@@ -39,6 +39,7 @@ func main() {
 	}
 
 	robots, err := io.ReadAll(res.Body)
+	//robots, err := io.Copy(res.Body)
 	res.Body.Close()
 	if err != nil {
 		log.Fatal(err)
