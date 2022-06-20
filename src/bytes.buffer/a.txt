@@ -1,0 +1,1 @@
+this is a file我写入了一个文件
