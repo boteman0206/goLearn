@@ -1,0 +1,6 @@
+/**
+ EXCEL 拼接sql  `&`相当于拼接 `+`
+ */
+-- ="update upet_goods set goods_price="&Q44&" where goods_sku='"&B44&"';"
+
+
