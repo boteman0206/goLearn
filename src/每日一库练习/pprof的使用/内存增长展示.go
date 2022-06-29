@@ -45,4 +45,5 @@ cum%: 是累计量占总量的百分比。
 4： traces  打印所有调用栈，以及调用栈的指标信息。
 
 
+todo go tool pprof -http=:8000 http://127.0.0.1:6060/debug/pprof/profile  // 可以查看分析内存
 */
