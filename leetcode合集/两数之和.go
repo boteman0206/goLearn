@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	kit "github.com/tricobbler/rp-kit"
+)
 
 func twoSum(nums []int, target int) []int {
 
@@ -25,4 +30,17 @@ func main() {
 	sum := twoSum(num, target)
 
 	fmt.Println(sum)
+
+	var data bytes.Buffer
+	json.NewEncoder(&data).Encode("{'name':'jack', 'age':19}")
+
+	type user struct {
+		Name string `json:"name"`
+		Age  int    `json:"age"`
+	}
+	var user1 user
+
+	json.NewDecoder(&data).Decode(&user1)
+	fmt.Println("this is use1 : ", kit.JsonEncode(user1))
+
 }
