@@ -1,0 +1,41 @@
+syntax = "v1"
+
+info (
+	title: // TODO: add title
+	desc: // TODO: add description
+	author: "pengwei"
+	email: "pengw.rppet.cn"
+)
+
+type (
+	// TODO: add members here and delete this comment
+	expandReq {
+		Shorten string `form:"shorten"`
+	}
+
+	expandResp {
+		Url string `json:"url"`
+	}
+)
+
+type (
+	shortenReq {
+		Url string `form:"url"`
+	}
+
+	shortenResp {
+		Shorten string `json:"shorten"`
+	}
+)
+
+service shorturl-api {
+	@server(
+		handler: ShortenHandler
+	)
+	get /shorten(shortenReq) returns(shortenResp)
+	
+	@server(
+		handler: ExpandHandler
+	)
+	get /expand(expandReq) returns(expandResp)
+}

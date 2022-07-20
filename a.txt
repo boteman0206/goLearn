@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>长安汽车(000625)个股资金流向查询_个股行情_同花顺财经</title>
+<meta name="keywords" content="长安汽车(000625)个股点评,长安汽车(000625)个股查询,长安汽车(000625)个股行情,长安汽车(000625)个股资讯,长安汽车(000625)个股数据,长安汽车(000625)个股实时行情">
+<meta name="description" content="提供长安汽车(000625)五档盘口、逐笔交易等实时行情数据；汇总长安汽车(000625)基本资料及重大新闻、研究报告及行业资讯，解读长安汽车(000625)主力资金动向、财务数据，为投资长安汽车(000625)提供参考决策">
+<meta name="reboot" content="all">
+<script type="text/javascript" src="//s.thsi.cn/js/chameleon/chameleon.min.1658200.js"></script> <script>window.onerror = function(){return true;}</script>
+<script type="text/javascript" src="http://s.thsi.cn/cb?/js/;excanvas.min.js;jquery-1.7.2.min.js;swfobject.js;storage.js;QeeChart.js;/js/seajs/;sea.1.2.js&20150706"></script>
+<script type="text/javascript" src="http://s.thsi.cn/cb?/js/home/;ths_core.js;ths_quote.js&20150706"></script>
+<script type="text/javascript" src="http://s.thsi.cn/cb?js/flshhtml5/;s/Html5Util.min.js;c/config.min.js;c/GeGu_lsjxlx/caller.min.js;c/GeGu_sscjfb/caller.min.js;c/YjycHydb.js;c/GeGu_AreaLine/drawchart.min.js;c/GeGu_BarColors/drawchart.min.js;c/PieChart/caller.min.js&20150706"></script>
+<script type="text/javascript" src="http://s.thsi.cn/cb?js/stockpage/;new/KeyWizardBranch.min.js;new/KeyWizard4AS.min.js&20150706"></script>
+<script type="text/javascript" src="http://s.thsi.cn/cb?/js/stockpage/s2015/;highcharts.js;personkzd.js&20160106"></script>
+<script type="text/javascript" src="http://s.thsi.cn/js/stockpage/append.min.js"></script>
+<link rel="stylesheet" href="http://s.thsi.cn/cb?css/stockpage/;new/KeyWizard.20130315.css&20150706" type="text/css">
+<link rel="stylesheet" href="http://s.thsi.cn/cb?css/stockpage/;new/flot_home.20130204.min.css;home.min.css&20150706" type="text/css">
+<link href="http://s.thsi.cn/cb?css/stockpage/append.V4.min.css;css/navigation/;nav_v2.min.css;nav_blue.min.css&20150706" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://s.thsi.cn/cb?/css/stockpage/s2015/;index.css;home.css;personkzd.css;nav_v2.css;append.css&20150716" type="text/css">
+
+<style>
+	.hide{
+		display: none !important;
+	}
+</style>
+
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript" src="http://s.thsi.cn/cb?js/cmsad/cmsadv1.js" charset="utf-8"></script>
+<script src="http://dup.baidustatic.com/js/ds.js"></script>
+
+<script type="text/javascript">BAIDU_CLB_preloadSlots("950906","950907", "1096141", "1096142", "950905", "967147", "1106767", "966227", "999711");</script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="http://s.thsi.cn/js/stockpage/new/opacity.ie6.min.js" ></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.feedback');
+</script>
+<![endif]-->
+<script>
+document.domain = "10jqka.com.cn";
+var waplink = 'http://m.10jqka.com.cn/stockpage/hs_000625/';
+
+var JUMP={
+	"hash":(!window.location.hash)?"":window.location.hash,
+	"agent":navigator.userAgent,
+	"to_mobile":function() {
+		if ((this.agent.indexOf('Android') != -1 ||this.agent.indexOf('Mobile') != -1) && this.hash != '#pc') {
+		    window.location.href = waplink;
+		}
+	}
+};
+JUMP.to_mobile();
+
+</script>
+	
+<script>
+    var protocol = window.location.protocol;
+    if (protocol == "https:") {
+        window.location.href = window.location.href.replace("https", "http");
+    }
+</script>
+
+
+</head>
+<body>
+<input type="hidden" id="market" value="hs">
+
+<div id="ad1" class="adplace ad1">
+</div>
+<script>
+
+	_cmsad({
+		appendId:'ad1',
+		adb_id:'170'
+	});
+
+</script>
+<div id="in_channelhead"><div class="header w960" id="hd">
+	<div class="header_search">
+		<div class="logo"><a href="http://www.10jqka.com.cn" class="site_logo"> <img height="29" width="115" alt="同花顺" title="同花顺" src="http://i.thsi.cn/images/navigation/logo/logo_ths.png" /></a> <a href="http://stockpage.10jqka.com.cn" class="sub_logo" title="个股">个股</a></div>
+		<div class="search_box">
+			<input autocomplete="off" type="text" value="输入股票/港股代码、简称或关键字" class="search_input" id="search_input" onfocus="(this.value=='输入股票/港股代码、简称或关键字')&&(this.value = '')" onblur="!(this.value) && (this.value='输入股票/港股代码、简称或关键字');" />
+			<input type="submit" value="搜索" class="search_btn" />
+		</div>
+	</div>
+</div>	</div>
+
+<div class="line"></div>
+
+
+
+<div id="in_datachannel">
+<div class="interface">
+	<div class="data-nav clearfix">
+		<div class="data-nav-l">
+			<a onclick="TA.log({'id':'f10_sp_sjzx','nj':1})" href="http://data.10jqka.com.cn/ "  target="black" class="data-nav-linkhead data-nav-links">数据中心</a>
+			<a href="http://data.10jqka.com.cn/market/longhu/" target="black" class="data-nav-links">龙虎榜</a>
+			<a href="http://data.10jqka.com.cn/funds/ddzz/" target="black" class="data-nav-links">大单追踪</a>
+			<a href="http://data.10jqka.com.cn/market/rzrq/" target="black" class="data-nav-links">融资融券</a>
+			<a href="http://data.10jqka.com.cn/funds/ggzjl/"  target="black" class="data-nav-links">资金流向</a>
+			<a href="http://data.10jqka.com.cn/ipo/xgsgyzq"  target="black" class="data-nav-links">新股申购</a>
+		</div>
+		<div class="data-nav-r">
+			<a onclick="TA.log({'id':'f10_sp_hqzx','nj':1})" href="http://q.10jqka.com.cn/"  target="black" class="data-nav-linkhead">行情中心</a>
+			<a href="http://q.10jqka.com.cn/"  target="black" class="data-nav-links">沪深市场</a>
+			<a href="http://q.10jqka.com.cn/hk/"  target="black" class="data-nav-links">香港市场</a>
+			<a href="http://q.10jqka.com.cn/usa/"  target="black" class="data-nav-links">美国市场</a>
+			<!--<a href="http://q.10jqka.com.cn/global/"  target="black" class="data-nav-links">全球市场</a>-->
+			<a href="http://q.10jqka.com.cn/thshy/"  target="black" class="data-nav-links">行业风云</a>
+		</div>
+	</div>
+	<!-- 全球市场开始 -->
+
+	<dl class="interface_1" style="display: none;">
+			<dt>
+				<a onclick="TA.log({'id':'f10_sp_qqsc','nj':1})" href="http://q.10jqka.com.cn/qqsc/#refCountId=db_509381c1_860" target="_blank">全球市场</a>
+			</dt>
+	</dl>
+
+	<div class="sub_interface_1" style="display: none;">
+		<span class="options_btn">
+			<a class="options_up" href="javascript:void(0);">向上</a>
+			<a class="options_down" href="javascript:void(0);">向下</a>
+		</span>
+		<ul>
+
+		</ul>
+	</div>
+
+</div></div>
+
+<div class="adplace ad2 clearfix">
+	<div class="ad2-1" >
+<script>
+		
+		(function() {
+		    var s = "_" + Math.random().toString(36).slice(2);
+		    document.write('<div id="' + s + '"></div>');
+		    (window.slotbydup=window.slotbydup || []).push({
+		        id: '1096134',
+		        container: s,
+		        size: '175,90',
+		        display: 'inlay-fix'
+		    });
+		})();
+
+</script>
+	</div>
+	<div class="ad2-2">
+	<script>
+		
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '1096135',
+        container: s,
+        size: '636,90',
+        display: 'inlay-fix'
+    });
+})();
+
+</script>
+	</div>
+	<div class="ad2-3">
+		<script>
+		
+		(function() {
+		    var s = "_" + Math.random().toString(36).slice(2);
+		    document.write('<div id="' + s + '"></div>');
+		    (window.slotbydup=window.slotbydup || []).push({
+		        id: '1096136',
+		        container: s,
+		        size: '175,90',
+		        display: 'inlay-fix'
+		    });
+		})();
+
+</script>
+	</div>
+</div>
+<div style="display:none" id="indexBasicData">99.22|76.04|8.00</div>
+
+<div id="in_squote"><script src="http://dup.baidustatic.com/js/ds.js"></script>
+<div class="m_header">
+
+	<h1 class="m_logo fl">
+
+		<a href="http://stockpage.10jqka.com.cn/000625/" >
+		<strong stockname="长安汽车" id="stockNamePlace" stockmarket="hs" stockcode="000625" >长安汽车<br>000625</strong>
+		</a>
+				<a taid="d_00001" class="self_select fr zxg_1" href="javascript:void(0);">加入自选股</a>
+		
+	</h1>
+
+	
+	<div class="new_detail fl">
+			<iframe src="http://stockpage.10jqka.com.cn/realHead_v2.html#hs_000625" name="ifm" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+		</div>
+	
+	
+	<ul class="adplace ad3" >
+		<li>
+		<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '950906',
+        container: s,
+        size: '130,22',
+        display: 'inlay-fix'
+    });
+
+    var codeItem = $('#stockNamePlace');
+    if((/^(hs|33)/).test(codeItem.attr('stockmarket'))&&(/^(3)/).test(codeItem.attr('stockcode'))){
+        $.ajax({
+            url:'//d.10jqka.com.cn/v2/realhead/'+codeItem.attr('stockmarket')+'_'+codeItem.attr('stockcode')+'/last.js',
+            dataType:'jsonp',
+            jsonpCallback:'quotebridge_v2_realhead_'+codeItem.attr('stockmarket')+'_'+codeItem.attr('stockcode')+'_last',
+            cache:!0,
+            success:function(data){
+                if(data){
+                    var item = data.items;
+                    var isNewCode = parseInt(item['130']%1000000/100000);
+                    var text = codeItem.text();
+                    if(isNewCode===1){
+                        //次新股
+                        text='C'+text;
+                    }else if(isNewCode===2){
+                        //新股
+                        text='N'+text;
+                    }
+                    codeItem.text(text);
+                }
+            }
+        })
+    }
+})();
+
+</script>
+</li>
+		<li>
+		<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '950907',
+        container: s,
+        size: '130,22',
+        display: 'inlay-fix'
+    });
+})();
+
+</script>
+</li>
+		<li>
+		<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '1096141',
+        container: s,
+        size: '130,22',
+        display: 'inlay-fix'
+    });
+})();
+
+</script>
+</li>
+		<li>
+		<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '1096142',
+        container: s,
+        size: '130,22',
+        display: 'inlay-fix'
+    });
+})();
+
+</script>
+</li>
+	</ul>
+
+</div></div>
+<div id="in_menu"><div class="menu">
+<div class="top_menu">
+	<h2 class="nav_list cb">
+		<a class="stat home nav_current" href="/000625/" stat="f10_stat_1">首页概览</a>						<a class="stat " stat="f10_sp_zjlx" href="/000625/funds/">资金流向</a> 		
+		<a class="stat " stat="f10_sp_company" href="/000625/company/">公司资料</a>
+		<a class="stat " stat="f10_sp_news" href="/000625/news/">新闻公告</a>
+		<a class="stat " stat="f10_sp_finance" href="/000625/finance/">财务分析</a>
+		<a class="stat " stat="f10_sp_operate" href="/000625/operate/">经营分析</a> 
+		<a class="stat " stat="f10_sp_holder" href="/000625/holder/">股东股本</a>
+		<a class="stat " stat="f10_sp_position" href="/000625/position/">主力持仓</a>
+		<a class="stat " stat="f10_sp_event" href="/000625/event/">公司大事</a>
+		<a class="stat " stat="f10_sp_bonus" href="/000625/bonus/">分红融资</a>
+		<a class="stat " stat="f10_sp_worth" href="/000625/worth/">价值分析</a>
+		<a class="stat " stat="f10_sp_field" href="/000625/field/">行业分析</a>							         
+	</h2>
+
+	<ul class="sub_list " style="  padding-left:11px; ">
+		<li class="sl_first"><a href="/000625/#hqzs" class="turnto" name="hqzs">行情走势</a></li>                                   			
+		<!-- <li ><a href="/000625/#tbts" class="turnto" name="tbts">特别提示</a></li> -->
+<!--		<li><a href="/000625/#zxxx">最新消息</a></li>-->
+		<li><a href="/000625/#xwgg" class="turnto" name="xwgg">最新消息</a></li>
+<!-- 		<li><a href="http://stockpage.10jqka.com.cn/000625/finance/#finance" class="turnto" name="cwzb">财务指标</a></li> -->
+		<li><a href="/000625/#lhb" class="turnto" name="lhb">龙虎榜</a></li>
+		<li><a href="/000625/#dzjy" class="turnto" name="dzjy">大宗交易</a></li>
+		<li><a href="/000625/#margin" class="turnto" name="rzrq">融资融券</a></li>
+		<!-- <li><a href="/000625/#gb" class="turnto" name="gb">股吧</a></li>	 -->							
+	</ul>		<ul class="sub_list " style="display:none;  padding-left:86px; ">
+		<li class="sl_first"><a href="/000625/funds/#funds_sszjlx" class="turnto" name="funds_sszjlx">实时资金流向</a></li>
+		<li><a href="/000625/funds/#funds_zlzjzz" class="turnto" name="funds_zlzjzz">主力资金追踪</a></li>
+		<li><a href="/000625/funds/#funds_lszjsj" class="turnto" name="funds_lszjsj">历史资金数据一览</a></li>							
+	</ul>	
+	<ul class="sub_list " style="display:none;  padding-left:163px; ">
+		<li class="sl_first"><a href="/000625/company/#detail" class="turnto" name="detail">详细情况</a></li>
+		<li><a href="/000625/company/#manager" class="turnto" name="manager">高管介绍</a></li>
+		<li><a href="/000625/company/#publish" class="turnto" name="publish">发行相关</a></li>
+		<li><a href="/000625/company/#share" 	 class="turnto" name="share">参股控股公司</a></li>								
+	</ul>
+	<ul class="sub_list " style="display:none;   padding-left:240px;">
+		<!-- <li class="sl_first"><a href="/000625/news/#linkage" class="turnto" name="linkage">新闻与股价联动</a></li> -->
+		<li><a href="/000625/news/#pubs" class="turnto" name="pubs">公司公告</a></li>
+		<li><a href="/000625/news/#report" class="turnto" name="report">相关研报</a></li>
+	</ul>
+	<ul class="sub_list " style="display:none;   padding-left:315px; ">
+		<li class="sl_first"><a href="/000625/finance/#finance" class="turnto" name="finance">财务指标</a></li>                   			
+		<li><a href="/000625/finance/#alter" 		class="turnto" name="alter">指标变动说明</a></li>
+		<li><a href="/000625/finance/#assetdebt" 	class="turnto" name="assetdebt">资产负债构成</a></li>
+		<li><a href="/000625/finance/#view" 		class="turnto" name="view">财务报表</a></li>								
+	</ul>
+	<ul class="sub_list " style="display:none; padding-left:392px; ">			<li class="sl_first"><a href="/000625/operate/#intro" class="turnto" name="intro">主营介绍</a></li>	
+		
+		<li><a href="/000625/operate/#invest" 	class="turnto" name="invest">运营业务数据</a></li>
+		<li><a href="/000625/operate/#analysis" 	class="turnto" name="analysis">主营构成分析</a></li>				<li><a href="/000625/operate/#observe" class="turnto" name="observe">董事会经营评述</a></li>
+					
+	</ul>
+	<ul class="sub_list " style="display:none;  padding-left:469px; ">
+		<li class="sl_first"><a href="/000625/holder/#holdernum" class="turnto" name="holdernum">股东人数</a></li>                                   			
+		<li><a href="/000625/holder/#flowholder" 	 class="turnto" name="flowholder">十大流通股东</a></li>
+		<li><a href="/000625/holder/#tenholder"  	 class="turnto" name="tenholder">十大股东</a></li>						<li><a href="/000625/holder/#holdlevel"  	 class="turnto" name="holdlevel">控股层级关系</a></li>
+	</ul>
+	<ul class="sub_list " style="display:none;  padding-left:544px; ">
+		<li class="sl_first"><a href="/000625/position/#organhold" class="turnto" name="organhold">机构持股汇总</a></li>                                   			
+		<li><a href="/000625/position/#holdetail" class="turnto" name="holdetail">机构持仓明细</a></li>								
+	</ul>
+	<ul class="sub_list " style="display:none;  padding-left:420px;">
+		<li class="sl_first"><a href="/000625/event/#remind" class="turnto" name="remind">特别提示</a></li>                                   			
+		<li><a href="/000625/event/#manager" class="turnto" name="manager">高管持股变动</a></li>
+		<li><a href="/000625/event/#holder" class="turnto" name="holder">股东持股变动</a></li>
+		<li><a href="/000625/event/#guarantee" class="turnto" name="guarantee">担保明细</a></li>
+		<li><a href="/000625/event/#violate" class="turnto" name="violate">违规处理</a></li>									
+	</ul>
+	<ul class="sub_list " style="display:none;  padding-left:695px; ">
+		<li class="sl_first"><a href="/000625/bonus/#bonuslist" class="turnto" name="bonuslist">分红情况</a></li>                                   			
+		<li><a href="/000625/bonus/#additionprofile" class="turnto" name="additionprofile">增发概况</a></li>
+		<li><a href="/000625/bonus/#stockallot" class="turnto" name="stockallot">配股概况</a></li>								
+	</ul>
+	<ul class="sub_list " style="display:none; padding-left:695px;">
+		<li class="sl_first"><a href="/000625/worth/#forecast" class="turnto" name="forecast">业绩预测</a></li>
+		<li><a href="/000625/worth/#forecastdetail" class="turnto" name="forecastdetail">业绩预测详表</a></li>                     			
+		<li><a href="/000625/worth/#stockreport" class="turnto" name="stockreport">个股研报</a></li>
+		<!-- <li><a href="/000625/worth/#tradereport" class="turnto" name="tradereport">同行业研报</a></li> -->							
+	</ul>
+	
+	<ul class="sub_list " style="display:none; padding-left:810px;">
+		<li class="sl_first"><a href="/000625/field/#fieldstatus" class="turnto" name="fieldstatus">行业地位</a></li>                                   			
+		<li><a href="/000625/field/#fieldnews" class="turnto" name="fieldnews">行业新闻</a></li>
+	</ul>
+</div>
+</div></div>
+	<div class="m_content">
+		<div class="m_cont_4">
+			<div class="main_cont_1" id='tbts'>
+								<div class="m_cont_2 fl" id="hqzs">
+					<div class="main_cont_0" style="width:620px">
+					     <div class="interface interface_2">
+							<dl class="interface_1 stat" stat="f10_sp_tzts">
+								<dt><a href="http://q.10jqka.com.cn/qqsc/#refCountId=db_509381c1_860" target="_blank">投资提示</a></dt>
+							</dl>
+							<div class=" sub_interface_2">
+								<span class="options_btn">
+									<a class="options_up" href="javascript:void(0);">向上</a>
+									<a class="options_down" href="javascript:void(0);">向下</a>
+								</span>
+								<ul>
+																</ul>
+							</div>
+						</div>
+
+						<!--增加广告 2014-07-23 Stella-->
+						<span class="adxxdl ad_x1" style="text-indent: 0;">
+
+							<script>
+
+						
+                        (function() {
+                            var s = "_" + Math.random().toString(36).slice(2);
+                            document.write('<div id="' + s + '"></div>');
+                            (window.slotbydup=window.slotbydup || []).push({
+                                id: '950905',
+                                container: s,
+                                size: '40,18',
+                                display: 'inlay-fix'
+                            });
+                        })();
+                        
+                        </script>
+						</span>
+						<span class="adxxdl ad_x2" style="text-indent: 0;">
+						<script>
+						
+						(function() {
+						    var s = "_" + Math.random().toString(36).slice(2);
+						    document.write('<div id="' + s + '"></div>');
+						    (window.slotbydup=window.slotbydup || []).push({
+						        id: '967147',
+						        container: s,
+						        size: '40,18',
+						        display: 'inlay-fix'
+						    });
+						})();
+						
+						</script>
+						</span>
+            <!--增加广告 End-->
+            <iframe src="http://stockpage.10jqka.com.cn/HQ_v4.html#hs_000625" width="100%" height="506" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+					</div>
+
+				</div>
+
+				<div class="m_cont_1">
+					<ul class="news m_title_0 m_title_2 tit">
+						<li class="tab_current stat" id="newsright_stocknews">
+							<a href="javascript:void(0)" class="stat" stat="f10_spyk_wdpk">五档盘口</a>
+						</li>
+						<li class="tab_last stat"  id="newsright_fieldnews">
+							<a href="#gegugp_zjjp" class="stat" stat="f10_spyk_zjlx" target="_self">资金流向</a>
+						</li>
+					</ul>
+					<div id="newsright_stocknews_table" class="sub_cont_1 fl">
+						<p class="trade_status">
+							<span class="wb">委比:<strong class="minus">--</strong></span>
+							<span class="wc">委差:<strong class="minus">--</strong></span>
+						</p>
+						<table class="m_table_6">
+							<tr><td class="td_left">卖五</td><td class="minus sell5">--</td><td class="sell5data">--</td></tr>
+							<tr><td class="td_left">卖四</td><td class="minus sell4">--</td><td class="sell4data">--</td></tr>
+							<tr><td class="td_left">卖三</td><td class="minus sell3">--</td><td class="sell3data">--</td></tr>
+							<tr><td class="td_left">卖二</td><td class="minus sell2">--</td><td class="sell2data">--</td></tr>
+							<tr><td class="td_left">卖一</td><td class="minus sell1">--</td><td class="sell1data">--</td></tr>
+							<tr class="bordert"><td class="td_left">买一</td><td class="plus buy1">--</td><td class="buy1data">--</td></tr>
+							<tr><td class="td_left">买二</td><td class="plus buy2">--</td><td class="buy2data">--</td></tr>
+							<tr><td class="td_left">买三</td><td class="plus buy3">--</td><td class="buy3data">--</td></tr>
+							<tr><td class="td_left">买四</td><td class="plus buy4">--</td><td class="buy4data">--</td></tr>
+							<tr><td class="td_left">买五</td><td class="plus buy5">--</td><td class="buy5data">--</td></tr>
+						</table>
+						<table class="m_table_7">
+							<tbody>
+								<tr class="out_in_disk">
+									<td>外盘:<span class="plus wp">--</span></td>
+									<td>内盘:<span class="minus np">--</span></td>
+								</tr>
+							</tbody>
+						</table>
+				        <div class="ad09">
+				     <!--   <script type="text/javascript">BAIDU_CLB_fillSlot("950913");</script> -->
+				        <a href="http://activity.10jqka.com.cn/level2/cjmx/default/?code=000625" target="_blank" style="font-size: 12px; color: rgb(255, 0, 0); font-weight: normal; font-style: normal; text-decoration: underline;" onmouseover="this.style.color='#0000FF';this.style.fontWeight='normal';this.style.fontStyle='normal';this.style.textDecoration='underline';" onmouseout="this.style.color='#ff0000';this.style.fontWeight='normal';this.style.fontStyle='normal';this.style.textDecoration='underline';">数据有新异动！</a></div>
+					</div>
+					<div id="newsright_fieldnews_table" class="sub_cont_1 fl hidden">
+						<em class="day_out"></em>
+						<div class="flash_cont">
+						        <div id="flashContent"></div>
+						        <div id='pie_legend' class="pie_legend">
+						        	<table cellpadding="0" cellspacing="0"><tbody></tbody></table>
+						        </div>
+						</div>
+							<thead>
+								<tr><th></th><th>流入（万）</th><th>流出（万）</th></tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+
+					<ul class="m_title_0 m_title_1 tit">
+						<li class="tab_current" id="cjmx">
+							<a href="javascript:void(0);" class="stat" stat="f10_spyk_cjmx" >成交明细</a>
+						</li>
+						<li class="tab_last stat" stat="dxjl_dj" id ="dxjl">
+							<a href="javascript:void(0);" class="stat" stat="f10_spyk_dxjl" >短线精灵 </a>
+						</li>
+					</ul>
+					<!-- <div class="sub_cont_2" id="cjmx_table" style="height:190px;"> -->
+					<div class="sub_cont_2" id="cjmx_table22" style="height:190px;">
+						<table class="ri_table m_table_0">
+							<thead>
+								<tr>
+									<th>时间</th><th>成交价</th><th>现手</th><th>性质</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>1</td><td>1</td><td>1</td><td>1</td><tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="sub_cont_2 hidden" id="dxjl_table" style="height:190px;">
+						<table class="m_table_0">
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+<div style="clear:both"></div>
+				
+
+
+
+			<div id="ad4" class="adplace ad4">
+			</div>
+			<script>
+			
+				_cmsad({
+					appendId:'ad4',
+					adb_id:'171'
+				});
+			
+			</script>
+						<div class="sub_cont_5 m_s_l hSty1" stat="gegugp_zjjp" id="gegugp_zjjp">
+		    	<div class="m_title_4" >
+		       		<h2 class="fl">实时成交分布</h2>
+		        	<ul class="mt_list fr">
+		            	<li class="stat" stat="f10_spgd_sscj">
+		                	<a href="/000625/funds/"  target="_blank">更多></a>
+		            </li>
+		        	</ul>
+		    	</div>
+				<div class="cont_sscjfb clearfix">
+					<div class="cont_txt">
+						<p>总流入：<i class="cred" id="zjlxzlr">--</i>万元</p>
+						<p>总流出：<i class="cgreen" id="zjlxzlc">--</i>万元</p>
+						<p>净&nbsp;额：<i class="cred" id="zjlxzlje">--</i>万元</p>
+					</div>
+					<div class="cont_chart fr " id="container" style="width: 200px; height: 200px;"></div>
+					<!-- <P class="notips">暂无数据</P>  -->
+				</div>
+				<table class="table_sscjfb mt4" >
+					<thead>
+						<tr><th width="20%">&nbsp;</th><th width="40%">流入（万元）</th><th width="40%">流出（万元）</th></tr>
+					</thead>
+					<tbody></tbody></table>
+             <div style="clear:both"></div></div>
+
+			<div class="sub_cont_6 hSty1" id="sscjfb">
+				<div class="m_title_4">
+					<h2 class="fl">资金流向历史统计</h2>
+					<ul class="mt_list fr">
+						<li class="stat" stat="f10_spgd_zjlx">
+							<a href="/000625/funds/" target="_blank" >更多></a>
+						</li>
+					</ul>
+				</div>
+				<div class="zjlxlstj_chart" id="container2" style="width: 400px; height: 230px;"></div>
+
+	<script>
+	 var date = [[257258.04,212119.62,518418.59,255569.14,56991.45],[201475.59,181239.26,397533.86,326912.37,66775.83]];
+	var date_time = ["07-13","07-14","07-15","07-18","07-19"];
+	var date_free = [[257258.04,212119.62,518418.59,255570.92,103073.19],[201478.85,181239.26,397534.04,326912.37,93965.84]];
+	var date_time_free = ["07-13","07-14","07-15","07-18","07-19"];
+	</script>
+			<div id="history_funds_analysis" class="hide">
+								<p class="zjlxlstj_txt">近5日内该股资金总体呈流入状态，高于行业平均水平，5日共流入<i class="cred">126419.95</i>万元。</p>
+							</div>
+			<div id="history_funds_analysis_free" class="hide">
+								<p class="zjlxlstj_txt">近5日内该股资金总体呈流入状态，高于行业平均水平，5日共流入<i class="cred">145310.02</i>万元。</p>
+							</div>
+			<p class="zjlxlstj_txt mb14" title="据统计，近10日内主力筹码较分散，呈低度控盘状态。">
+				据统计，近10日内主力筹码较分散，呈低度控盘状态。			</p>
+
+		    </div>
+			
+<div style="clear:both"></div>
+												
+				<div class="sub_cont_5 m_s_l hSty3" stat="gegugp_gsxw" id="xwgg">
+					<div class="m_title_4">
+						<h2 class="fl">公司新闻</h2>
+						<ul class="mt_list fr">
+							<li class="stat" stat="f10_spgd_gsxw">
+								<a href="http://stockpage.10jqka.com.cn/000625/news/" target="_blank">更多></a>
+						</li>
+						</ul>
+					</div>
+					<ul class="news_list stat" stat="f10_spqk_gsxw">
+															<li class="clearfix">
+						<span class="news_title fl"><a href="http://field.10jqka.com.cn/20220719/c640537982.shtml" target="_blank">16家整车企业仅3家上半年净利预增 两家华为合作</a></span>
+						<span class="news_date"><em>07-19 10:02</em></span>
+					</li>
+										<li class="clearfix">
+						<span class="news_title fl"><a href="http://stock.10jqka.com.cn/20220719/c640535471.shtml" target="_blank">国泰君安证券：汽车板块走向风险偏好和业绩双轮</a></span>
+						<span class="news_date"><em>07-19 08:47</em></span>
+					</li>
+										<li class="clearfix">
+						<span class="news_title fl"><a href="http://stock.10jqka.com.cn/20220718/c640509539.shtml" target="_blank">汽车零部股再度爆发，万通智控等大涨，广东鸿图</a></span>
+						<span class="news_date"><em>07-18 14:16</em></span>
+					</li>
+										
+					</ul>
+				</div>
+				<div class="sub_cont_6 hSty3">
+					<div class="m_title_4">
+						<h2 class="fl">公司公告</h2>
+						<ul class="mt_list fr">
+							<li class="stat" stat="f10_spgd_gsgg">
+								<a href="http://search.10jqka.com.cn/search?preParams=&ts=1&f=1&qs=site_stockpage_more&querytype=&tid=pubnote&bgid=&sdate=&edate=&tid=pubnote&w=000625" target="_blank">更多></a>
+						</li>
+						</ul>
+					</div>
+					<ul class="news_list stat"  stat="f10_spqk_gsgg">
+															<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/4dbfe587f3689d23.pdf" target="_blank">长安汽车：2022年半年度业绩预告</a></span>
+							<span class="news_date"><em>2022-07-15</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/87439fe016b2e2db.pdf" target="_blank">长安汽车：关于新增募集资金专户并签订募集资金</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/2075dccaad19627e.pdf" target="_blank">长安汽车：关于2022年6月份产、销快报的自愿性信</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/14f32f365a249c4.pdf" target="_blank">长安汽车：关于公司董事变更的公告</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/b817e98da312a770.pdf" target="_blank">长安汽车：第八届董事会第四十二次会议决议公告</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/c290b21567658968.pdf" target="_blank">长安汽车：关于召开2022年第二次临时股东大会的</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/ab2fb35bf9ba9d79.pdf" target="_blank">长安汽车：2022年第二次临时股东大会资料</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+										<li class="clearfix">
+							<span class="news_title fl"><a href="http://notice.10jqka.com.cn/api/pdf/c637032d1d5c8404.pdf" target="_blank">长安汽车：独立董事关于第八届董事会第四十二次</a></span>
+							<span class="news_date"><em>2022-07-09</em></span>
+						</li>
+															</ul>
+				</div>
+
+
+
+ <div class="rec-pop" style="display:none">
+        <div class="rec-pop-hd">
+            <span class="close"></span>
+            <span class="min"></span>
+          <a href="http://www.10jqka.com.cn" target="_blank">同花顺推荐</a>
+        </div>
+        <div class="rec-pop-main">
+          <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="zxp" src="http://news.10jqka.com.cn/stockpagePopnews.shtml"></iframe>
+        </div>
+
+    
+    <script type="text/javascript">
+
+        $('.rec-pop-hd .min').on('click', function() {
+            $('.rec-pop-main').toggle('fast');
+        });
+        $('.rec-pop-hd .close').on('click', function() {
+            $('.rec-pop, .rec-pop-main').hide();
+        });
+        var checktime = '';
+        $('.rec-pop').hover(
+      		function(){
+      			checktime = THS.time.microtime();
+      		},
+      		function(){
+				if (checktime) {
+					var latime = THS.time.microtime()-checktime;
+					if (!$('.rec-pop').attr('log') || latime >3) {
+						if (latime > 3) {
+							TA.log({id:'gg_visitorvip',fid:'gg_allvisitor', time:latime, nj:1});
+							$('.rec-pop').attr({'log':'loged'});
+						} else if (latime > 1) {
+							TA.log({id:'gg_allvisitor', time:latime, nj:1});
+							$('.rec-pop').attr({'log':'loged'});
+						}
+					}
+				}
+        });
+
+
+        $('#xwgg').one('appear',function(){
+        	var nowtime = THS.time.microtime();
+        	var settime = storage.get('tjtime');
+        	if (typeof(settime) == 'undefined') {
+        		settime = 0;
+        	}
+        	if ((nowtime - settime) > 21600) {
+	        	storage.set('tjtime', nowtime);
+	        	setTimeout("$('.rec-pop').show()", 5000);
+        	}
+        })
+    </script>
+
+    </div>
+
+				<div style="clear:both"></div>
+				<div class="sub_cont_5 hSty4">
+					<div class="m_title_4">
+						<h2 class="fl">行业资讯</h2>
+						<ul class="mt_list fr">
+							<li class="stat" stat="f10_spgd_hyzx">
+								<a href="http://stockpage.10jqka.com.cn/000625/field/#fieldnews" target="_blank">更多></a>
+							</li>
+						</ul>
+					</div>
+					<ul class="news_list stat" stat="f10_spqk_hyzx">
+																		<li class="clearfix">
+								<span class="news_title fl"><a href="http://news.10jqka.com.cn/20220718/c640526971.shtml" target="_blank">新买日产新奇骏频繁出故障 车主：不敢开了</a></span>
+								<span class="news_date"><em>07-18 19:26</em></span>
+							</li>
+													<li class="clearfix">
+								<span class="news_title fl"><a href="http://stock.10jqka.com.cn/usstock/20220718/c640526967.shtml" target="_blank">距离发布不到一周！全新一代本田Type-R官图竟然</a></span>
+								<span class="news_date"><em>07-18 19:25</em></span>
+							</li>
+													<li class="clearfix">
+								<span class="news_title fl"><a href="http://field.10jqka.com.cn/20220718/c640526952.shtml" target="_blank">新能源汽车市场规模不断上升 机构预测锂产业链一</a></span>
+								<span class="news_date"><em>07-18 19:25</em></span>
+							</li>
+													<li class="clearfix">
+								<span class="news_title fl"><a href="http://field.10jqka.com.cn/20220718/c640526899.shtml" target="_blank">传统车企战投竞赛加速：北汽集团设立20亿元产投</a></span>
+								<span class="news_date"><em>07-18 19:20</em></span>
+							</li>
+													<li class="clearfix">
+								<span class="news_title fl"><a href="http://field.10jqka.com.cn/20220718/c640526785.shtml" target="_blank">多重福利馈赠消费者！2022昆明国际车展将于8月4</a></span>
+								<span class="news_date"><em>07-18 19:17</em></span>
+							</li>
+													<li class="clearfix">
+								<span class="news_title fl"><a href="http://news.10jqka.com.cn/20220718/c640526736.shtml" target="_blank">3年败光84亿后，“中国特斯拉”走向破产</a></span>
+								<span class="news_date"><em>07-18 19:14</em></span>
+							</li>
+											
+					</ul>
+				</div>
+				<div class="sub_cont_6 hSty4">
+					<div class="m_title_4">
+						<h2 class="fl">研究报告</h2>
+						<ul class="mt_list fr">
+							<li class="stat" stat="f10_spgd_yjbg">
+								<a href="http://search.10jqka.com.cn/search?preParams=&ts=1&f=1&qs=site_stockpage_more&querytype=&tid=report&bgid=&sdate=&edate=&tid=report&w=000625" target="_blank">更多></a>
+							</li>
+						</ul>
+					</div>
+					<ul class="news_list stat" stat="f10_spqk_yjbg">
+																		<li class="clearfix">
+							<span class="news_title fl"><a href="http://news.10jqka.com.cn/field/sr/20220719/37373693.shtml" target="_blank">业绩预告超预期，自主品牌强势发力</a></span>
+							<span class="news_date"><em>07-19 09:13</em></span>
+						</li>
+												<li class="clearfix">
+							<span class="news_title fl"><a href="http://news.10jqka.com.cn/field/sr/20220717/37356227.shtml" target="_blank">2022年中报预告点评：盈利能力靓丽，进一步催化</a></span>
+							<span class="news_date"><em>07-17 16:40</em></span>
+						</li>
+												<li class="clearfix">
+							<span class="news_title fl"><a href="http://news.10jqka.com.cn/field/sr/20220717/37355775.shtml" target="_blank">2022年半年度业绩预告点评：2Q22延续盈利能力同</a></span>
+							<span class="news_date"><em>07-17 15:11</em></span>
+						</li>
+												<li class="clearfix">
+							<span class="news_title fl"><a href="http://news.10jqka.com.cn/field/sr/20220715/37348905.shtml" target="_blank">克服疫情影响，Q2扣非业绩同比高增长</a></span>
+							<span class="news_date"><em>07-15 20:37</em></span>
+						</li>
+												<li class="clearfix">
+							<span class="news_title fl"><a href="http://news.10jqka.com.cn/field/sr/20220715/37347451.shtml" target="_blank">二季度业绩符合预期，静待下半年新能源汽车放量</a></span>
+							<span class="news_date"><em>07-15 19:12</em></span>
+						</li>
+												<li class="clearfix">
+							<span class="news_title fl"><a href="http://news.10jqka.com.cn/field/sr/20220715/37340435.shtml" target="_blank">2022年半年报业绩预告点评：Q2扣非归母净利润同</a></span>
+							<span class="news_date"><em>07-15 15:56</em></span>
+						</li>
+																	</ul>
+				</div>
+				<div style="clear:both"></div>
+		</div>
+	</div>
+		<div class="m_cont_3">
+			<div class="m_cont_0">
+			<ul class="m_title_0 m_title_1 tit">
+				<li class="tab_current" id="newsleft_fieldcode">
+					<a class="related_industry stat" stat="f10_spyk_zjfw" href="javascript:void(0);"> 最近访问 </a>
+				</li>
+				<li class="optional_share tab_last stat" stat="zxg_2" id="newsleft_selfstock">
+					<a href="javascript:void(0);">我的自选股 </a>
+				</li>
+			</ul>
+			<div class="sub_cont_0">
+				<table class="ri_table m_table_0 stat" stat="f10_spyk_zxg" id="newsleft_fieldcode_table">
+					<thead>
+						<tr>
+							<th>股票名称</th>
+							<th>最新价</th>
+							<th>涨跌幅</th>
+						</tr>
+					</thead>
+					<tbody id="zjfw">
+
+					</tbody>
+
+					<tbody id="rmgg" style="display:none">
+                           <tr><th colspan="3" style="background-color:#dceaf3">以下为热门个股</th></tr>
+					</tbody>
+				</table>
+				<script>
+				var pagescode = '000625';
+				
+				function stockRender(){
+					this.render = function(json){
+						var resultlist = THS.quote.formatResult(json);
+						if (resultlist.length > 0) {
+							var buffer = [],i=0;
+							var buffer2 = [],i2=0;
+							var shownum = 10;
+							$.each(resultlist, function(tag, item) {
+								if (tag < shownum) {
+								var stockcode = item.code;
+								var stockname = item.name;
+									var nowprice = item.nowprice;
+									var perc = item.percent;
+									var color = (perc > 0) ? 'red':'green';
+									if (typeof(stockname) == 'undefined') {
+										stockname = '';
+								}
+									buffer[i++] ='<tr class="'+color+'"> <td class="gray"><a target="_blank" href="http://stockpage.10jqka.com.cn/'+stockcode+'/">'+stockname+'</a></td><td>'+nowprice+'</td><td>'+perc+'%</td></tr>';
+								}
+							});
+							//alert(buffer.length);
+							if(buffer.length==0){
+								//alert('111');
+								$('#zjfw').html('<centet>暂无访问记录</cneter>');
+							}else{
+								$('#zjfw').html(buffer.join(''));
+							}
+
+
+						}
+					}
+				}
+				function clearVH() {
+					storage.set('sviewlist', '');
+					alert('已清空历史，谢谢使用！');
+				}
+				var codelist = storage.get('sviewlist');
+				if (!codelist) {
+					codelist = '601985,601766,601899,601988,601989,300033';
+				}
+				if (codelist) {
+			    	THS.quote.getData(codelist, new stockRender());
+			    }
+			    var codes = codelist?codelist.split(','):[];
+			    var ecode = {};
+			    var bpfr = [], j=0;
+			    bpfr[j++] = pagescode;
+				for(var i = 0; i < codes.length; i++){
+					 if (codes[i]) {
+					  	if(!ecode[codes[i]]){
+					  		bpfr[j++]=codes[i];
+					   		ecode[codes[i]] = 1;
+					  	}
+				  	}
+				 }
+				if (bpfr.length > 0) {
+					storage.set('sviewlist', bpfr.join(','));
+				}
+				
+				</script>
+				<div class="my_share hidden stat" id="newsleft_selfstock_table" stat="wdzxg">
+					<p class="login_tip"><a style="color:blue" href="http://upass.10jqka.com.cn/login?redir=HTTP_REFERER">暂未登录，请先登录</a></p>
+
+				</div>
+
+				<span id="qk" class="picking_device stat" stat="#" style="display：block;left:45px">
+					<a id="clearlis" href="javascript:void(0)" onclick="javascript:clearVH()" target="_self">清空访问记录</a>
+				</span>
+				<span id="tj" class="picking_device stat" stat="f10_spgd_tjxg" style="display:none">
+					<a href="http://data.10jqka.com.cn/souniu/" target="_blank">条件选股</a>
+				</span>
+				<span id="gl" class="manage_stock stat" stat="f10_spgd_glzxg" style="display:none">
+					<a href="javascript:void(0);">管理自选股</a>
+				</span>
+			</div>
+		</div>
+			<div style="clear:both;"></div>
+			<div class="sub_cont_3">
+				<h2 class="m_title_4">公司简介</h2>
+				<dl class="company_details">
+					<!-- <dt>公司名称：</dt>
+					<dd>长安汽车</dd> -->
+					<dt>所属地域：</dt>
+					<dd>重庆市</dd>
+					<dt>涉及概念：</dt>
+					<dd title="半年报预增，网约车，华为汽车，燃料电池，标普道琼斯A股，MSCI预期，宁德时代概念，超级电容，MSCI概念，车联网，人工智能，深股通，无人驾驶，沪伦通，央企国资改革，融资融券，新能源汽车">半年报预增，网约车，华为汽车，燃...</dd>
+					<dt>主营业务：</dt>
+					<dd><a href="/000625/operate/" target="_blank" class="jyfx stat" stat="f10_spgd_jyfx">经营分析</a></dd>
+					<dd title="　　许可项目：制造、销售汽车（含轿车），制造汽车发动机系列产品。汽车租赁（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以相关部门批准文件或许可证件为准）一般项目：汽车（含小轿车）开发，汽车发动机系列产品的开发、销售，配套零部件、模具、工具的、开发，制造，销售，机械安装工程科技技术咨询服务，自营和代理各类商品和技术的进出口（国家限定公司经营或禁止进出口的商品和技术除外），开发、生产、销售计算机软件、硬件产品，计算机应用技术咨询、培训，计算机网络系统设计、安装、维护,代办中国电信股份有限公司重庆分公司委托的电信业务，技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广。（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）">许可项目：制造、销售汽车（含轿车），制造汽车...</dd>
+					<dt>上市日期：</dt>
+					<dd>1997-06-10</dd>
+					<dt>每股净资产：</dt>
+					<dd>8.00元</dd>
+					<dt>每股收益：</dt>
+					<dd>0.59元</dd>
+					<dt>净利润：</dt>
+					<dd>45.36亿元</dd>
+					<dt>净利润增长率：</dt>
+					<dd>431.45%</dd>
+					<dt>营业收入：</dt>
+					<dd>345.76亿元</dd>
+					<dt>每股现金流：</dt>
+					<dd>0.10元</dd>
+					<dt>每股公积金：</dt>
+					<dd>1.38元</dd>
+					<dt>每股未分配利润：</dt>
+					<dd>5.30元</dd>
+					<dt>总股本：</dt>
+					<dd>99.22亿</dd>
+					<dt>流通股：</dt>
+					<dd>76.04亿</dd>
+				</dl>
+			</div>
+
+			<div class="sub_cont_3 overhd" stat="lrfx">
+				<h2 class="m_title_4"><a href="http://stockpage.10jqka.com.cn/000625/finance/#finance" target="_blank" class="moreinfo stat" stat="f10_spgd_lrfx">更多 &gt;</a>利润分析</h2>
+				<div class="charts-lr" style="height: 143px" >
+					<p>单位：万元</p>
+					<div id="lrfxdata" style="display:none">{"year":[2022,2021,2020],"s03":[453635.51,85358.58,""],"s06":["",172924.52,""],"s09":["",299224.56,""],"s12":["",355246.33,332425.12]}</div>
+					<div id="lrfx-charts"></div>
+				</div>
+
+				<script>
+
+				var lrfxdata = eval('(' +$('#lrfxdata').html()+')');
+				$('#lrfx-charts').highcharts({
+					chart: {type: 'column',height: 120},
+					title: null,
+					subtitle: null,
+					xAxis: {
+						categories: lrfxdata.year
+					},
+					yAxis: {title: null},
+					legend:{enabled:false},
+					credits:{enabled:false},
+					tooltip: {},
+					plotOptions: {column: {pointPadding: 0.2,borderWidth: 0}},
+					series: [{
+						name: '第一季度',
+						color: '#ffd7d8',
+						data: lrfxdata.s03
+					}, {
+						name: '第二季度',
+						color: '#ffd7d8',
+						data:  lrfxdata.s06
+					}, {
+						name: '第三季度',
+						color: '#ed9d9e',
+						data: lrfxdata.s09
+					}, {
+						name: '第四季度',
+						color: '#dd7677',
+						data: lrfxdata.s12
+					}]
+				});
+				</script>
+			</div>
+			<div class="adplace ad5">
+			<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '1096137',
+        container: s,
+        size: '180,338',
+        display: 'inlay-fix'
+    });
+})();
+
+</script>
+</div>
+						<div class="ranking_list sub_cont_3 cb">
+				<h2 class="m_title_4">
+					同行业市场表现排行
+				</h2>
+				<div class="market_select rank_select stat" stat="f10_spqk_scbx">
+					<select class="text text_select text_market">
+												<option value="199112_desc" id="199112_desc" tag="涨幅">涨幅排行</option>
+												<option value="199112_asc" id="199112_asc" tag="跌幅">跌幅排行</option>
+												<option value="13_desc" id="13_desc" tag="成交量">成交量排行</option>
+												<option value="1968584_desc" id="1968584_desc" tag="换手">换手排行</option>
+												<option value="1771976_desc" id="1771976_desc" tag="量比">量比排行</option>
+												<option value="2034120_desc" id="2034120_desc" tag="市盈率">市盈率排行</option>
+											</select>
+				</div>
+				<table class="m_table_0" id="market_table">
+					<thead>
+					<tr>
+						<th>名称</th>
+						<th>最新价</th>
+						<th class="profit_cont">涨幅</th>
+					</tr>
+					</thead>
+				</table>
+			</div>
+					</div>
+		<div style="clear:both"></div>
+		<div id="ad6" class="adplace ad6">
+		</div>
+		<script>
+		
+			_cmsad({
+				appendId:'ad6',
+				adb_id:'172'
+			});
+		
+		</script>
+		<!--<div class="ad07"> <script type="text/javascript">BAIDU_CLB_fillSlot("950917");</script> </div>-->
+
+		<div class="m_cont_4">
+						<div class="main_cont_1 m_s_l" stat="gegugp_hyzx" id='tbts'>
+						<div class="sub_cont_4 m_s_l" >
+				<div class="m_title_4" >
+					<h2 class="fl">牛叉诊股</h2>
+					<ul class="mt_list fr">
+						<li class="stat" stat="f10_spgd_nczg"><a href="http://doctor.10jqka.com.cn/000625/" target="_blank">更多  ></a></li>
+					</ul>
+				</div>
+				<div class="clearfix analyze">
+					<div class="fl analyze-result clearfix">
+						<div class="analyze-img fl">
+							<span class="analyze-num">6.5</span>
+							<span class="analyze-tips mt7">综合判断：6.5分</span>
+							<span class="analyze-tips">打败了87%的股票！</span>
+						</div>
+						<div class="analyze-txt fr">
+							<div class="analyze-txt-cont">
+								<div class="txt-aside">短期趋势：</div>
+								<div class="txt-main">强势上涨过程中，可逢低买进，暂不考虑做空。</div>
+							</div>
+							<div class="analyze-txt-cont">
+								<div class="txt-aside">中期趋势：</div>
+								<div class="txt-main">回落整理中且下跌趋势有所减缓。</div>
+							</div>
+							<div class="analyze-txt-cont">
+								<div class="txt-aside">长期趋势：</div>
+								<div class="txt-main">迄今为止，共15家主力机构，持仓量总计30.88亿股，占流通A股40.60%</div>
+							</div>
+							<div class="txt-phra">近期的平均成本为<strong>17.96元</strong>，股价在成本下方运行。多头行情中，目前处于回落整理阶段且下跌趋势有所减缓。该股资金方面受到市场关注，多方势头较强。该公司运营状况良好，多数机构认为该股长期投资价值较高。 <span class='date'>[诊断日期:2022年07月18日 17:01]</span></div>
+						</div>
+					</div>
+					<div class="analyze-level fr">
+						<div class="analyze-stars">
+							<span>技术面诊股</span><i class="cred">6.10</i><span class="stars-blank">&nbsp;</span><span class="stars stars-3">&nbsp;</span>
+						</div>
+						<div class="analyze-stars">
+							<span>资金面诊股</span><i class="cred">5.50</i><span class="stars-blank">&nbsp;</span><span class="stars stars-3">&nbsp;</span>
+						</div>
+						<div class="analyze-stars">
+							<span>消息面诊股</span><i class="cred">6.30</i><span class="stars-blank">&nbsp;</span><span class="stars stars-3">&nbsp;</span>
+						</div>
+						<div class="analyze-stars">
+							<span>行业面诊股</span><i class="cred">6.80</i><span class="stars-blank">&nbsp;</span><span class="stars stars-3h">&nbsp;</span>
+						</div>
+						<div class="analyze-stars">
+							<span>基本面诊股</span><i class="cred">7.60</i><span class="stars-blank">&nbsp;</span><span class="stars stars-4">&nbsp;</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		 			 				<div class="sub_cont_5">
+				<div class="m_title_4">
+					<h2 class="fl">机构评级</h2>
+					<ul class="mt_list fr">
+						<li class="stat" stat="f10_spgd_jgpj" >
+							<a href="http://doctor.10jqka.com.cn/000625/" target="_blank">更多></a>
+						</li>
+					</ul>
+				</div>
+				<div class="jg-cont">
+					<p class="jg-tips" style="overflow: hidden;">最近60个交易日，机构评级以买入为主，认为该股票非常值得关注。</p>
+					<div class="jg-level">
+						<div class="jg-level-img"></div>
+						<span class="jg-levelcursor jg-level-5"></span>
+					</div>
+					<div class="jg-info">
+						<table class="table-jg">
+							<tbody>
+							<tr class="table-tit odd">
+								<th>研究机构</th>
+								<th>评级日期</th>
+								<th>最新评级</th>
+								<th>上次评级</th>
+							</tr>
+
+							 		                       		                       <tr >
+									<td>国信证券</td>
+									<td>2022-07-15</td>
+									<td>买入</td>
+									<td>买入</td>
+								</tr>
+		                       		                       <tr class="odd">
+									<td>东吴证券</td>
+									<td>2022-07-15</td>
+									<td>买入</td>
+									<td>买入</td>
+								</tr>
+		                       		                       <tr >
+									<td>财通证券</td>
+									<td>2022-07-15</td>
+									<td>增持</td>
+									<td>增持</td>
+								</tr>
+		                       		                       <tr class="odd">
+									<td>华西证券</td>
+									<td>2022-07-14</td>
+									<td>买入</td>
+									<td>买入</td>
+								</tr>
+		                       		                       <tr >
+									<td>中信建投</td>
+									<td>2022-07-14</td>
+									<td>买入</td>
+									<td>买入</td>
+								</tr>
+		                       		                       <tr class="odd">
+									<td>东方证券</td>
+									<td>2022-07-14</td>
+									<td>买入</td>
+									<td>买入</td>
+								</tr>
+		                       		                   							</tbody>
+						</table>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="sub_cont_6">
+				<div class="m_title_4">
+					<h2 class="fl">机构预测</h2>
+					<ul class="mt_list fr">
+						<li class="stat" stat="f10_spgd_jgyc">
+							<a href="http://search.10jqka.com.cn/search?preParams=&ts=1&f=1&qs=1&querytype=&tid=report&bgid=&sdate=&edate=&tid=report&w=000625" target="_blank">更多></a>
+						</li>
+					</ul>
+				</div>
+				<div class="jg-cont">
+					<p class="jg-tips" style="overflow:hidden;">该股2022年每股收益与前一年相同，长期投资价值一般。</p>
+					<div id="forecastFlash"></div>
+					<div id="forecastData" class="none">[{"date":"2018","yellowRectValue":"6.81","blueLineValue":"","type":""},{"date":"2019","yellowRectValue":"-26.47","blueLineValue":"","type":""},{"date":"2020","yellowRectValue":"33.24","blueLineValue":"","type":""},{"date":"2021","yellowRectValue":"35.52","blueLineValue":"","type":""},{"date":"2022","yellowRectValue":"75.29","blueLineValue":"0.77","type":"YC"}]</div>
+				</div>
+			</div>
+						<div style="clear:both"></div>
+			<!--龙虎榜-->
+			<div class="f_box lhb_box m_s_l" stat="gegugp_lhb" id='lhb'>
+					<div class="m_box" id="payback" stat="index_payback">
+						<div class="hd">
+							<h2>龙虎榜</h2><div class="ad-text-lf" style="line-height:0px;">
+
+							<script>
+							
+							(function() {
+								var s ="_" + Math.random().toString(36).slice(2);
+								document.write('<div id="' + s + '"></div>');
+								(window.slotbydup=window.slotbydup || []).push({
+									id: '1106829',
+									container: s,
+									size: '320,22',
+									display: 'inlay-fix'
+								});
+							})();
+                            </script>
+							</div>
+							<a onclick="sendTalog('f10_stock_iwc_lhbwj')"; class='fr more' style='color: #0199fa;' target='_blank' href='http://www.iwencai.com/stockpick/search?tid=stockpick&qs=f10_xuangu_3&w=%E9%BE%99%E8%99%8E%E6%A6%9C%E6%9C%BA%E6%9E%84%E4%B9%B0%E5%85%A5%E5%8D%A0%E6%AF%94%E5%A4%A7%E4%BA%8E10%25'>[龙虎榜机构买入占比大于10%]</a>
+
+						</div>
+						<div class="bd">
+														<div class="m_tab">
+								<ul class="motor_ability fl">
+									<li class="cur" name="ml_001">
+										<a class="mlabel" href="javascript:void(0)" targ="ml_001">2022-06-29</a>
+									</li>
+																		<li name="ml_002">
+										<a class="mlabel" href="javascript:void(0)" targ="ml_002">2022-06-28</a>
+									</li>
+																	</ul>
+								<a onclick="TA.log({'id':'f10_click_lhb','nj':1})" href="http://data.10jqka.com.cn/market/lhbgg/code/000625/#refCountId=basic_50d2bfa6_569" target="_blank" class="fr hla stat_jumptodata">历史龙虎榜信息&gt;&gt;</a>
+							</div>
+														<div class="m_tab_content" id="ml_001" >
+																<span class="lh24 the_reasons f14 ">上榜原因：
+									<em>日跌幅偏离值达7%的证券</em>&nbsp;&nbsp;
+									<em>（本月累计上榜3次）</em>
+									<a class="lh24 f12 fr hla" href="http://data.10jqka.com.cn/market/longhu/" target="_blank">更多个股解读&gt;&gt;</a>
+								</span>
+								<table class="m_table m_hl">
+									<thead>
+										<tr>
+											<th>营业部名称</th>
+											<th>买入金额(万元)</th>
+											<th>占总成交比例</th>
+											<th>卖出金额(万元)</th>
+											<th>占总成交比例</th>
+										</tr>
+									</thead>
+									<tbody>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/a3f4c2ec68cc685c/">深股通专用</a>
+																							</th>
+											<td>22154.12</td>
+											<td>1.35%</td>
+											<td>42982.47</td>
+											<td>2.61%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/69da8a863c06408f/">东方财富证券股份有限公司拉萨东环路第一证券营业部</a>
+																							</th>
+											<td>19788.94</td>
+											<td>1.20%</td>
+											<td>7823.00</td>
+											<td>0.48%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/2257d985ea54963/">东方财富证券股份有限公司拉萨东环路第二证券营业部</a>
+																							</th>
+											<td>19567.88</td>
+											<td>1.19%</td>
+											<td>10924.26</td>
+											<td>0.66%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/5a3340563ee7eaab/">兴业证券股份有限公司上海世博馆路证券营业部</a>
+																							</th>
+											<td>18907.85</td>
+											<td>1.15%</td>
+											<td>0.19</td>
+											<td>0.00%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/1e8ae82acbcb677/">东方财富证券股份有限公司拉萨团结路第一证券营业部</a>
+																							</th>
+											<td>18035.01</td>
+											<td>1.10%</td>
+											<td>7954.31</td>
+											<td>0.48%</td>
+										</tr>
+																														<tr>
+											<th colspan="5" class="tr">买入总计：<span class="hl">98453.8</span>万元</th>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/a3f4c2ec68cc685c/">深股通专用</a>
+																						</th>
+											<td>22154.12</td>
+											<td>1.35%</td>
+											<td>42982.47</td>
+											<td>2.61%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/313e49ec84ac0993/">华鑫证券有限责任公司深圳分公司</a>
+																						</th>
+											<td>20.71</td>
+											<td>0.00%</td>
+											<td>16936.50</td>
+											<td>1.03%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/jgzy/">机构专用</a>
+																						</th>
+											<td>0.00</td>
+											<td>0.00%</td>
+											<td>38401.37</td>
+											<td>2.33%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/jgzy/">机构专用</a>
+																						</th>
+											<td>0.00</td>
+											<td>0.00%</td>
+											<td>21748.77</td>
+											<td>1.32%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/jgzy/">机构专用</a>
+																						</th>
+											<td>0.00</td>
+											<td>0.00%</td>
+											<td>21498.99</td>
+											<td>1.31%</td>
+										</tr>
+																														<tr>
+											<th colspan="5" class="tr">卖出总计：<span class="hl">141568.1</span>万元</th>
+										</tr>
+																				<tr>
+											<th colspan="5" class="tr">买卖净差：<span class="hl">-43114.3</span>万元</th>
+										</tr>
+									</tbody>
+
+								</table>
+																<div class='lhbhctl hover_ta' taname="f10_stock_mktl_lhbhc">
+																								</div>
+							</div>
+														<div class="m_tab_content" id="ml_002" style="display:none;">
+																<span class="lh24 the_reasons f14 ">上榜原因：
+									<em>日涨幅偏离值达7%的证券</em>&nbsp;&nbsp;
+									<em>（本月累计上榜3次）</em>
+									<a class="lh24 f12 fr hla" href="http://data.10jqka.com.cn/market/longhu/" target="_blank">更多个股解读&gt;&gt;</a>
+								</span>
+								<table class="m_table m_hl">
+									<thead>
+										<tr>
+											<th>营业部名称</th>
+											<th>买入金额(万元)</th>
+											<th>占总成交比例</th>
+											<th>卖出金额(万元)</th>
+											<th>占总成交比例</th>
+										</tr>
+									</thead>
+									<tbody>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/502fae37d713ed91/">国元证券股份有限公司上海虹桥路证券营业部</a>
+																							</th>
+											<td>30870.89</td>
+											<td>2.69%</td>
+											<td>776.99</td>
+											<td>0.07%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/5a3340563ee7eaab/">兴业证券股份有限公司上海世博馆路证券营业部</a>
+																							</th>
+											<td>20984.73</td>
+											<td>1.83%</td>
+											<td>151.51</td>
+											<td>0.01%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/a3f4c2ec68cc685c/">深股通专用</a>
+																							</th>
+											<td>18760.48</td>
+											<td>1.63%</td>
+											<td>31453.16</td>
+											<td>2.74%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/313e49ec84ac0993/">华鑫证券有限责任公司深圳分公司</a>
+																							</th>
+											<td>18050.59</td>
+											<td>1.57%</td>
+											<td>25.95</td>
+											<td>0.00%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																								<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/687afd95ea332953/">中信证券股份有限公司上海溧阳路证券营业部</a>
+																							</th>
+											<td>15397.97</td>
+											<td>1.34%</td>
+											<td>1436.58</td>
+											<td>0.13%</td>
+										</tr>
+																														<tr>
+											<th colspan="5" class="tr">买入总计：<span class="hl">104064.66</span>万元</th>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/2257d985ea54963/">东方财富证券股份有限公司拉萨东环路第二证券营业部</a>
+																						</th>
+											<td>9948.16</td>
+											<td>0.87%</td>
+											<td>10921.05</td>
+											<td>0.95%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/69da8a863c06408f/">东方财富证券股份有限公司拉萨东环路第一证券营业部</a>
+																						</th>
+											<td>9339.78</td>
+											<td>0.81%</td>
+											<td>11895.80</td>
+											<td>1.04%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/160b4d2e68cfd08f/">国泰君安证券股份有限公司北京知春路证券营业部</a>
+																						</th>
+											<td>406.63</td>
+											<td>0.04%</td>
+											<td>85630.57</td>
+											<td>7.45%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/2891c619bf9736a0/">安信证券股份有限公司西安曲江池南路证券营业部</a>
+																						</th>
+											<td>2668.44</td>
+											<td>0.23%</td>
+											<td>19115.42</td>
+											<td>1.66%</td>
+										</tr>
+																														<tr>
+											<th class="tl">
+																						<a class="hl tip" target="_blank" style="cursor:pointer;" href="http://data.10jqka.com.cn/market/lhbyyb/orgcode/a3f4c2ec68cc685c/">深股通专用</a>
+																						</th>
+											<td>18760.48</td>
+											<td>1.63%</td>
+											<td>31453.16</td>
+											<td>2.74%</td>
+										</tr>
+																														<tr>
+											<th colspan="5" class="tr">卖出总计：<span class="hl">159016</span>万元</th>
+										</tr>
+																				<tr>
+											<th colspan="5" class="tr">买卖净差：<span class="hl">-54951.34</span>万元</th>
+										</tr>
+									</tbody>
+
+								</table>
+																<div class='lhbhctl hover_ta' taname="f10_stock_mktl_lhbhc">
+																								</div>
+							</div>
+																				</div>
+						<div class="ft"></div>
+					</div>
+			</div>
+			<!--大宗交易-->
+			<div class="f_box m_s_l" stat="gegugp_dzjy" id='dzjy'>
+
+				<!-- 大宗交易 -->
+				<div class="m_box" id="deal" stat="index_deal">
+					<div class="hd">
+						<h2>大宗交易</h2><div class="ad-text-lf" style="line-height:0px;">
+
+						<script>
+								(function() {
+								    var s ="_" + Math.random().toString(36).slice(2);
+								    document.write('<div id="' + s + '"></div>');
+								    (window.slotbydup=window.slotbydup || []).push({
+								        id: '966210',
+								        container: s,
+								        size: '320,22',
+								        display: 'inlay-fix'
+								    });
+								})();
+							</script>
+							</div>
+					</div>
+					<div class="bd">
+												<p class="over">
+							<a onclick="TA.log({'id':'f10_spgd_dzjy','nj':1})" href="http://data.10jqka.com.cn/market/dzjy/op/code/code/000625/#refCountId=basic_50d2c0da_234" target="_blank" class="fr hla stat_jumptodata">查看历史大宗交易信息&gt;&gt;</a>
+						</p>
+						<table class="m_table m_hl mt10">
+							<thead>
+								<tr>
+									<th width="80px">交易日期</th>
+									<th>成交价(元)</th>
+									<th>成交金额(万元)</th>
+									<th>成交量(万股)</th>
+									<th class='iwcclick' taname='f10_stock_iwc_dzjyck' data-url='http://www.iwencai.com/yike/detail/auid/e106225fd9e07626?qs=client_f10_baike_3' content='是指正股的价格还要上涨多少百分比才可让认购权证持有人达到盈亏平衡'>溢价率</th>
+									<th width="220px">买入营业部</th>
+									<th width="220px">卖出营业部</th>
+								</tr>
+							</thead>
+							<tbody>
+																														<tr>
+									<td class="tc">2022-06-23</td>
+									<td>17.78</td>
+									<td>2172.89</td>
+									<td>122.21</td>
+									<td>-18.18%</td>
+									<td class="tl">机构专用</td>
+									<td class="tl">机构专用</td>
+								</tr>
+																						</tbody>
+						</table>
+						
+											</div>
+					<div class="ft"></div>
+				</div>
+</div>
+			<!--融资融券-->
+			<div class="f_box m_s_l" stat="gegugp_rzrq" id='margin'>
+
+			<div class="m_box" id="margin" stat="index_margin">
+					<div class="hd">
+						<h2><span class="iwcclick" taname='f10_stock_iwc_rzrq' content='融资融券是指投资者向具有深圳证券交易所会员资格的证券公司提供担保物，借入资金买入本所上市证券或借入本所上市证券并卖出的行为。'  data-url='http://www.iwencai.com/yike/detail/auid/59841202292da8c6?qs=client_f10_baike_8' >融资融券</span></h2>
+					</div>
+					<div class="bd">
+												<p>
+							<a onclick="TA.log({'id':'f10_spgd_rzrq','nj':1})" href="http://data.10jqka.com.cn/market/rzrqgg/op/code/code/000625/#refCountId=basic_50d2c037_178" target="_blank" class="fr hla stat_jumptodata">查看历史融资融券信息&gt;&gt;</a>
+							<span class="tip f14">融资余额若长期增加时表示投资者心态偏向买方，市场人气旺盛属强势市场；反之则属弱势市场。</span>
+						</p>
+						<table class="m_table m_hl mt10">
+							<thead>
+								<tr>
+									<th width="80px">交易日期</th>
+									<th><span class=" iwcclick" taname='f10_stock_iwc_rzrq' content='融资余额指投资者每日融资买进与归还借款间的差额。融券余额增加，表示市场趋向卖方；反之则趋向买方。'  data-url='http://www.iwencai.com/yike/detail/auid/d27e9b9e5d23d33f?qs=client_f10_baike_8'>融资余额</span>(亿元)</th>
+									<th><span style="color:#FB0000">融资余额/流通市值</span></th>
+									<th><span class=" iwcclick" taname='f10_stock_iwc_rzrq' content='是指每天收盘后累计发生的向券商借钱买股票尚未偿还的资金，也就是融资买入后未偿还的金额。'  data-url='http://www.iwencai.com/yike/detail/auid/ca38b49b0d3cbfc2?qs=client_f10_baike_8'>融资买入额</span>(亿元)</th>
+									<th><span class=" iwcclick" taname='f10_stock_iwc_rzrq' content='融券卖出量，是指某一股票每天收盘后累计发生的向证券公司借的股票卖出总和。'  data-url='http://www.iwencai.com/yike/detail/auid/7bc03e9c150af4e2?qs=client_f10_baike_8'>融券卖出量</span>(万股)</th>
+									<th><span class=" iwcclick" taname='f10_stock_iwc_rzrq' content='融券余量，是指每天收盘后累计发生的向券商借股票卖出尚未偿还的股票数量。'  data-url='http://www.iwencai.com/yike/detail/auid/9c4a232daafff976?qs=client_f10_baike_8'>融券余量</span>(万股)</th>
+									<th><span class=" iwcclick" taname='f10_stock_iwc_rzrq' content='融券余额指投资者每日融券卖出与买进还券间的差额。'  data-url='http://www.iwencai.com/yike/detail/auid/06701d417a274584?qs=client_f10_baike_8'>融券余额</span>(万元)</th>
+									<th><span class=" iwcclick" taname='f10_stock_iwc_rzrq' content='融资融券余额=融资余额+融券余额'  data-url='http://www.iwencai.com/yike/detail/auid/3354aeff90ee0a08?qs=client_f10_baike_8'>融资融券余额</span>(亿元)</th>
+								</tr>
+							</thead>
+							<tbody>
+															<tr>
+									<td class="tc">2022-07-18</td>
+									<td>
+																																	34.11
+																														</td>
+
+									<td>
+																					2.52%
+																			</td>
+
+									<td>
+																																	6.15
+																														</td>
+									<td>58.48</td>
+									<td>1087.23</td>
+									<td>19341.83</td>
+									<td>																							36.04
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-15</td>
+									<td>
+																																	33.42
+																														</td>
+
+									<td>
+																					2.45%
+																			</td>
+
+									<td>
+																																	13.95
+																														</td>
+									<td>160.30</td>
+									<td>1181.77</td>
+									<td>21189.16</td>
+									<td>																							35.54
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-14</td>
+									<td>
+																																	34.26
+																														</td>
+
+									<td>
+																					2.65%
+																			</td>
+
+									<td>
+																																	3.99
+																														</td>
+									<td>48.94</td>
+									<td>1167.50</td>
+									<td>19847.46</td>
+									<td>																							36.24
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-13</td>
+									<td>
+																																	34.90
+																														</td>
+
+									<td>
+																					2.70%
+																			</td>
+
+									<td>
+																																	4.45
+																														</td>
+									<td>83.70</td>
+									<td>1235.50</td>
+									<td>20966.48</td>
+									<td>																							37.00
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-12</td>
+									<td>
+																																	34.12
+																														</td>
+
+									<td>
+																					2.71%
+																			</td>
+
+									<td>
+																																	4.80
+																														</td>
+									<td>187.27</td>
+									<td>1254.85</td>
+									<td>20767.70</td>
+									<td>																							36.19
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-11</td>
+									<td>
+																																	37.02
+																														</td>
+
+									<td>
+																					2.81%
+																			</td>
+
+									<td>
+																																	4.72
+																														</td>
+									<td>85.73</td>
+									<td>1135.81</td>
+									<td>19683.61</td>
+									<td>																							38.99
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-08</td>
+									<td>
+																																	37.18
+																														</td>
+
+									<td>
+																					2.74%
+																			</td>
+
+									<td>
+																																	7.31
+																														</td>
+									<td>113.93</td>
+									<td>1126.31</td>
+									<td>20082.17</td>
+									<td>																							39.19
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-07</td>
+									<td>
+																																	41.29
+																														</td>
+
+									<td>
+																					2.86%
+																			</td>
+
+									<td>
+																																	13.68
+																														</td>
+									<td>209.23</td>
+									<td>1104.27</td>
+									<td>20970.09</td>
+									<td>																							43.39
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-06</td>
+									<td>
+																																	37.61
+																														</td>
+
+									<td>
+																					2.82%
+																			</td>
+
+									<td>
+																																	6.29
+																														</td>
+									<td>121.66</td>
+									<td>1123.06</td>
+									<td>19720.99</td>
+									<td>																							39.59
+																														</td>
+								</tr>
+															<tr>
+									<td class="tc">2022-07-05</td>
+									<td>
+																																	38.49
+																														</td>
+
+									<td>
+																					2.95%
+																			</td>
+
+									<td>
+																																	6.79
+																														</td>
+									<td>96.31</td>
+									<td>1098.04</td>
+									<td>18853.42</td>
+									<td>																							40.38
+																														</td>
+								</tr>
+														</tbody>
+						</table>
+											</div>
+
+					<div class="ft"></div>
+				</div>
+			</div>
+			<!--行业对比-->
+			<div class="sub_cont_4">
+					<div class="m_title_4 m_s_l" stat="gegugp_hydb">
+						<h2 class="fl">行业对比</h2>
+						<!-- 广告位：个股行业对比文字广告 -->
+						<!-- <div class="ad-text-lf"></div> -->
+						<ul class="mt_list fr">
+							<li class="stat" stat="f10_spgd_hydb"><a href="http://stockpage.10jqka.com.cn/000625/field/" target="_blank">更多  ></a></li>
+						</ul>
+					</div>
+					<div class="market_performance fl">
+						<div class="market_flash">
+							<div class="chart_box_hydb">
+						        <div class="hydb_legend_box">
+						            <span class="hydb_title">市场表现</span>
+						            <span class="legend legend_left">深证成指</span>
+						            <span class="legend legend_right">长安汽车</span>
+						        </div>
+						        <div id="chartContent_hydb"></div>
+						    </div>
+						</div>
+						<div class="table_cont mp_profession">
+							<table class="m_table_1 m_table_3">
+								<thead>
+									<tr>
+										<th class="bl_none"></th>
+										<th>5日涨跌幅</th>
+										<th>3个月涨跌幅</th>
+										<th>1年涨跌幅</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="cont_name">深证成指</td>
+																				<td>0.77%</td>
+																				<td>8.17%</td>
+																				<td>-15.39%</td>
+																			</tr>
+									<tr class="even hot_cont">
+										<td class="cont_name">长安汽车</td>
+																				<td>7.40%</td>
+																				<td>88.83%</td>
+																				<td>35.10%</td>
+																			</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="earnings_share fl">
+						<div class="level_flash">
+							<div class="title_box">
+					            <span class="title_box_title">财务水平</span>
+					            <span class="title_box_legend">摊薄每股收益(元)</span>
+					        </div>
+							<div id="fielddb_flash" style="width:330px; height:205px;"></div>
+						</div>
+						<div class="table_cont es_profession">
+							<table class="m_table_1 m_table_3">
+								<thead>
+									<tr>
+										<th class="bl_none"></th>
+																				<th class="hot_cont">长安汽车</th>
+																				<th >上汽集团</th>
+																				<th >广汽集团</th>
+																				<th >比亚迪</th>
+																			</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="cont_name">摊薄每股收益</td>
+																				<td class="hot_cont">0.59</td>
+																				<td >0.48</td>
+																				<td >0.29</td>
+																				<td >0.28</td>
+																			</tr>
+									<tr class="even">
+										<td class="cont_name">行业排名</td>
+																				<td class="hot_cont">1</td>
+																				<td >2</td>
+																				<td >3</td>
+																				<td >4</td>
+																			</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+						<!-- 广告位：个股底部 -->
+			<div class="main_cont_2" style="overflow:hidden;">
+
+				    <script>
+                    (function() {
+                        var s = "_" + Math.random().toString(36).slice(2);
+                        document.write('<div id="' + s + '"></div>');
+                        (window.slotbydup=window.slotbydup || []).push({
+                            id: '2373455',
+                            container: s,
+                            size: '1000,120',
+                            display: 'inlay-fix'
+                        });
+                    })();
+                    </script>
+				<div style="clear:both;"></div>
+			</div>
+			<!-- 广告位：个股底部 -->
+		</div>
+		<div class="m_cont_3">
+
+
+		<div class="adplace ad7">
+		<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '1106767',
+        container: s,
+        size: '180,355',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+</div>
+
+		</div>
+	</div>
+	<div id="finance_flash_data" style="display:none">[["2022-03-31","453635.51","0.59"],["2021-12-31","355246.33","0.47"],["2021-09-30","299224.56","0.39"],["2021-06-30","172924.52","0.32"],["2021-03-31","85358.58","0.16"]]</div>
+	<div id="worth_flash_data" style="display:none"></div>
+	<div id="fielddb_flash_data" style="display:none">[["\u957f\u5b89\u6c7d\u8f66","0.59"],["\u4e0a\u6c7d\u96c6\u56e2","0.48"],["\u5e7f\u6c7d\u96c6\u56e2","0.29"],["\u6bd4\u4e9a\u8fea","0.28"]]|0</div>
+	<div style="display:none" id="pageStockCode">000625</div>
+	<div style="display:none" id="pageStockMarketName">深证成指</div>
+	<div style="display:none" id="pageStockMarketCode">399001</div>
+	<div style="display:none" id="pageStockMarketId">sz</div>
+	<div style="display:none" id="pageFieldCode">1125</div>
+	<div style="display:none" id="pageStockName">长安汽车</div>
+	<div style="display:none" id="basicrating"></div>
+	<div style="display:none" id="indexdataflash">[{"date":"20220621","item0":"-0.51","item1":"5.54"},{"date":"20220622","item0":"-1.43","item1":"-2.23"},{"date":"20220623","item0":"2.19","item1":"10.03"},{"date":"20220624","item0":"1.37","item1":"2.85"},{"date":"20220627","item0":"1.10","item1":"8.76"},{"date":"20220628","item0":"1.23","item1":"10.00"},{"date":"20220629","item0":"-2.20","item1":"-9.98"},{"date":"20220630","item0":"1.57","item1":"-5.46"},{"date":"20220701","item0":"-0.28","item1":"4.73"},{"date":"20220704","item0":"1.29","item1":"-1.38"},{"date":"20220705","item0":"-0.41","item1":"-4.02"},{"date":"20220706","item0":"-1.25","item1":"2.27"},{"date":"20220707","item0":"0.97","item1":"8.14"},{"date":"20220708","item0":"-0.61","item1":"-6.11"},{"date":"20220711","item0":"-1.87","item1":"-2.80"},{"date":"20220712","item0":"-1.41","item1":"-4.50"},{"date":"20220713","item0":"0.56","item1":"2.54"},{"date":"20220714","item0":"0.75","item1":"0.18"},{"date":"20220715","item0":"-1.52","item1":"5.47"},{"date":"20220718","item0":"0.98","item1":"-0.78"}]</div>
+	<div style="display:none" id="stockbbsinfo">||</div>
+
+	<script src="http://s.thsi.cn/js/stockpage/new/public.20130314.min.js"></script>
+	<!-- <script type="text/javascript">BAIDU_CLB_fillSlot("982057");</script> -->
+
+
+	<script type="text/javascript" src="http://s.thsi.cn/cb?js/navigation/;jquery.bgiframe.min.js;jquery.ui.position.min.js;autocomplete-2.0.1.min.js&20150706" charset="utf-8"></script>
+	<!-- <script type="text/javascript" src="http://s.thsi.cn/cb?js/stockpage/;new/pagehead_v2.min.js;header.js&20150706"></script>
+-->
+	<script type="text/javascript" src="http://s.thsi.cn/cb?js/stockpage/;new/pagehead_v2.min.js"></script>
+	<script type="text/javascript" src="http://s.thsi.cn/cb?js/stockpage/new/header_v2-1.js"></script>
+	<!-- <script type="text/javascript" src="http://s.thsi.cn/cb?/js/stockpage/s2015/;index.js;menu_v2.js&20160325"></script> -->
+	<!-- <script type="text/javascript" src="http://s.thsi.cn/cb?/js/stockpage/s2015/;index_v2.js;menu_v2.js&20161225"></script> -->
+	<script type="text/javascript" src="http://s.thsi.cn/cb?/js/stockpage/s2015/;menu_v2.js&20161225"></script>
+	<!-- <script src="//basic.10jqka.com.cn/fe_components/l2_show/l2_show.js"></script> -->
+	<script src="//s.thsi.cn/js/webprivate/fe_components/l2_show/l2_show.js"></script>
+	<!-- <script src="/js/stockpage/index_v3.js"></script> -->
+	<script src="//s.thsi.cn/website/stockpage/js/stockpage/index_v3-20200411.js"></script>
+	<!-- <script src="/js/stockpage/draw_zjlx.js"></script> -->
+	<script src="//s.thsi.cn/website/stockpage/js/stockpage/draw_zjlx.js"></script>
+
+	<div id="footer">
+	<p>
+		<a href="http://news.10jqka.com.cn/tzz/" rel="nofollow">投资者关系</a><span class="ff">|</span>
+		<a href="http://news.10jqka.com.cn/c/20100105/61833421.shtml" rel="nofollow">关于同花顺</a><span>|</span>
+		<a href="http://download.10jqka.com.cn/">软件下载</a><span>|</span>
+		<a href="http://www.10jqka.com.cn/ia/pass_buck.php" rel="nofollow">法律声明</a><span>|</span>
+		<a href="http://www.10jqka.com.cn/hexin_license.htm" rel="nofollow">运营许可</a><span>|</span>
+		<a href="http://www.10jqka.com.cn/modules.php?name=what&amp;page=cooperate" rel="nofollow">内容合作</a><span>|</span>
+		<a href="http://www.10jqka.com.cn/hexin_contact.htm" rel="nofollow">联系我们</a><span>|</span>
+		<a href="http://news.10jqka.com.cn/list/link.shtml" rel="nofollow">友情链接</a><span>|</span>
+		<a href="http://news.10jqka.com.cn/msg/" rel="nofollow">网友意见箱</a><span>|</span>
+		<a href="http://job.10jqka.com.cn/" rel="nofollow">招聘英才</a>
+	</p>
+	<p class="c333">Copyright&#169;Hithink RoyalFlush Information Network Co.,Ltd.</p>
+	<p class="c333">浙江核新同花顺网络信息股份有限公司版权所有</p>
+</div>
+<div id="dialgo_box" class="dialgo_box hidden">
+
+	<h2 class="dialgo_pos">
+
+		<span class="dialgo_closed"></span>
+
+		您尚未登录，请登录后再添加自选股！
+
+	</h2>
+</div>
+<!-- 广告位：个股左侧悬浮F-1 -->
+<div class="ad-fix-left">
+<!--<script type="text/javascript">BAIDU_CLB_fillSlot("966227");</script>-->
+</div>
+<!--<script type="text/javascript">BAIDU_CLB_fillSlot("999711");</script>-->
+<!-- 广告位：个股左侧悬浮F-1 -->
+<script type="text/javascript" src="http://s.thsi.cn/cb?js/ta.min.20110822.js;js/basic/stock/StatLoad.js"></script>
+<!-- <script type="text/javascript" src="http://s.thsi.cn/js/stockpage/ad.js" ></script> -->
+<script type="text/javascript">
+$(".m_s_l").statload();
+document.domain="10jqka.com.cn";
+var id = "29,info_gather";
+var sid = "f10_stat_1";
+
+
+$(".f12").click(function(){
+	TA.log({'id':f10_spgd_ggjd,_top:false,nj:1});
+});
+
+TA.log({'id':sid,'fid':id,_top:false});
+
+$(document).ready(function(){
+	$(".stat").click(function(){
+		var childid = $(this).attr('stat');
+		TA.log({'id':childid,_top:false,nj:1});
+	});
+});
+
+
+</script>
+<script type="text/javascript" src="http://s.thsi.cn/js/stockpage/fixed2016/getWudangAndDetail_v3.js"></script>
+<!-- 个股引导脚本 start -->
+<script type="text/javascript" src="http://s.thsi.cn/js/stockpage/append.min.js"></script>
+<!-- 个股引导脚本 end -->
+<!-- 挂旗广告 2014-07-29 start -->
+<div id="imgWrap"></div>
+<script>
+
+	_cmsad({
+		appendId:'imgWrap',
+		adb_id:'169'
+	});
+
+</script>
+<!--<div class="ad_right none imgWrap" id="imgWrap"><a href="javascript:void(0)" onclick="javascript:hideTopAds()" target="_self" style="font-size:12px;">关闭</a><br/><a href="#" target="_blank" class="imgA"><img src="" class="imgBig"/><img src="" class="none imgSmall"/></a></div>
+<div class="ad_left none imgWrap"><a href="javascript:void(0)" onclick="javascript:hideTopAds()" target="_self" style="font-size:12px;">关闭</a><br/><a href="#" target="_blank" class="imgA"><img src="" class="imgBig"/><img src="" class="none imgSmall"/></a></div>
+<script src="http://ad.thsi.cn/siteHome/163.txt" type="text/javascript"></script>
+<script src="http://s.thsi.cn/js/stockpage/sideAd3.20160105.js" type="text/javascript"></script>-->
+<!-- 挂旗广告 2014-07-29 end -->
+<!-- 百度统计 start -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F78c58f01938e4d85eaf619eae71b4ed1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F22a3c65fd214b0d5fd3a923be29458c7' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" src="http://s.thsi.cn/js/stockpage/indexAd.min.201412161633.js"></script>
+<script type="text/javascript" src="http://s.thsi.cn/js/home/v6/weblogin_v3.20170609.js"></script>
+<!-- 百度统计 end -->
+
+<div class="right_float fix">
+  <ul>
+  <li><div class="wc"><a href="http://www.iwencai.com" target="_blank">&nbsp;</a></div></li>
+  <li><div class="dm"><a href="http://t.10jqka.com.cn/guba/000625/touzi/" target="_blank">&nbsp;</a></div></li>
+  <li style="display:none"><div class="jy"><a href="#">&nbsp;</a></div></li>
+ <li><div style="" class="fhdb" id="back"><a class="fh" href="javascript:scroll(0,0)">&nbsp;</a></div></li>
+  </ul>
+  </div>
+
+</body>
+</html>

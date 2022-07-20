@@ -18,7 +18,7 @@ type HelloAPI struct {
 }
 
 func (hello *HelloAPI) Say(name string) string {
-	fmt.Println("i am hello api")
+	fmt.Println("i am hello api.txt")
 	return ""
 }
 
