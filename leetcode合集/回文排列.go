@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //https://leetcode.cn/problems/palindrome-permutation-lcci/
 
@@ -23,6 +25,8 @@ func main() {
 	var num float32 = 3.4
 
 	fmt.Println(int(num))
+	fmt.Println(int(float32(3.4)))
+
 	//fmt.Println(int(3.4))
 
 }
