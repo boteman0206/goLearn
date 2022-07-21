@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 //https://leetcode.cn/problems/palindrome-permutation-lcci/
 
@@ -14,19 +12,39 @@ import (
 
 */
 
-// 只有一个是
+// 只有一个是奇数 其余的都是偶数菜有可能是回文数子
 func canPermutePalindrome(s string) bool {
 
-	return false
+	m := make(map[string]int, 0)
+
+	for i := range s {
+		s2 := string(s[i])
+		if num, ok := m[s2]; !ok {
+			m[s2] = 1
+		} else {
+			m[s2] = num + 1
+		}
+	}
+
+	var num int
+	for _, v := range m {
+		if v%2 != 0 {
+			num++
+		}
+	}
+
+	if num == 1 || num == 0 {
+		return true
+	} else {
+		return false
+	}
 }
 
 func main() {
 
-	var num float32 = 3.4
+	s := "tactca"
+	palindrome := canPermutePalindrome(s)
 
-	fmt.Println(int(num))
-	fmt.Println(int(float32(3.4)))
-
-	//fmt.Println(int(3.4))
+	fmt.Println(palindrome)
 
 }
