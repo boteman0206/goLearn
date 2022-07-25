@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"strings"
 )
@@ -45,51 +44,21 @@ func isFlipedString(s1 string, s2 string) bool {
 }
 
 // 采用子串来实现
-func isFlipedString1(s1 string, s2 string) bool {
 
+func isFlipedString1(s1 string, s2 string) bool {
 	if len(s1) != len(s2) {
 		return false
 	}
-	if s1 == "" && s2 == "" {
+	if s1 == s2 && s1 == "" {
 		return true
 	}
+	repeat := strings.Repeat(s2, 2)
+	fmt.Println("repeat: ", repeat)
 
-	//var data []string
-	str := bytes.Buffer{}
-	for i := range s2 {
-		u := string(s2[i])
-		str.WriteString(u)
-
-		fmt.Println("str : ", str.String())
-
-		index := strings.Index(s1, str.String())
-		if index == -1 {
-			str.Reset()
-			str.WriteString(u)
-
-			if i == len(s2)-1 {
-				index := strings.Index(s1, str.String())
-				if index == -1 {
-					return false
-				} else {
-					return true
-				}
-			}
-
-		} else {
-
-			if i == len(s2)-1 {
-				index := strings.Index(s1, str.String())
-				if index == -1 {
-					return false
-				} else {
-					return true
-				}
-			}
-		}
-
+	index := strings.Index(strings.Repeat(s2, 2), s1)
+	if index >= 0 {
+		return true
 	}
-
 	return false
 }
 
@@ -97,14 +66,14 @@ func main() {
 
 	//"waterbottle"
 	//"erbottlewat"
-	var s1 string = "abcd"
+	var s1 string = "waterbottle"
 
-	var s2 string = "acdb"
+	var s2 string = "erbottlewat"
 
-	//flipedString := isFlipedString(s1, s2)
+	flipedString := isFlipedString(s1, s2)
 	flipedString1 := isFlipedString1(s1, s2)
 
-	//fmt.Println("flipedString: ", flipedString)
-	fmt.Println("flipedString: ", flipedString1)
+	fmt.Println("flipedString: ", flipedString)
+	fmt.Println("flipedString1: ", flipedString1)
 
 }
