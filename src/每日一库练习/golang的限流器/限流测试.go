@@ -7,6 +7,9 @@ import (
 	"time"
 )
 
+/*
+https://learnku.com/articles/49065 参考文档
+*/
 func main() {
 
 	l := rate.NewLimiter(5, 1)
