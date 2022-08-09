@@ -1,4 +1,4 @@
-package golang的内存管理
+package main
 
 /**
 
