@@ -10,6 +10,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/samber/lo"
+	lop "github.com/samber/lo/parallel"
 	"reflect"
 	"strconv"
 	"time"
@@ -108,4 +109,33 @@ func main() {
 	slice := lo.Compact[string](in)
 	// []string{"foo", "bar"}
 	fmt.Println("Compact: ", slice)
+
+	// go协程处理的，打印顺序不确定
+	lop.ForEach[string]([]string{"hello", "world"}, func(x string, _ int) {
+		println(x)
+	})
+	// prints "hello\nworld\n" or "world\nhello\n"
+
+	// 循环处理打印顺序确定
+	lo.ForEach[string]([]string{"hello", "world"}, func(x string, _ int) {
+		println(x)
+	})
+
+	// 交集
+	result1 := lo.Intersect[int]([]int{0, 1, 2, 3, 4, 5}, []int{0, 2})
+	// []int{0, 2}
+	fmt.Println("Intersect: ", result1)
+
+	// 差集
+	left, right := lo.Difference[int]([]int{0, 1, 2, 3, 4, 5}, []int{0, 2, 6})
+	// []int{1, 3, 4, 5}, []int{6}
+	fmt.Println("Difference: ", left, right)
+
+	//Union 并集
+	union := lo.Union[int]([]int{0, 1, 2, 3, 4, 5}, []int{0, 2, 10})
+	// []int{0, 1, 2, 3, 4, 5, 10}
+	fmt.Println("Union: ", union)
+
+	subset := lo.Without[int]([]int{0, 2, 10}, 2)
+	fmt.Println("Without: ", subset)
 }
