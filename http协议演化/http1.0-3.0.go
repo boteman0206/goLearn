@@ -88,7 +88,7 @@ https://juejin.cn/post/6974673084095660062
 	10.3： 移动互联网领域表现不佳(弱网环境)
 			。。。。。
 
-
+https://github.com/FIGHTING-TOP/FE-knowlodge-base/issues/3
 https://zhuanlan.zhihu.com/p/72616216
 11：HTTP
 Http: HTTP协议是超文本传输协议的缩写，英文是Hyper Text Transfer Protocol。它是从WEB服务器传输超文本标记语言(HTML)到本地浏览器的传送协议。
