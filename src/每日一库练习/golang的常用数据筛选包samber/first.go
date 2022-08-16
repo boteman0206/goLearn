@@ -13,6 +13,7 @@ import (
 	lop "github.com/samber/lo/parallel"
 	"reflect"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -138,4 +139,22 @@ func main() {
 
 	subset := lo.Without[int]([]int{0, 2, 10}, 2)
 	fmt.Println("Without: ", subset)
+
+	present := lo.Contains[int]([]int{0, 1, 2, 3, 4, 5}, 5)
+	// true
+	fmt.Println("Contains: ", present)
+
+	reverseOrder := lo.Reverse[int]([]int{0, 1, 2, 3, 4, 5})
+	// []int{5, 4, 3, 2, 1, 0}
+	fmt.Println("Reverse: ", reverseOrder)
+
+	matching := lo.FilterMap[string, string]([]string{"cpu", "gpu", "mouse", "keyboard"}, func(x string, _ int) (string, bool) {
+		if strings.HasSuffix(x, "board") {
+			return x, true
+		}
+		return "", false
+	})
+	// []string{"xpu", "xpu"}
+	fmt.Println("FilterMap: ", matching)
+
 }
