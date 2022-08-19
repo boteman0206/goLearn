@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/spf13/cast"
 	"golang.org/x/time/rate"
 	"log"
 	"time"
@@ -27,7 +28,10 @@ https://github.com/kevinyan815/gocookbook/issues/27
 */
 func main() {
 
-	l := rate.NewLimiter(5, 1)
+	var limit1 float64 = 1.2
+	rate1 := cast.ToFloat64(limit1)
+
+	l := rate.NewLimiter(rate.Limit(rate1), 1)
 
 	//fmt.Println("l.Burst() : ")
 	time.Sleep(5 * time.Second)
@@ -41,7 +45,7 @@ func main() {
 		r := l.Reserve()
 		fmt.Println("需要等待的时间： ", i, " 个数： ", r.Delay())
 
-		log.Println("after Wait")
+		//log.Println("after Wait")
 		//time.Sleep(r.Delay())
 		//判断当前是否可以取到token
 		//a := l.Allow()

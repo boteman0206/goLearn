@@ -10,4 +10,9 @@ show status like  'Threads%';
 
 
 
+
+修改表的字段的字符集 // 直接修改库不生效，需要这样才行
+alter table dc_oms.product_sku_third convert to character set utf8 COLLATE utf8_general_ci;
+
+
 */
