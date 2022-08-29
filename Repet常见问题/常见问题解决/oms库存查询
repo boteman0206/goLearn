@@ -22,3 +22,12 @@ where warehouse_id = 818 and pst.third_sku_id = '2140126001';
 
 查询oms库存同步的关键字
 "收到全量同步oms库存"
+
+
+查询oms的货号
+
+select * from dc_oms.product p join dc_oms.product_sku_third pst on p.id = pst.product_id
+where pst.third_sku_id = "YPMSMCPD003" and p.org_code ='JGBM00098';
+
+org_code可以通过仓库查询
+select * from dc_oms.warehouse w where code ='021SHLBD';
