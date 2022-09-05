@@ -19,3 +19,10 @@ func main() {
 		fmt.Println("start http server fail:", err)
 	}
 }
+
+/**
+
+http.HandleFunc没有请求方法类型
+
+
+*/
