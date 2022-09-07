@@ -19,7 +19,8 @@
 where a.id = 34;
 
 
-6： 子龙多门店的库存直接会写入到表stock_task中, 然后每两秒执行一次：（看他有没有推送过来即可）
+6：  入口在： mall项目的func ProvideSyncStock(c echo.Context) error {}方法
+    子龙多门店的库存直接会写入到表stock_task中, 然后每两秒执行一次：（看他有没有推送过来即可）
     select * from datacenter.store where finance_code='AN0006'; // 查询子龙id
     SELECT * FROM  dc_dispatch.`stock_task` WHERE date(last_date) >= '2021-04-17' AND request LIKE '{"zilong_id":"2146"%' AND request LIKE '%S000P4G2MG%'
 
