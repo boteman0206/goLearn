@@ -14,6 +14,8 @@ func main() {
 	var upgrader = websocket.Upgrader{
 		ReadBufferSize:  1024,
 		WriteBufferSize: 1024,
+
+		// 主要解决跨域问题，不然链接的时候会报错
 		CheckOrigin: func(r *http.Request) bool {
 			return true
 		},
