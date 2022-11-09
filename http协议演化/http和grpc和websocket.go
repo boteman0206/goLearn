@@ -22,6 +22,18 @@ RPC其实比HTTP出现的要早，且比目前主流的HTTP1.1性能要更好，
 HTTP2.0在HTTP1.1的基础上做了优化，性能可能比很多RPC协议都要好，但由于是这几年才出来的，所以也不太可能取代掉RPC。
 
 
-二：  既然有 HTTP 协议，为什么还要有 WebSocket？
+二：  WebSockek
+	1： WebSocket是什么？
+		现在使用最广泛的HTTP/1.1，也是基于TCP协议的，同一时间里，客户端和服务器只能有一方主动发数据，这就是所谓的半双工。
+		WebSocket，也是基于TCP协议的，同一时间里，双方都可以主动向对方发送数据。这就是所谓的全双工。
+	2：建立WebSocket连接
+		浏览器在 TCP 三次握手建立连接之后，都统一使用 HTTP 协议先进行一次通信。
+		2.1： 如果此时是普通的 HTTP 请求，那后续双方就还是老样子继续用普通 HTTP 协议进行交互，这点没啥疑问。
+		2.2： 如果这时候是想建立 WebSocket 连接，就会在 HTTP 请求里带上一些特殊的header 头，
+				Connection: Upgrade
+				Upgrade: WebSocket
+				Sec-WebSocket-Key: T2a6wZlAwhgQNqruZ2YUyg==\r\n
+		WebSocket和HTTP一样都是基于TCP的协议。经历了三次TCP握手之后，利用 HTTP 协议升级为 WebSocket 协议。
+	你在网上可能会看到一种说法："WebSocket 是基于HTTP的新协议"，其实这并不对，因为WebSocket只有在建立连接时才用到了HTTP，升级完成之后就跟HTTP没有任何关系了。
 
 */
