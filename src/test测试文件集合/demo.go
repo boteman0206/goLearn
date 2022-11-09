@@ -1,43 +1,82 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"regexp"
+	"strconv"
+	"strings"
 	"time"
+	"unicode/utf8"
 )
 
+var DATE_TIME_LAYOUT = "2006-01-02 15:04:05"
+
 func main() {
+	DATE_LAYOUT := "2006-01-02"
 
-	//split := strings.Split(":11011", ":")
-	//fmt.Println("split : ", split)
-	//for i, v := range split {
-	//	fmt.Println("i : ", i, " v : ", v)
-	//}
+	//now := time.Now()
+	location, err := time.ParseInLocation(DATE_LAYOUT, "2022-11-05", time.Local)
+	if err != nil {
+		fmt.Println("err: ", err.Error())
+		return
+	}
+	fmt.Println(location)
 
-	var maxUpdateDate time.Time
-	fmt.Println("this is : ", maxUpdateDate)
-
-	var t1 time.Time
-
-	fmt.Println("==时间判断=", maxUpdateDate == t1, t1.Equal(maxUpdateDate))
-
-	now := time.Now()
-
-	date := compareUpdateDate(maxUpdateDate, now)
-	fmt.Println(date)
-
-	reg, _ := regexp.Compile(`\d+`)
-	skuId := reg.FindString("rpc error: code = Unknown desc = 仓库信息不存在，请核实仓库信息！编码：RP0158,")
-	fmt.Println(skuId) //  0158
-	errors.New("mypackage: invalid parameter")
-
-	//json.Marshal()
 }
 
-func compareUpdateDate(t1, t2 time.Time) time.Time {
-	if t1.Before(t2) {
-		return t2
+func GetAge(t1, t2 time.Time) (month, day, isWholeMonth int) {
+	y1 := t1.Year()
+	y2 := t2.Year()
+	m1 := int(t1.Month())
+	m2 := int(t2.Month())
+	d1 := t1.Day()
+	d2 := t2.Day()
+
+	yearInterval := y1 - y2
+	// 如果 d1的 月-日 小于 d2的 月-日 那么 yearInterval-- 这样就得到了相差的年数
+	if m1 < m2 || m1 == m2 && d1 < d2 {
+		yearInterval--
 	}
-	return t1
+	// 0大于 1等于 2小于
+	isWholeMonth = 0
+	// 获取月数差值
+	monthInterval := (m1 + 12) - m2
+	if d1 < d2 {
+		isWholeMonth = 2
+		monthInterval--
+	}
+	if d1 == d2 {
+		isWholeMonth = 1
+	}
+	day = d1 - d2
+	monthInterval %= 12
+	month = yearInterval*12 + monthInterval
+	return
+}
+
+func FilterEmoji(content string) string {
+	new_content := ""
+	for _, value := range content {
+		_, size := utf8.DecodeRuneInString(string(value))
+		if size <= 3 {
+			new_content += string(value)
+		}
+	}
+	return new_content
+}
+
+func UnicodeEmojiDecode(s string) string {
+	//emoji表情的数据表达式
+	re := regexp.MustCompile("\\[[\\\\u0-9a-zA-Z]+\\]")
+	//提取emoji数据表达式
+	reg := regexp.MustCompile("\\[\\\\u|]")
+	src := re.FindAllString(s, -1)
+	for i := 0; i < len(src); i++ {
+		e := reg.ReplaceAllString(src[i], "")
+		p, err := strconv.ParseInt(e, 16, 32)
+		if err == nil {
+			s = strings.Replace(s, src[i], string(rune(p)), -1)
+		}
+	}
+	return s
 }
