@@ -2,6 +2,10 @@ package main
 
 /**
 
+这篇文章说的很明白
+https://zhuanlan.zhihu.com/p/344834329
+
+
 原先的map无法支持并发读写
 
 两种方式实现并发读写：
