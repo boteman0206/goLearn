@@ -10,18 +10,20 @@ import (
 )
 
 var DATE_TIME_LAYOUT = "2006-01-02 15:04:05"
+var DATE_LAYOUT = "2006-01-02"
 
 func main() {
-	DATE_LAYOUT := "2006-01-02"
 
-	//now := time.Now()
-	location, err := time.ParseInLocation(DATE_LAYOUT, "2022-11-05", time.Local)
-	if err != nil {
-		fmt.Println("err: ", err.Error())
-		return
+	var ch = make(chan int, 10)
+	go func() {
+		for true {
+			time.Sleep(10 * time.Second)
+			ch <- 1
+		}
+	}()
+	for i := range (<-chan int)(ch) {
+		fmt.Println(i)
 	}
-	fmt.Println(location)
-
 }
 
 func GetAge(t1, t2 time.Time) (month, day, isWholeMonth int) {
