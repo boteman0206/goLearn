@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+/**
+普通消费者
+*/
 func Consumer(url string) {
 
 	// 第一步骤  连接RabbitMQ服务器

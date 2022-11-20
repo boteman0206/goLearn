@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+/**
+开启ack确认消费者
+
+*/
 func Consumer(url string) {
 
 	// 第一步骤  连接RabbitMQ服务器
