@@ -18,7 +18,8 @@ import (
 todo
 注意点： work工作模式的代码其实和简单工作模式的代码其实是一样的，只不过一个需要启动多个消费者来消费而已
 consumer01为普通普通消费者
-consumer02位需要手动确认ack的消费者
+consumer02为需要手动确认ack的消费者
+consumer03为设置预取值选项
 
 
 消息确认
