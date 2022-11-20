@@ -35,7 +35,7 @@ func Producer(url string) {
 		"hello", // name
 		false,   // durable
 		false,   // delete when unused
-		false,   // exclusive
+		false,   // exclusive   // 是否独占队列只对首次声明它的连接（Connection）可见（后面创建的相同名称的队列会报错）， 会在其连接断开的时候自动删除。
 		false,   // no-wait
 		nil,     // arguments
 	)
@@ -59,11 +59,12 @@ func Producer(url string) {
 	}
 
 	log.Printf(" [x] Sent %s\n", body)
-
+	//select {}  // 打开可以a看到生产者的conntions和channel
 }
 
 func main() {
 	for i := 0; i < 10; i++ {
-		Producer(MpUrl)
+		go Producer(MpUrl)
 	}
+	select {}
 }
