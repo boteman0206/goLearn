@@ -48,15 +48,7 @@ func Producer(url string, num int) {
 		nil,          // arguments
 	)
 
-	// fanout可以不需要申明队列
-	//q, err := ch.QueueDeclare(
-	//	"", // name
-	//	true,         // durable
-	//	false,        // delete when unused
-	//	false,        // exclusive
-	//	false,        // no-wait
-	//	nil,          // arguments
-	//)
+	// 基于交换机的不需要申明队列，直接将消息发到交换机上面
 
 	body := "t am work " + cast.ToString(num)
 	err = ch.Publish(
