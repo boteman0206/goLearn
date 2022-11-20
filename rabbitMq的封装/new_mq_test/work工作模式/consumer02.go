@@ -24,12 +24,12 @@ func Consumer(url string) {
 
 	// 第三步 申明队列
 	q, err := ch.QueueDeclare(
-		"hello", // name
-		true,    // durable
-		false,   // delete when unused
-		false,   // exclusive
-		false,   // no-wait
-		nil,     // arguments
+		"task_queue", // name
+		true,         // durable
+		false,        // delete when unused
+		false,        // exclusive
+		false,        // no-wait
+		nil,          // arguments
 	)
 	if err != nil {
 		return
@@ -39,7 +39,7 @@ func Consumer(url string) {
 	msgs, err := ch.Consume(
 		q.Name, // queue
 		"",     // consumer
-		true,   // auto-ack 自动确认
+		false,  // auto-ack 需要手动确认你才会删除消息
 		false,  // exclusive
 		false,  // no-local
 		false,  // no-wait
@@ -47,8 +47,12 @@ func Consumer(url string) {
 	)
 
 	for d := range msgs {
+		time.Sleep(3 * time.Second)
 		strNow := time.Now().Format(time.RFC3339Nano)
 		fmt.Printf("消费之收到了消息： Received a message: %s - 时间 %s \n", d.Body, strNow)
+
+		d.Ack(false) // 手动确认消息
+
 	}
 }
 
