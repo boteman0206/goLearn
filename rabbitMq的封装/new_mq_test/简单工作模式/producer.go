@@ -31,15 +31,17 @@ func Producer(url string) {
 	defer ch.Close()
 
 	//第三步： declare a queue 如果是其他的工作模式还需要申明交互机，这里只是简单工作模式
+	// 这里需要注意，队列申明之后是不能对队列的属性进行修改的，会报错，可以删了重建
 	q, err := ch.QueueDeclare(
 		"hello", // name
-		false,   // durable
-		false,   // delete when unused
-		false,   // exclusive   // 是否独占队列只对首次声明它的连接（Connection）可见（后面创建的相同名称的队列会报错）， 会在其连接断开的时候自动删除。
-		false,   // no-wait
+		true,    // durable  是否持久化，重启之后是否保存
+		false,   // delete when unused 是否在消费完成后自动删除队列
+		false,   // exclusive   //相当于其他连接不能用了： 是否独占队列只对首次声明它的连接（Connection）可见（后面创建的相同名称的队列会报错）， 会在其连接断开的时候自动删除。
+		false,   // no-wait  是否非阻塞，true表示是。阻塞：表示创建交换器的请求发送后，阻塞等待RMQ Server返回信息。非阻塞：不会阻塞等待RMQ Server的返回信息，而RMQ Server也不会返回信息。（不推荐使用）
 		nil,     // arguments
 	)
 	if err != nil {
+		//fmt.Println("======", err.Error())
 		return
 	}
 
