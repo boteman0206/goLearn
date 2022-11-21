@@ -48,7 +48,7 @@ func Consumer(url string) {
 		nil,          // arguments
 	)
 
-	// 第四步 申明队列，这里fanout的使用的是临时队列，生产我们可以自己考虑
+	// 第四步 申明队列，topic模式不需要申明队列名称
 	q, err := ch.QueueDeclare(
 		"",    // name
 		false, // durable
@@ -66,7 +66,7 @@ func Consumer(url string) {
 	// 绑定队列
 	err = ch.QueueBind(
 		q.Name,       // queue name
-		"#.*",        // routing key
+		from,         // routing key
 		"logs_topic", // exchange
 		false,
 		nil,
