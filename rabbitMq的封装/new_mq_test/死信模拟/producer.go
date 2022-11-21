@@ -18,6 +18,16 @@ import (
 x-message-ttl             5000,           // 消息过期时间,毫秒
 x-max-length               6              指定队列的长度
 
+
+死信消息变化
+	如果队列配置了参数 x-dead-letter-routing-key 的话，“死信”的路由key将会被替换成该参数对应的值。如果没有设置，则保留该消息原有的路由key
+	由于被抛到了死信交换机，所以消息的Exchange Name也会被替换为死信交换机的名称。
+log.info("死信消息properties：{}", message.getMessageProperties()); java代码获取死信消息属性
+	x-first-death-exchange  第一次被抛入的死信交换机的名称
+	x-first-death-reason   第一次成为死信的原因，rejected：消息在重新进入队列时被队列拒绝，由于default-requeue-rejected 参数被设置为false。expired ：消息过期。maxlen ： 队列内消息数量超过队列最大容量
+	x-first-death-queue    第一次成为死信前所在队列名称
+	x-death    历次被投入死信交换机的信息列表，同一个消息每次进入一个死信交换机，这个数组的信息就会被更新
+
 */
 
 type RabbitMQ struct {
