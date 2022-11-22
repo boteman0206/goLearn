@@ -1,6 +1,8 @@
 package mongodb学习
 
 /**
+https://haicoder.net/mongodb/mongodb-find-array-subfield.html
+https://www.runoob.com/mongodb/mongodb-capped-collections.html 参考
 
 一：mongodb的概念参考图 mongodb的概念图.png
 	1：数据库
@@ -102,5 +104,5 @@ package mongodb学习
 	3：查看集合索引大小 db.col.totalIndexSize()
 	4：删除集合指定索引  db.col.dropIndex("索引名称")
 
-	
+
 */
