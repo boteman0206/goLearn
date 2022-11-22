@@ -157,6 +157,9 @@ package mongodb学习
 		db.COLLECTION_NAME.find().sort({KEY:1})
 		以下实例演示了 col 集合中的数据按字段 likes 的降序排列： db.col.find({},{"title":1,_id:0}).sort({"likes":-1})
 
+	todo skip(), limilt(), sort()三个放在一起执行的时候，执行的顺序是先 sort(), 然后是 skip()，最后是显示的 limit()。
 
+
+十三： MongoDB 聚合
 
 */
