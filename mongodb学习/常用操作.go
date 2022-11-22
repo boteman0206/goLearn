@@ -161,5 +161,32 @@ package mongodb学习
 
 
 十三： MongoDB 聚合
+	1; aggregate() 方法  db.COLLECTION_NAME.aggregate(AGGREGATE_OPERATION)
+		db.test01.aggregate([{$group : {_id : "$age", num_tutorial : {$sum : 1}}}]);   select age, count(*) from mycol group by age
+	常用聚合函数参考图: 聚合函数.png
+
+	2： 聚合管道的概念
+		MongoDB的聚合管道将MongoDB文档在一个管道处理完毕后将结果传递给下一个管道处理。管道操作是可以重复的。
+		表达式：处理输入文档并输出。表达式是无状态的，只能用于计算当前聚合管道的文档，不能处理其它的文档。这里我们介绍一下聚合框架中常用的几个操作：
+			1：$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。
+				示例：db.article.aggregate({ $project : {
+										title : 1 ,
+										author : 1 ,}});
+					这样的话结果中就只还有_id,tilte和author三个字段了，默认情况下_id字段是被包含的，如果要想不包含_id话可以这样:   _id : 0 ,
+
+			2：$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。
+				db.articles.aggregate( [
+                        { $match : { score : { $gt : 70, $lte : 90 } } },
+                        { $group: { _id: null, count: { $sum: 1 } } }
+                       ] );
+				$match用于获取分数大于70小于或等于90记录，然后将符合条件的记录送到下一阶段$group管道操作符进行处理。
+			3：$limit：用来限制MongoDB聚合管道返回的文档数。
+			4：$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。
+			5：$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。
+			6：$group：将集合中的文档分组，可用于统计结果。
+			7：$sort：将输入文档排序后输出。
+			8：$geoNear：输出接近某一地理位置的有序文档。
+
+
 
 */
