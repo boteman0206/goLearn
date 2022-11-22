@@ -85,8 +85,20 @@ import (
 			6、当M系统调用结束时候，这个G会尝试获取一个空闲的P执行，并放入到这个P的本地队列。如果获取不到P，那么这个线程M变成休眠状态， 加入到空闲线程中，然后这个G会被放入全局队列中。
 
 	(4)调度器的生命周期  参考图： 调度器的生命周期.png
-			特殊的M0和G0
+		特殊的M0和G0
+			1：M0
+				M0是启动程序后的编号为0的主线程，这个M对应的实例会在全局变量runtime.m0中，不需要在heap上分配，M0负责执行初始化操作和启动第一个G， 在之后M0就和其他的M一样了。
+			2：G0
+				G0是每次启动一个M都会第一个创建的gourtine，G0仅用于负责调度的G，G0不指向任何可执行的函数, 每个M都会有一个自己的G0。在调度或系统调用时会使用G0的栈空间, 全局变量的G0是M0的G0。
 
+		调度流程
+			1 runtime创建最初的线程m0和goroutine g0，并把2者关联。
+			2 调度器初始化：初始化m0、栈、垃圾回收，以及创建和初始化由GOMAXPROCS个P构成的P列表。
+			3 示例代码中的main函数是main.main，runtime中也有1个main函数——runtime.main，代码经过编译后，runtime.main会调用main.main，程序启动时会为runtime.main创建goroutine，称它为main goroutine吧，然后把main goroutine加入到P的本地队列。
+			4 启动m0，m0已经绑定了P，会从P的本地队列获取G，获取到main goroutine。
+			5 G拥有栈，M根据G中的栈信息和调度信息设置运行环境
+			6 M运行G
+			7 G退出，再次回到M获取可运行的G，这样重复下去，直到main.main退出，runtime.main执行Defer和Panic处理，或调用runtime.exit退出程序。
 
 
 */
