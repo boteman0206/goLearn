@@ -129,6 +129,7 @@ package mongodb学习
 		(<) 小于 - $lt
 		(>=) 大于等于 - $gte
 		(<= ) 小于等于 - $lte
+		不等于  -  $ne
 		db.test01.find({"age":{$gte:19}}).pretty(); 查找age>=19的
 	2：MongoDB 使用 (<) 和 (>) 查询 - $lt 和 $gt  db.col.find({likes : {$lt :200, $gt : 100}})
 
