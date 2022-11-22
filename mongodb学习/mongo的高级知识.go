@@ -215,7 +215,7 @@ package mongodb学习
 		var name=eval("/" + 变量值key +"/i");
 		title:eval("/"+title+"/i")    // 等同于 title:{$regex:title,$Option:"$i"}
 
-十二：MongoDB 固定集合（Capped Collections）
+十一：MongoDB 固定集合（Capped Collections）
 MongoDB 固定集合（Capped Collections）是性能出色且有着固定大小的集合，对于大小固定，我们可以想象其就像一个环形队列，当集合空间用完后，再插入的元素就会覆盖最初始的头部的元素！
 	1：创建固定集合
 		我们通过createCollection来创建一个固定集合，且capped选项设置为true：
@@ -242,4 +242,27 @@ MongoDB 固定集合（Capped Collections）是性能出色且有着固定大小
 			用法2:缓存一些少量的文档
 
 
+十二：MongoDB 自动增长
+MongoDB 没有像 SQL 一样有自动增长的功能， MongoDB 的 _id 是系统自动生成的12字节唯一标识。
+但在某些情况下，我们可能需要实现 ObjectId 自动增长功能。
+由于 MongoDB 没有实现这个功能，我们可以通过编程的方式来实现，以下我们将在 counters 集合中实现_id字段自动增长。
+	1: 使用 counters 集合
+		>db.createCollection("counters")
+	2: 现在我们向 counters 集合中插入以下文档，使用 productid 作为 key:
+		>db.counters.insert({_id:"productid",sequence_value:0})
+	3: 创建 Javascript 函数(可以语言可以自定义相关函数函数)
+		现在，我们创建函数 getNextSequenceValue 来作为序列名的输入， 指定的序列会自动增长 1 并返回最新序列值。在本文的实例中序列名为 productid 。
+		>function getNextSequenceValue(sequenceName){
+		   var sequenceDocument = db.counters.findAndModify(
+			  {  query:{_id: sequenceName },
+				 update: {$inc:{sequence_value:1}},
+				 "new":true});
+			return sequenceDocument.sequence_value;
+		}
+
+	4： 接下来我们将使用 getNextSequenceValue 函数创建一个新的文档， 并设置文档 _id 自动为返回的序列值：
+		>db.products.insert({
+	   "_id":getNextSequenceValue("productid"),
+	   "product_name":"Apple iPhone",
+	   "category":"mobiles"})
 */
