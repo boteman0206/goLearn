@@ -188,5 +188,8 @@ package mongodb学习
 			8：$geoNear：输出接近某一地理位置的有序文档。
 
 
+十四： 分析语句的执行
+	db.haicoder.find({courses:"Python"}).explain()
+
 
 */
