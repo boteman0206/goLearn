@@ -13,6 +13,14 @@ import (
 
 /**
 参考文档  https://www.lixueduan.com/posts/go/singleflight/
+Go语言之防缓存穿透利器Singleflight
+1. 缓存击穿
+	某个热点数据缓存失效后，同一时间的大量请求直接被打到的了DB，会给DB造成极大压力，甚至直接打崩DB。
+
+2： 常见的解决方案是加锁
+	虽然加锁能解决问题，但是太重了，而且逻辑比较复杂，又是加锁又是等待的。相比之下 singleflight 就是一个轻量级的解决方案。
+
+
 */
 
 var (
