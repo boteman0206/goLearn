@@ -14,10 +14,11 @@ func main() {
 
 	engine := gin.Default()
 
+	// 配置的zipkin的启动地址
 	reporter := zkHttp.NewReporter("http://localhost:9411/api/v2/spans")
 	defer reporter.Close()
 
-	// 这里设置的serverName就是zipkin上面搜索的serverName
+	// 这里设置的serverName就是zipkin上面搜索的serverName   hostPort为gin项目启动的ip+端口
 	endpoint, err := zipkin.NewEndpoint("main3", "localhost:9010")
 	if err != nil {
 		log.Fatalf("unable to create local endpoint: %+v\n", err)
