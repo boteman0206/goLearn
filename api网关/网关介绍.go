@@ -1,0 +1,62 @@
+package main
+
+/**
+
+一： 什么是网关？有什么用？
+	微服务背景下，一个系统被拆分为多个服务，但是像安全认证，流量控制，日志，监控等功能是每个服务都需要的，没有网关的话，我们就需要在每个服务中单独实现，这使得我们做了很多重复的事情并且没有一个全局的视图来统一管理这些功能。
+	一般情况下，网关可以为我们提供请求转发、安全认证（身份/权限认证）、流量控制、负载均衡、降级熔断、日志、监控等功能。
+	网关主要做了一件事情：请求过滤 。
+
+
+二：常见网关
+	1：Netflix Zuul，  Zuul 主要通过过滤器（类似于 AOP）来过滤请求，从而实现网关必备的各种功能。
+	2： Kong  Kong 是一款基于 OpenResty 的高性能、云原生、可扩展的网关系统。  官网地址 ： https://konghq.com/kong
+	3：APISIX  APISIX 是一款基于 Nginx 和 etcd 的高性能、云原生、可扩展的网关系统。  官网地址： https://apisix.apache.org/zh/
+		etcd是使用 Go 语言开发的一个开源的、高可用的分布式 key-value 存储系统，使用 Raft 协议做分布式共识。
+		与传统 API 网关相比，APISIX 具有动态路由和插件热加载，特别适合微服务系统下的 API 管理。并且，APISIX 与 SkyWalking（分布式链路追踪系统）、Zipkin（分布式链路追踪系统）、Prometheus（监控系统） 等 DevOps 生态工具对接都十分方便。
+	4; Shenyu  Shenyu 是一款基于 WebFlux 的可扩展、高性能、响应式网关，Apache 顶级开源项目。 官网地址 ： https://shenyu.apache.org/
+
+
+三：具体介绍apisix
+Apache APISIX 是一个动态、实时、高性能的云原生 API 网关。它构建于 NGINX + ngx_lua 的技术基础之上，充分利用了 LuaJIT 所提供的强大性能。
+	APISIX 主要分为两个部分：
+		1：APISIX 核心：包括 Lua 插件、多语言插件运行时（Plugin Runner）、Wasm 插件运行时等；
+		2：功能丰富的各种内置插件：包括可观测性、安全、流量控制等。
+
+	1：概念
+		#路由route：
+			Route 也称为路由，是 APISIX 中最基础和最核心的资源对象。APISIX 可以通过路由定义规则来匹配客户端请求，根据匹配结果加载并执行相应的插件，最后把请求转发给到指定的上游服务。路由中主要包含三部分内容：匹配规则、插件配置和上游信息。
+		#服务
+			Service 也称为服务，是某类 API 的抽象（也可以理解为一组 Route 的抽象）。它通常与上游服务抽象是一一对应的，Route 与 Service 之间，通常是 N:1 的关系。
+		#上游
+			Upstream 也称为上游，上游是对虚拟主机的抽象，即应用层服务或节点的抽象。
+			上游的作用是按照配置规则对服务节点进行负载均衡，它的地址信息可以直接配置到路由或服务上。当多个路由或服务引用同一个上游时，可以通过创建上游对象，在路由或服务中使用上游的 ID 方式引用上游，减轻维护压力。
+
+
+	 2: 常用插件
+		一：保护 API
+			2.1: 限制请求速率；
+			2.2: 限制单位时间内的请求数；
+			2.3: 延迟请求；
+			2.4: 拒绝客户端请求；
+			2.5: 限制响应数据的速率。
+			为了实现上述功能，APISIX 提供了多个限流限速的插件，包括 limit-conn、limit-count 和 limit-req。
+				1: limit-conn 插件主要用于限制客户端对服务的并发请求数。
+				2: limit-req 插件使用漏桶算法限制对用户服务的请求速率。
+				3: limit-count 插件主要用于在指定的时间范围内，限制每个客户端总请求个数。
+
+		二: 链路追踪
+			1：zipkin Zipkin 一个开源的分布式追踪系统。 APISIX 的 zipkin 插件 支持根据 Zipkin API 规范 收集链路信息并报告给 Zipkin Collector。
+				1： docker run -d -p 9411:9411 openzipkin/zipkin
+				2:  启用插件
+						  "endpoint": "http://127.0.0.1:9411/api/v2/spans",
+						  "sample_ratio": 1
+				3： 查看请求的头部 返回结果中的 header 部分附加了一些额外的跟踪标识符（TraceId、SpanId 和 ParentId）：
+				4： gin配合zipkin使用监控项目参考上面的示例demo
+				5：	你可以通过访问 http://127.0.0.1:9411/zipkin，在 Zinkin 的 Web UI 上看到请求链路。
+
+
+
+
+
+*/
