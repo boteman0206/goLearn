@@ -2,6 +2,7 @@ package main
 
 import (
 	"container/list"
+	"fmt"
 	"sync"
 )
 
@@ -64,5 +65,15 @@ func (c *LruCache) Get(k interface{}) (interface{}, bool) {
 }
 
 func main() {
+	lruList := NewLruList(4)
 
+	lruList.Put(1, 1)
+	lruList.Put(2, 2)
+	lruList.Put(3, 3)
+	lruList.Put(4, 4)
+	lruList.Put(5, 5)
+	lruList.Put(6, 6)
+
+	get, b := lruList.Get(6)
+	fmt.Println(get, b)
 }
