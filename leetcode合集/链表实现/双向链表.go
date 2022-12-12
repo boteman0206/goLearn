@@ -82,7 +82,9 @@ func (d *DoubleList) Insert(index int, node *DoubleNode) bool {
 	if index == 0 {
 		node.Next = d.Head
 		node.Prev = nil
-		d.Head = node // 这里没有设置tail尾节点
+		node.Next.Prev = node // 设置双向链表节点
+
+		d.Head = node
 		d.Size += 1
 		return true
 	}
@@ -130,6 +132,45 @@ func (list *DoubleList) Display() {
 	}
 }
 
+func (d *DoubleList) Delete(index int) bool {
+	if index > d.Size || d.Size == 0 {
+		return false
+	}
+
+	d.mutex.Lock()
+	defer d.mutex.Unlock()
+
+	if index == 0 {
+		if d.Size == 1 {
+			d.Head = nil
+			d.Tail = nil
+
+		} else {
+			next := d.Head.Next // 头节点的下一个节点
+			next.Prev = nil
+
+			d.Head = next // 提升为head节点
+		}
+		d.Size--
+		return true
+	}
+
+	if index == d.Size-1 { // 删除最后一个节点
+		prev := d.Tail.Prev
+		prev.Next = nil
+
+		d.Tail = prev
+		d.Size--
+		return true
+	}
+
+	node := d.Get(index)
+	node.Prev.Next = node.Next
+	node.Next.Prev = node.Prev
+
+	d.Size--
+	return true
+}
 func main() {
 	list := NewDoubleList()
 
@@ -144,7 +185,11 @@ func main() {
 	//	Prev: nil,
 	//	Next: nil,
 	//})
-
+	//list.Append(&DoubleNode{
+	//	Data: "c",
+	//	Prev: nil,
+	//	Next: nil,
+	//})
 	list.Insert(0, &DoubleNode{
 		Data: "c",
 		Prev: nil,
@@ -160,6 +205,8 @@ func main() {
 		Prev: nil,
 		Next: nil,
 	})
+
+	list.Delete(2)
 	list.Display()
 
 }
