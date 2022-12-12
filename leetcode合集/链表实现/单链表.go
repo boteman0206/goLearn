@@ -109,7 +109,7 @@ func (list *SingleList) Delete(index int) bool {
 		return true
 	}
 	ptr := list.Head
-	for i := 0; i < index; i++ {
+	for i := 1; i < index; i++ {
 		ptr = ptr.Next
 	}
 	next := ptr.Next
@@ -159,5 +159,9 @@ func main() {
 		Data: "e",
 		Next: nil,
 	})
+	list.Display()
+
+	println("=================")
+	list.Delete(2)
 	list.Display()
 }
