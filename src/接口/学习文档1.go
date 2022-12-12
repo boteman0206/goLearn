@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+	"os"
+)
 
 /**
 
@@ -117,5 +121,16 @@ func main() {
 
 	//一开始，c 的 动态类型和动态值都为 nil，g 也为 nil，当把 g 赋值给 c 后，c 的动态类型变成了
 	//*main.Gopher，仅管 c 的动态值仍为 nil，但是当 c 和 nil 作比较的时候，结果就是 false 了。
+
+	var r io.Reader
+
+	tty, err := os.OpenFile("./tty", os.O_RDWR, 0)
+	if err != nil {
+
+	}
+
+	r = tty
+
+	fmt.Printf("%T---%v\n", r, r) //int---100
 
 }
