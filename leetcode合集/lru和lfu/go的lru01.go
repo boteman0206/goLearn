@@ -43,7 +43,7 @@ func (c *LruCache) Put(k, v interface{}) {
 		back := c.values.Back()
 		c.values.Remove(back)
 
-		delete(c.cacheMap, k)
+		delete(c.cacheMap, back)
 
 	}
 
