@@ -1,4 +1,4 @@
-package kafka卡夫卡
+package kafka
 
 /**
 一： Apache Kafka是 一个分布式流处理平台. 这到底意味着什么呢?
