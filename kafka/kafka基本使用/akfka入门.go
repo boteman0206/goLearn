@@ -62,11 +62,31 @@ Offset：
 	为保证 producer 发送的数据，能可靠的发送到指定的 topic，topic 的每个 partition 收到 producer 发送的数据后，都需要向 producer 发送 ack（acknowledgement 确认收到），如果 producer 收到 ack，就会进行下一轮的发送，否则重新发送数据。
 
 副本数据同步策略
-	1: 半数以上
-	2： 全部完成
+	1: 半数以上   需要 2n+1个副本
+	2： 全部完成   需要n个副本
 	Kafka 选择了第二种方案，原因如下：
 		1：同样为了容忍 n 台节点的故障，第一种方案需要 2n+1 个副本，而第二种方案只需要 n+1 个副本，而 Kafka 的每个分区都有大量的数据，第一种方案会造成大量数据的冗余。
 		2：虽然第二种方案的网络延迟会比较高，但网络延迟对 Kafka 的影响较小（同一网络环境下的传输）。
+
+ISR: 同步副本（包含leader+符合条件的follower）
+	因为采用数据同步的第二种方案的话，可能由于其中一个副本响应时间很慢，就会影响leader的ack延迟时间，严重影响效率
+	这里会维护一个动态的in-sync replication set , 意为和leader保持同步的follower集合，当isr中的follower数据同步完成之后，leader就会给follower发送ack。如果follower长时间没有向leader同步数据，则该follower将被剔除isr，该时间阀值有参数
+	replica.lag.time.max.ms参数设定。leader发生故障之后，就会从isr中选择新的leader。
+
+ack机制：
+	0： producer 不等待broker的ack，最低延迟，发完就不管了，但是broker接受到还没有写入磁盘就已经返回，有可能因为故障丢失数据。
+	1： 只等待leader的ack，如果follower同步成功之前leader故障，可能会丢失数据
+    -1（all）：producer等待broker的ack，partition的leader和（isr中的）follower全部落盘成功后才返回ack。但是如果follower同步完成后。broker发送ack之前，leader发生故障，可能造成数据重复。
+			  isr里面只剩下一个leader的时候也是会丢数据的。
+
+
+
+
+
+
+
+
+
 
 
 */
