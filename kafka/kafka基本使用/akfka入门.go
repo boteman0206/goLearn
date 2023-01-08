@@ -61,9 +61,10 @@ Offset：
 发送数据可靠性保证
 	为保证 producer 发送的数据，能可靠的发送到指定的 topic，topic 的每个 partition 收到 producer 发送的数据后，都需要向 producer 发送 ack（acknowledgement 确认收到），如果 producer 收到 ack，就会进行下一轮的发送，否则重新发送数据。
 
+生产者数据的一致性：
 副本数据同步策略
 	1: 半数以上   需要 2n+1个副本
-	2： 全部完成   需要n个副本
+	2： 全部完成   需要n+1个副本
 	Kafka 选择了第二种方案，原因如下：
 		1：同样为了容忍 n 台节点的故障，第一种方案需要 2n+1 个副本，而第二种方案只需要 n+1 个副本，而 Kafka 的每个分区都有大量的数据，第一种方案会造成大量数据的冗余。
 		2：虽然第二种方案的网络延迟会比较高，但网络延迟对 Kafka 的影响较小（同一网络环境下的传输）。
@@ -81,6 +82,14 @@ ack机制：
 
 
 
+kafka消费者消费数据的一致性：
+	log文件的hw（hight watermark）和leo（log end offset）
+	LEO: 每一个副本的最后一个offset 可能不一样
+	HW： 对于consumer而言，只有最小的的一个LEO才可以被消费。
+	follower故障的时候：
+		被剔除isr，等待故障恢复之后，follower会读取本地的hw，将log文件高于hw的部分截取。从hw开始向leader同步数据，等该follower的leo大于等于该partition的HW之后，就认为该follower追上了leader，就可以重新加入isr集合了。
+	leader故障之后：
+		会从isr中选取新的leader，之后为了保证各个副本之间数据的一致性，其余的follower会先将各自的log文件高于hw的部分截取。然后从新的leader同步数据。
 
 
 
