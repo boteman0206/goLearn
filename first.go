@@ -12,6 +12,7 @@ func main() { // 声明 main 主函数
 	fmt.Println("a")
 	fmt.Println("bc") // todo 同一行需要加分号 否则报错
 	a()
+	fmt.Println("this is a goodday")
 
 }
 
