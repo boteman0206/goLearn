@@ -1,0 +1,24 @@
+
+1: 重开一行：光标在行尾的话,回车即可；不在行尾，ctrl + enter 向下重开一行；ctrl+shift + enter 则是在上一行重开一行
+2: 删除一行：光标没有选择内容时，ctrl + x 剪切一行；ctrl +shift + k 直接删除一行
+3: 移动一行：alt + ↑ 向上移动一行；alt + ↓ 向下移动一行
+4: 复制一行：shift + alt + ↓ 向下复制一行；shift + alt + ↑ 向上复制一行
+
+
+搜索或者替换：
+
+ctrl + f ：搜索
+ctrl + alt + f： 替换
+ctrl + shift + f：在项目内搜索
+
+
+
+Ctrl+Shift+N 打开新的编辑器窗口
+Ctrl+Shift+W 关闭编辑器
+Home 光标跳转到行头 mac对应 fn + 向左
+End 光标跳转到行尾   mac对应 fn + 向右
+
+Ctrl + Home 跳转到页头  mac fn + 向上
+Ctrl + End 跳转到页尾  mac fn + 向下
+
+
