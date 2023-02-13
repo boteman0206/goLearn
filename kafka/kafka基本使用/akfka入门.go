@@ -82,7 +82,7 @@ ack机制：
 
 
 
-kafka消费者消费数据的一致性：
+副本的数据一致性保证：
 	log文件的hw（hight watermark）和leo（log end offset）
 	LEO: 每一个副本的最后一个offset 可能不一样
 	HW： 对于consumer而言，只有最小的的一个LEO才可以被消费。
@@ -90,7 +90,21 @@ kafka消费者消费数据的一致性：
 		被剔除isr，等待故障恢复之后，follower会读取本地的hw，将log文件高于hw的部分截取。从hw开始向leader同步数据，等该follower的leo大于等于该partition的HW之后，就认为该follower追上了leader，就可以重新加入isr集合了。
 	leader故障之后：
 		会从isr中选取新的leader，之后为了保证各个副本之间数据的一致性，其余的follower会先将各自的log文件高于hw的部分截取。然后从新的leader同步数据。
+	这里只是保证副本的数据一致性，数据丢不丢是由ack决定的
 
+
+
+消息中间的 exactly once恰好一次：
+	ack设置0： at most once 可能会丢数据
+	ack设置 -1 ： at least once  数据可能会重复
+	at least once + 冪等 = exactly once  0.11版本引入的一个冪等特性
+
+
+
+
+分区分配策略：消费者改变的时候（增加或者减少的时候）
+	roundrobin 按照消费者组来划分的
+    range（默认）  按照topic主题划分的
 
 
 
