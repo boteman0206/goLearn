@@ -17,4 +17,10 @@ package 破解jetbran全家桶
 上面的操作比较复杂可以直接执行里面的懒人脚本 在scripts目录下，点一下脚本就可以了
 
 
+macOS or Linux: execute "scripts/install.sh"
+Windows: double click to execute
+	"scripts\install-current-user.vbs" (For current user)
+    "scripts\install-all-users.vbs" (For all users)
+
+
 */
