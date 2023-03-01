@@ -52,5 +52,61 @@ ACK应答机制
 
 
 
+//https://juejin.cn/post/7102243362471673892
+消息传传递语义
+	1: 最多一次
+		从Producer的角度来看， At most once意味着Producer发送完一条消息后，不会确认消息是否成功送达。这样从Producer的角度来看，消息仅仅被发送一次，也就存在者丢失的可能性。
+	2： 最少一次
+		从Producer的角度来看，At least once意味着Producer发送完一条消息后，会确认消息是否发送成功。如果Producer没有收到Broker的ack确认消息，那么会不断重试发送消息。这样就意味着消息可能被发送不止一次，也就存在这消息重复的可能性。
+	3： 恰好一次
+		从Producer的角度来看，Exactly once意味着Producer消息的发送是幂等的。这意味着不论消息重发多少遍，最终Broker上记录的只有一条不重复的数据。
+
+生产者端消息保证：
+	Producer At least once配置
+		Kafka默认的Producer消息送达语义就是At least once，这意味着我们不用做任何配置就能够实现At least once消息语义。原因是Kafka中默认`acks=1`并且`retries=2147483647`。
+	Producer At most once配置
+		acks=0。acks配置项表示Producer期望的Broker的确认数。默认值为1。可选项：[0，1，all]。如果设置为0，表示Producer发送完消息后不会等待任何Broker的确认；设置为1表示Producer会等待Broker集群中的leader的确认写入消息；设置为all表示Producer需要等待Broker集群中leader和其所有follower的确认写入消息。
+	Producer Exactly once配置
+		Exactly once是Kafka从版本0.11之后提供的高级特性。我们可以通过配置Producer的以下配置项来实现Exactly once语义：
+			enable.idempotence=true。enable.idempotence配置项表示是否使用幂等性。当enable.idempotence配置为true时，acks必须配置为all。并且建议max.in.flight.requests.per.connection的值小于5。
+			acks=all。
+
+消费者端消息保证：
+	1：从Consumer的角度来看，At most once意味着Consumer对一条消息最多消费一次，因此有可能存在消息消费失败依旧提交offset的情况。考虑下面的情况：Consumer首先读取消息，然后提交offset，最后处理这条消息。在处理消息时，Consumer宕机了，此时offset已经提交，下一次读取消息时读到的是下一条消息了，这就是At most once消费
+
+	2：从Consumer的角度来看，At least once意味着Consumer对一条消息可能消费多次。考虑下面的情况：Consumer首先读取消息，然后处理这条消息，最后提交offset。在处理消息时成功后，Consumer宕机了，此时offset还未提交，下一次读取消息时依旧是这条消息，那么处理消息的逻辑又将被执行一遍，这就是At least once消费。
+		Consumer At least once配置
+			enable.auto.commit=false。禁止后台自动提交offset。
+			手动调用consumer.commitSync()来提交offset。手动调用保证了offset即时更新。
+			通过手动提交offset，就可以实现Consumer At least once语义。
+	3：从Consumer的角度来看，Exactly once意味着消息的消费处理逻辑和offset的提交是原子性的，即消息消费成功后offset改变，消息消费失败offset也能回滚。
+		Consumer Exactly once配置
+			isolation.level=read_committed。isolation.level表示何种类型的message对Consumer可见。 也即事务机制，后面在理解。
+
+
+Broker 端丢失场景剖析
+	KafkaBroker 集群接收到数据后会将数据进行持久化存储到磁盘，为了提高吞吐量和性能，采用的是「异步批量刷盘的策略」，
+	也就是说按照一定的消息量和间隔时间进行刷盘。首先会将数据存储到 「PageCache」 中，至于什么时候将 Cache 中的数据刷盘是由「操作系统」根据自己的策略决定或者调用 fsync 命令进行强制刷盘，
+	如果此时 Broker 宕机 Crash 掉，且选举了一个落后 Leader Partition 很多的 Follower Partition 成为新的 Leader Partition，那么落后的消息数据就会丢失。
+
+	1： 由于 Kafka 中并没有提供「同步刷盘」的方式，所以说从单个 Broker 来看还是很有可能丢失数据的。
+	2： kafka 通过「**多 Partition （分区）多 Replica（副本）机制」**已经可以最大限度的保证数据不丢失，如果数据已经写入 PageCache 中但是还没来得及刷写到磁盘，此时如果所在 Broker 突然宕机挂掉或者停电，极端情况还是会造成数据丢失。
+
+
+
+kafka的幂等  参考图 kafka幂等.png
+	https://www.cnblogs.com/smartloli/p/11922639.html
+	 当Producer发送消息(x2,y2)给Broker时，Broker接收到消息并将其追加到消息流中。
+	此时，Broker返回Ack信号给Producer时，发生异常导致Producer接收Ack信号失败。对于Producer来说，会触发重试机制，将消息(x2,y2)再次发送，
+	但是，由于引入了幂等性，在每条消息中附带了PID（ProducerID）和SequenceNumber。相同的PID和SequenceNumber发送给Broker，
+	而之前Broker缓存过之前发送的相同的消息，那么在消息流中的消息就只有一条(x2,y2)，不会出现重复发送的情况。
+
+
+
+Kafka 事务  https://juejin.cn/post/7122295644919693343
+	幂等性也只能保证单分区、单会话内的数据不重复，如果 Kafka 挂掉，重新给生产者分配了 PID，还是有可能产生重复的数据，这就需要另一个特性来保证了——Kafka 事务。
+
+	Kafka 事务基于幂等性实现，通过事务机制，Kafka 可以实现对多个 Topic 、多个 Partition 的原子性的写入，即处于同一个事务内的所有消息，最终结果是要么全部写成功，要么全部写失败。
+
 
 */
