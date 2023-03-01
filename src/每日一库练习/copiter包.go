@@ -24,7 +24,7 @@ func main() {
 	employee1 := Employee{Pets: []string{"lll"}}
 
 	copier.Copy(&employee, &user)
-	copier.CopyWithOption(&employee1, &user, copier.Option{false, false})
+	copier.CopyWithOption(&employee1, &user, copier.Option{false, false, nil})
 	fmt.Printf("%#v\n", employee)
 	fmt.Printf("另外的copy %#v\n", employee1)
 	user.Name = "pop"
