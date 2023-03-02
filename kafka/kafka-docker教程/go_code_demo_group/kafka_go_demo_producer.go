@@ -15,7 +15,7 @@ func main() {
 	msg := &sarama.ProducerMessage{}
 	msg.Topic = "test"
 	msg.Value = sarama.StringEncoder("this is a test abc")
-	// 连接kafka
+	// 连接kafka 同步发送
 	client, err := sarama.NewSyncProducer([]string{"127.0.0.1:9092"}, config)
 	if err != nil {
 		fmt.Println("producer closed, err:", err)

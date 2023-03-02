@@ -8,7 +8,7 @@ import (
 /*
 *
 
-	代码演示  没有消费者组的概念
+	代码演示  这里没有设置消费者组， 同步发送模式
 */
 func main() {
 	config := sarama.NewConfig()

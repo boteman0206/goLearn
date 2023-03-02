@@ -11,7 +11,8 @@ kafka cluster：kafka集群，一台或多台服务器组成
 	Partition：Topic的分区，每个topic可以有多个分区，分区的作用是做负载，提高kafka的吞 吐量。同一个topic在不同的分区的数据是不重复的，partition的表现形式就是一个一个的⽂件夹！
 	Replication:每一个分区都有多个副本，副本的作用是做备胎。当主分区（Leader）故障的 时候会选择一个备胎（Follower）上位，成为Leader。在kafka中默认副本的最大数量是10 个，且副本的数量不能大于Broker的数量，follower和leader绝对是在不同的机器，同一机 器对同一个分区也只可能存放一个副本（包括自己）。
 Consumer：消费者，即消息的消费方，是消息的出口。
-	Consumer Group：我们可以将多个消费组组成一个消费者组，在kafka的设计中同一个分 区的数据只能被消费者组中的某一个消费者消费。同一个消费者组的消费者可以消费同一个 topic的不同分区的数据，这也是为了提高kafka的吞吐量！
+	Consumer Group：我们可以将多个消费组组成一个消费者组，在kafka的设计中同一个分 区的数据只能被消费者组中的某一个消费者消费。
+	同一个消费者组的消费者可以消费同一个 topic的不同分区的数据，这也是为了提高kafka的吞吐量！每个消费者都属于某个消费者组，如果不指定，那么所有的消费者都属于默认的组
 
 
 生产流程
@@ -21,7 +22,7 @@ Consumer：消费者，即消息的消费方，是消息的出口。
     4.follower从leader拉取消息数据
     5.follower将消息写入本地磁盘后向leader发送ACK
     6.leader收到所有的follower的ACK之后向生产者发送ACK  （这里有isr同步副本的概念）
-
+消费者和生产者都是从leader读写数据，不与follower交互。
 
 选择partition的原则
 	那在kafka中，如果某个topic有多个partition，producer⼜怎么知道该将数据发往哪个partition呢？ kafka中有几个原则：
