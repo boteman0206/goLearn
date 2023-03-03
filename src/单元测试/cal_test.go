@@ -26,8 +26,11 @@ func TestAddNum(t *testing.T) {
 	t.Logf("test add num ....")
 }
 
-/**
+/*
+*
+
 	顺序指向的方法
+
 // 这个方式保证测试的顺序, 比如某个test测试依赖于另一个test的结果
 */
 func TestShunxun(t *testing.T) {
@@ -46,10 +49,12 @@ func TestMain(m *testing.M) {
 	m.Run()                        //不加 m.Run() 则不能进行后面的test
 }
 
-/**
+/*
+*
 todo 测试性能是有 *test.B
 【BenchMark】
- 把一个BenchMark重复很多次（不定，程序觉得跑到稳态了就算完，所以BenchMark里面最好是确定的执行时间，不然永远跑不到稳态，永远也跑不完），用来测试性能
+
+	把一个BenchMark重复很多次（不定，程序觉得跑到稳态了就算完，所以BenchMark里面最好是确定的执行时间，不然永远跑不到稳态，永远也跑不完），用来测试性能
 */
 func BenchmarkAll(b *testing.B) { //函数名BenchmarkXXX，B大写，XXX首字母大写
 	for n := 0; n < b.N; n++ {
@@ -88,7 +93,7 @@ FAIL    _/E_/goProject/goLearn/src/单元测试     0.136s
 4： 测试单个文件，一定要带上被测试的原文件
 	go test -v cal_test.go cal.go
 5: 测试单个方法
-	go test -v -test.run TestAddNum
+	go test -v -run  cal_test.go TestAddNum
 6: 形式参数必须是t *testing.T
 
 */
