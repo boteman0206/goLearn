@@ -2,6 +2,7 @@ package cal
 
 import (
 	"fmt"
+	sync2 "sync"
 	"testing"
 )
 
@@ -101,7 +102,7 @@ FAIL    _/E_/goProject/goLearn/src/单元测试     0.136s
 // todo 单元测试可以配合 https://github.com/stretchr/testify   asset来断言实现这个包实现了断言
 
 func TestDemo(t *testing.T) {
-
+	var sync sync2.WaitGroup
 	t.Log("开始。。。")
 	t.Skip("直接跳出了。。。")
 	t.FailNow()
