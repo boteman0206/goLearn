@@ -1,0 +1,10 @@
+
+参考教程：
+https://github.com/guangzhengli/k8s-tutorials
+
+
+docker push失败的原因denied: requested access to the resource is denied
+解决方案：
+https://www.cnblogs.com/shen-qiang/p/11879320.html
+
+

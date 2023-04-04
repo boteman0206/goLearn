@@ -1,0 +1,19 @@
+
+
+apiVersion: apps/v1
+kind: Deployment   #  kind 表示我们要创建的资源是 deployment 类型
+metadata:
+  name: hellok8s-deployment  # metadata.name 表示要创建的 deployment 的名字，这个名字需要是唯一的。
+spec:
+  replicas: 3  # 首先 replicas 表示的是部署的 pod 副本数量
+  selector:  # selector 里面表示的是 deployment 资源和 pod 资源关联的方式，这里表示 deployment 会管理 (selector) 所有 labels=hellok8s 的 pod。
+    matchLabels:
+      app: hellok8s
+  template:  # template 的内容是用来定义 pod 资源的
+    metadata:
+      labels: # metadata.labels 来和上面的 selector.matchLabels 对应起来。来表明 pod 是被 deployment 管理
+        app: hellok8s
+    spec:
+      containers:
+        - image: boteman0206/hellok8s:latest
+          name: hellok8s-container
