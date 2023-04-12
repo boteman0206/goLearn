@@ -8,3 +8,4 @@ docker push失败的原因denied: requested access to the resource is denied
 https://www.cnblogs.com/shen-qiang/p/11879320.html
 
 
+
