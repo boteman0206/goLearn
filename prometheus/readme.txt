@@ -33,5 +33,10 @@ scrape_configs:
 
 
 
+https://www.xhyonline.com/?p=1492  这个参考文档也可以
+
+
+
+
 
 
