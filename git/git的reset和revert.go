@@ -23,6 +23,4 @@ git revert是用一次新的commit来回滚之前的commit，git reset是直接�
 
 
 two
-
-three
 */
