@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellok8s-deployment
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hellok8s
+  template:
+    metadata:
+      labels:
+        app: hellok8s
+    spec:
+      containers:
+        - image: boteman0206/hellok8s:liveness01
+          name: hellok8s-container
+          livenessProbe:   # 探测活跃
+            httpGet:
+              host: 172.18.0.2
+              path: /healthz
+              port: 31553
+            initialDelaySeconds: 3  # initialDelaySeconds 字段告诉 kubelet 在执行第一次探测前应该等待 3 秒
+            periodSeconds: 3  # periodSeconds 字段指定了 kubelet 每隔 3 秒执行一次存活探测

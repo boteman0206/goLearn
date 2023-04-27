@@ -8,4 +8,17 @@ docker push失败的原因denied: requested access to the resource is denied
 https://www.cnblogs.com/shen-qiang/p/11879320.html
 
 
+这里使用minikube的集群地址没办法访问node ip 解决貌似没用
+https://blog.csdn.net/zhaopeng_yu/article/details/125810814
+
+
+
+
+构建镜像
+docker build . -t guangzhengli/hellok8s:v2
+
+上传镜像
+docker push guangzhengli/hellok8s:v2
+
+
 
