@@ -10,6 +10,12 @@
 
 关系数据库 ⇒ 数据库 ⇒ 表 ⇒ 行 ⇒ 列(Columns)
 Elasticsearch ⇒ 索引 ⇒ 类型 ⇒ 文档 ⇒ 字段(Fields)
+index -> type -> mapping -> document -> field。
+    index 相当于 mysql 里的一张表。
+    在高版本的es里已经不建议使用type了(es7.x 已经完全移除了mapping type)， 可以认为你可以认为 index 是一个类别的表，具体的每个 type 代表了 mysql中的一个表。
+    而 mapping 就是这个 type 的表结构定义，定义了这个表的字段和类型。
+    你往 index 里的一个 type 里面写的一条数据，叫做一条 document，一条 document 就代表了 mysql 中某个表里的一行，
+    每个 document 有多个 field，每个 field 就代表了这个 document 中的一个字段的值。
 
 
 倒排索引
