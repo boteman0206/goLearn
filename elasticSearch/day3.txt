@@ -1,0 +1,88 @@
+
+
+参考链接： https://www.cnblogs.com/baoshu/p/16128127.html#1-docker-pull
+
+创建网络
+docker network create itmentu-net  // 这个创建网络的命令可以不使用， 后面的命令也需要去除，用了也无所谓
+
+一： docker安装 es
+1：下载es
+docker pull elasticsearch:7.17.1
+
+
+2： 安装启动
+ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e  "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms256m -Xmx256m" elasticsearch:7.17.1
+ docker ps 确保启动成功
+
+
+3：设置外部数据卷
+ mkdir -p ～/data/elasticsearch/{config,data,logs,plugins}  // 创建config，data，logs，plugins文件夹
+
+4： 将容器中的文件拷贝出来，自动会映射到之前创建的文件夹下面去
+    docker cp elasticsearch:/usr/share/elasticsearch/config ~/data/elasticsearch
+    docker cp elasticsearch:/usr/share/elasticsearch/logs ~/data/elasticsearch
+    docker cp elasticsearch:/usr/share/elasticsearch/data ~/data/elasticsearch
+    docker cp elasticsearch:/usr/share/elasticsearch/plugins ~/data/elasticsearch
+
+5： 设置elasticsearch.yml的内容
+    vim ～/data/elasticsearch/config/elasticsearch.yml
+6： 确保yml里面有一下几个配置
+    cluster.name: "docker-cluster"
+    network.hosts:0.0.0.0
+    # 跨域
+    http.cors.allow-origin: "*"
+    http.cors.enabled: true
+    http.cors.allow-headers: Authorization,X-Requested-With,Content-Length,Content-Type
+
+7: 删除停止之前的容器
+    docker stop elasticsearch
+    docker rm elasticsearch
+
+8: 重新起容器并挂载外部文件夹
+    docker run -d --name elasticsearch \
+    -p 9200:9200 \
+    -p 9300:9300 \
+    -e "discovery.type=single-node" \
+    -e ES_JAVA_OPTS="-Xms256m -Xmx256m" \
+    --network itmentu-net \
+    -v ~/data/elasticsearch/logs:/usr/share/elasticsearch/logs \
+    -v ~/data/elasticsearch/data:/usr/share/elasticsearch/data \
+    -v ~/data/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+    -v ~/data/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+    elasticsearch:7.17.1
+
+9:  确认启动成功
+    curl "http://localhost:9200"
+
+
+
+
+
+二： docker安装kibana
+
+1： 运行临时容器
+    docker run -d --name kibana -p 5601:5601 kibana:7.17.1
+2:  创建本地挂载文件
+    mkdir -p ~/data/kibana/config
+    docker cp kibana:/usr/share/kibana/config ~/data/kibana/
+3: 修改本地配置文件
+    vim ～/data/kibana/config/kibana.yml
+4：配置内容
+    #
+    # ** THIS IS AN AUTO-GENERATED FILE **
+    #
+    # Default Kibana configuration for docker target
+    server.host: "0"
+    server.shutdownTimeout: "5s"
+    elasticsearch.hosts: [ "http://es容器的ip:9200" ] # 这里有个天坑，这里不能配置127和local需要配置es的docker容器地址才可以 。查看容器的ip：docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_id_or_name>
+    monitoring.ui.container.elasticsearch.enabled: true
+    i18n.locale: "zh-CN"
+
+5： 删除停止之前的容器
+    docker stop kibana
+    docker rm kibana
+6： 重新挂在启动
+    docker run -d --name kibana -p 5601:5601 --network itmentu-net \
+       -v ~/data/kibana/config:/usr/share/kibana/config kibana:7.17.1
+
+到这里其实已经可以测试使用了，如果需要设置密码的话，还需要参看文档命令去执行。
