@@ -86,3 +86,16 @@ docker pull elasticsearch:7.17.1
        -v ~/data/kibana/config:/usr/share/kibana/config kibana:7.17.1
 
 到这里其实已经可以测试使用了，如果需要设置密码的话，还需要参看文档命令去执行。
+
+
+三： 安装elastic-head 这个主要是看es的实时数据的界面
+
+1： 安装elasticsearch-head
+    docker run -d \
+    --name=elasticsearch-head \
+    --network itmentu-net \
+    -p 9100:9100 \
+    mobz/elasticsearch-head:5-alpine
+
+2：访问地址即可
+    http://127.0.0.1:9100/
