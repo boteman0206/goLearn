@@ -1,0 +1,38 @@
+
+
+
+
+索引别名就像一个快捷方式或软连接，可以指向一个或多个索引，也可以给任何一个需要索引名的API来使用，而且别名不能与索引同名。
+
+
+重新建立索引的问题是必须更新应用中的索引名称，索引别名就是用来解决这个问题的！
+    假设我们有个学生的原始索引 student_index_v1，我们给它起个别名 student_index，程序中也是用别名 student_index 进行搜索，当我们的业务需求发生改变需要修改索引的时候，
+    我们重新创建个索引 student_index_v2，同时将别名 student_index 指向新的索引 student_index_v2，同时将 student_index_v1 的数据迁移到新的 student_index_v2，这样我们就可以做到在零停机下从旧索引切换到新索引。
+
+别名管理
+    别名还可以映射到某个索引也可以映射到多个索引。别名还可以与筛选器关联，筛选器将在搜索和路由值时自动应用，别名不能与索引同名。
+    Elasticsearch 中有两种方式管理别名： _alias 用于单个操作， _aliases 用于执行多个原子级操作。
+
+    单个索引别名
+        POST /_aliases
+        {
+            "actions" : [
+                { "add" : { "index" : "test1", "alias" : "alias1" } }
+            ]
+        }
+
+    删除别名
+        POST /_aliases
+        {
+            "actions" : [
+                { "remove" : { "index" : "test1", "alias" : "alias1" } }
+            ]
+        }
+    重命名别名: 重命名别名是一个简单的删除然后指向新的索引。这个操作是原子性的，因此不需要担心短时间内的别名不指向一个索引
+        POST /_aliases
+        {
+            "actions" : [
+                { "remove" : { "index" : "test1", "alias" : "alias1" } },
+                { "add" : { "index" : "test2", "alias" : "alias1" } }
+            ]
+        }
