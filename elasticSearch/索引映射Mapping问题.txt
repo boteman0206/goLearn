@@ -49,3 +49,23 @@
         GET library/_mapping  # 获取mapping信息
 
 
+
+当然除了自动创建Mapping，也可以自行显示定义一个 Mapping，方法如下：
+    PUT users
+    {
+    	"mappins": {
+    		"properties": {
+    			"firstName": {
+    				"type": "text"
+    			},
+    			"lastName": {
+    				"type": "text"
+    			}
+    			"mobile": {
+    				"type": "text",
+    				"index": false    // 设置为 false ，不会被倒排索引，更不会被搜索
+    			}
+    		}
+    	}
+    }
+
