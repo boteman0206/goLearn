@@ -99,3 +99,11 @@ docker pull elasticsearch:7.17.1
 
 2：访问地址即可
     http://127.0.0.1:9100/
+
+
+
+
+
+account.json的数据在地址：accounts.json  或者地址： https://github.com/elastic/elasticsearch/blob/v6.8.18/docs/src/test/resources/accounts.json
+写入脚本数据：  index 为bank
+     curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/_bulk?pretty&refresh" --data-binary "@./accounts.json"
