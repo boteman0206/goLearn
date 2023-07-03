@@ -1,0 +1,33 @@
+
+
+
+
+find /path/to/search -name name-of-file
+
+1：查找文件相关：查找Downloads下以sql结尾的文件
+    find /Users/v_pengwei01/Downloads -name "*.sql"
+
+
+2： 查找当前目录下以sql结尾的文件
+    find . -name "*.sql"
+
+3： find . -type 类型参数
+    # 当前目录搜索所有文件，文件内容 包含 “hello” 的内容
+    find . -type f -name "*.txt" | xargs grep "hello"
+        类型参数列表：
+            f 普通文件
+            l 符号连接
+            d 目录
+            c 字符设备
+            b 块设备
+            s 套接字
+            p Fifo
+
+
+4： 查找当前文件，并且吧文件内容输出到 all.txt
+    注意：这里会递归所有的自文件夹如果要指定当前文件夹的话 需要指定-maxdepth 1
+    find . -type f -name "*.txt" -exec cat {} \;> all.txt
+
+5： 指定查找当前文件夹下面的文件，不递归子文件夹 (比较常用)
+    find . -maxdepth 1 -type f -name "*.txt"
+

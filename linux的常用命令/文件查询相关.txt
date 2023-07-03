@@ -1,0 +1,33 @@
+
+
+
+1： 展示文件的最后20行，  cat -n 并且展示行号
+    tail -n 20 file.txt | cat -n
+
+2： 展示文件的前10行，并且展示行号
+    head -n 10 sql.csv| cat -n
+
+3： 查找含有userInfoCenter的，并且高亮显示
+    tail -f service.log | grep "userInfoCenter" --color=auto
+
+4： 查找含有userInfoCenter的，并且含有message的，高亮显示
+   这里需要注意如果使用tail -f 的时候需要加上 --line-buffered ，因为tail -f是实时变化的，可能没有读取到整行 --line-buffered是grep命令的一个选项，它的作用是让grep在输出匹配到的行时，以行为单位进行缓冲输出
+   tail -f  service.log | grep --line-buffered  "userInfoCenter" --color=always | grep --line-buffered  "message" --color=always
+   tail -n 100  service.log  则不需要加
+
+   grep "hello" g.txt --color=always | grep "world" --color
+
+
+5：  查找含有hello或者world的的行数
+    grep -E -n "hello|world" g.txt
+
+
+6：匹配以hello开头的行
+    grep ^hello g.txt
+
+7: 输出不包含hello的行  -v参数
+    grep -v hello g.txt
+
+8: ls查看文件夹是否存在
+     ls | grep "DownLoad"
+
