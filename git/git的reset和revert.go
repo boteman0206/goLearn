@@ -18,5 +18,7 @@ git revert使用一个新的提交来更新代码，原来的提交记录都保�
 git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。
 
 
+注意点：使用git revert的时候，就是将当前的commit提交撤销掉，相当与只把本次提交撤销掉，不会对之后的commit有任何影响。
+
 
 */
