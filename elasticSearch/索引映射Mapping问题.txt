@@ -69,3 +69,40 @@
     	}
     }
 
+
+
+string 域映射的两个最重要属性是 index 和 analyzer 。
+    index index 属性控制怎样索引字符串。它可以是下面三个值：
+        analyzed
+            首先分析字符串，然后索引它。换句话说，以全文索引这个域。
+        not_analyzed
+          索引这个域，所以它能够被搜索，但索引的是精确值。不会对它进行分析。
+        no
+            不索引这个域。这个域不会被搜索到。
+        string 域 index 属性默认是 analyzed 。如果我们想映射这个字段为一个精确值，我们需要设置它为 not_analyzed ：
+        {
+            "tag": {
+                "type":     "string",
+                "index":    "not_analyzed"
+            }
+        }
+
+analyzer
+    对于 analyzed 字符串域，用 analyzer 属性指定在搜索和索引时使用的分析器。默认， Elasticsearch 使用 standard 分析器， 但你可以指定一个内置的分析器替代它，例如 whitespace 、 simple 和 english：
+    {
+        "tweet": {
+            "type":     "string",
+            "analyzer": "english"
+        }
+    }
+
+新增一个mapping的映射
+# 增加一个映射
+PUT /gb/_mapping
+{
+  "properties": {
+    "tag": {
+      "type": "keyword"
+    }
+  }
+}

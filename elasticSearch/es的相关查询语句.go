@@ -234,4 +234,54 @@ POST /_bulk
 
 
 
+分析器使用
+标准分析器
+GET /_analyze
+{
+  "analyzer": "standard",
+  "text": "Text to analyze"
+}
+
+在多个列中查询，比如在name和tweet中查询单词 boom
+GET /gb/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "boom",
+      "fields": ["name", "tweet"]
+    }
+  }
+}
+
+精确查询
+term 查询被用于精确值匹配，这些精确值可能是数字、时间、布尔或者那些 not_analyzed 的字符串：
+GET /gb/_search
+{
+  "query": {
+    "term": {
+      "date": "2014-09-13"
+    }
+  }
+}
+
+terms 查询和 term 查询一样，但它允许你指定多值进行匹配。如果这个字段包含了指定值中的任何一个值，那么这个文档满足条件：
+GET /gb/_search
+{
+  "query": { "terms": { "tweet": [ "manage", "boom", "nosql" ] }}
+}
+
+查询文档中某个字段是否存在， 比如搜索gb索引中含有user_id字段的文档
+GET /gb/_search
+{
+  "query": {
+    "exists": {
+      "field": "user_id"
+    }
+  }
+}
+
+
+
+
+
 */
