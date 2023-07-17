@@ -102,8 +102,13 @@ docker pull elasticsearch:7.17.1
 
 
 
+安装es-sql的可视化界面
+/usr/share/elasticsearch/bin/elasticsearch-plugin install https://github.com/NLPchina/elasticsearch-sql/releases/download/7.17.1.0/elasticsearch-sql-7.17.1.0.zip
 
 
 account.json的数据在地址：accounts.json  或者地址： https://github.com/elastic/elasticsearch/blob/v6.8.18/docs/src/test/resources/accounts.json
 写入脚本数据：  index 为bank
      curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/_bulk?pretty&refresh" --data-binary "@./accounts.json"
+
+
+

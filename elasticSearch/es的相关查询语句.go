@@ -281,6 +281,79 @@ GET /gb/_search
 }
 
 
+验证查询
+查询可以变得非常的复杂，尤其和不同的分析器与不同的字段映射结合时，理解起来就有点困难了。不过 validate-query API 可以用来验证查询是否合法。
+GET /gb/_doc/_validate/query
+{
+  "query": {
+    "exists": {
+      "field": "abc"
+    }
+  }
+}
+
+找出不合法的原因
+GET /gb/tweet/_validate/query?explain
+{
+   "query": {
+      "tweet" : {
+         "match" : "really powerful"
+      }
+   }
+}
+
+
+
+使用排序order
+GET /gb/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {
+      "date": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+
+使用多级排序： 先按照userid排，然后在按照date日期排序
+GET /gb/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    { "user_id": { "order": "desc"}},
+    { "date": { "order": "desc" }}
+  ]
+}
+
+
+
+查询的的时候过滤分数，使用constant_score，可以提高查询性能
+GET /my_store/_search
+{
+  "query": {
+    "constant_score": {
+      "filter": {
+        "term": {
+          "price": "30"
+        }
+      },
+      "boost": 1.2
+    }
+  }
+}
+
+
+# 使用sql查询
+POST /_sql?format=txt
+{
+  "query": "SELECT * FROM my_store_01 WHERE price < 30"
+}
 
 
 
