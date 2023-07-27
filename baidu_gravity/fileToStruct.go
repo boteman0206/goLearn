@@ -27,7 +27,7 @@ func ReadFromFile(filePath string) (string, error) {
 	return string(fd), nil
 }
 
-func ScanFile(fileName string) []RandomQuestionsRes {
+func ScanFile(fileName string) []IzakayaChatList {
 	// 打开文件
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -38,15 +38,15 @@ func ScanFile(fileName string) []RandomQuestionsRes {
 	// 创建一个 Scanner 对象
 	scanner := bufio.NewScanner(file)
 
-	data := make([]RandomQuestionsRes, 0)
+	data := make([]IzakayaChatList, 0)
 	// 按行读取文件内容
 	lineNumber := 1
 	for scanner.Scan() {
 		line := scanner.Text()
 		//fmt.Printf("Line %d: %s\n", lineNumber, line)
-		data = append(data, RandomQuestionsRes{
-			QuestionID: int64(lineNumber),
-			Question:   line,
+		data = append(data, IzakayaChatList{
+			ID:   int64(lineNumber),
+			Desc: line,
 		})
 		lineNumber++
 	}
@@ -60,6 +60,12 @@ func ScanFile(fileName string) []RandomQuestionsRes {
 type RandomQuestionsRes struct {
 	QuestionID int64  `form:"question_id" json:"question_id"` // 问题id
 	Question   string `form:"question" json:"question"`       // 问题
+}
+
+type IzakayaChatList struct {
+	ID   int64  `json:"id"`
+	Desc string `json:"desc"`
+	Sort int    `json:"sort"`
 }
 
 func main() {
