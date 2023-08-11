@@ -1,0 +1,13 @@
+
+
+
+1： 下载docker-fro-mac
+2： 按照图示 img.png    勾选必要的选项
+3： 可能需要配置代理下载k8s的时候
+
+4： 安装好之后使用
+    kubectl cluster-info dump
+    kubectl cluster-info dump -v=10    // -v=10可以查看日志内容，如果日志报错Get https://kubernetes.docker.internal:6443 forbidden breaks kubernettes/kubectl #3829
+    参考文档：
+        https://github.com/docker/for-mac/issues/3829
+        需要修改 vim ~/.kube/config     将里面的server: https://kubernetes.docker.internal:6443 改为-> https://127.0.0.1:6443
