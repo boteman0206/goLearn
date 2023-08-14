@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt" // 导入 fmt 包，打印字符串是需要用到
-	"github.com/shopspring/decimal"
 )
 
 func a() {
@@ -14,9 +13,14 @@ func main() { // 声明 main 主函数
 	fmt.Println("bc") // todo 同一行需要加分号 否则报错
 	a()
 	fmt.Println("this is a goodday")
-	price := 2.479446
-	priceRoundFloor, _ := decimal.NewFromFloat(price).RoundFloor(2).Float64()
-	fmt.Println(priceRoundFloor)
+	//price := 2.479446
+	//priceRoundFloor, _ := decimal.NewFromFloat(price).RoundFloor(2).Float64()
+	//fmt.Println(priceRoundFloor)
+
+	// userList := make([]int64, 5)
+
+	// userList[6] = 12
+	// fmt.Println(userList)
 
 }
 
