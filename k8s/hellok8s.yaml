@@ -4,8 +4,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hellok8s
+  name: testk8s-pod
 spec:
   containers:
-    - name: hellok8s-container
-      image: boteman0206/hellok8s:latest
+    - name: testk8s-container
+      image: boteman0206/test:v1

@@ -76,4 +76,29 @@ Node 组件运行在每一个节点上（包括 master 节点和 worker 节点�
 	九：Cluster-level Logging
 		Cluster-level logging (opens new window)机制负责将容器的日志存储到一个统一存储中，并提供搜索浏览的界面
 
+
+
+
+
+ Deployment（部署）、Pod（容器组） 和 Node(节点) 之间的关系吗？
+	Pod（容器组）总是在 Node（节点） 上运行。Node（节点）是 kubernetes 集群中的计算机，可以是虚拟机或物理机。
+	每个 Node（节点）都由 master 管理。一个 Node（节点）可以有多个Pod（容器组），kubernetes master 会根据每个 Node（节点）上可用资源的情况，自动调度 Pod（容器组）到最佳的 Node（节点）上。
+		1: Node是Kubernetes集群中的物理或虚拟机器，提供运行环境和资源。
+		2: Pod是Kubernetes的最小调度单位，是容器的组合，共享网络和存储。
+		3: Deployment是一个控制器，用于管理Pod的副本数量和部署策略，确保应用程序在集群中的稳定性和弹性。
+
+
+
+
+Kubernetes Service（服务）
+	Kubernetes 中的 Service（服务） 提供了这样的一个抽象层，它选择具备某些特征的 Pod（容器组）并为它们定义一个访问方式。Service（服务）使 Pod（容器组）之间的相互依赖解耦（原本从一个 Pod 中访问另外一个 Pod，需要知道对方的 IP 地址）。一个 Service（服务）选定哪些 Pod（容器组） 通常由 LabelSelector(标签选择器) 来决定。
+	在创建Service的时候，通过设置配置文件中的 spec.type 字段的值，可以以不同方式向外部暴露应用程序：
+		ClusterIP（默认）
+			在群集中的内部IP上公布服务，这种方式的 Service（服务）只在集群内部可以访问到
+		NodePort
+			使用 NAT 在集群中每个的同一端口上公布服务。这种方式下，可以通过访问集群中任意节点+端口号的方式访问服务 <NodeIP>:<NodePort>。此时 ClusterIP 的访问方式仍然可用。
+		LoadBalancer
+			在云环境中（需要云供应商可以支持）创建一个集群外部的负载均衡器，并为使用该负载均衡器的 IP 地址作为服务的访问地址。此时 ClusterIP 和 NodePort 的访问方式仍然可用。
+
+
 */
