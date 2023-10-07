@@ -1,26 +1,46 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"math/rand"
-	"time"
 )
 
-type DF struct {
-	Name string
+type DepositRewardInfo struct {
+	RewardType string `json:"reward_type"` // 奖励类型：coin_package：充值套餐
+	RewardID   string `json:"reward_id"`   // 奖励ID
+	ExpireTime int64  `json:"expire_time"` // 有效期
+	CoinValue  int64  `json:"coin_value "` // 价值星粒数
+	Count      int64  `json:"count"`       // 奖励数量
 }
 
 func main() {
 
-	rand.Seed(time.Now().UnixNano())
-
-	// 0-99
-	for i := 0; i < 100; i++ {
-		num := rand.Intn(10)
-		fmt.Println(num)
-	}
-
-	var df DF
-	fmt.Println(df.Name)
+	t := []DepositRewardInfo{{
+		RewardType: "frame",
+		RewardID:   "10",
+		ExpireTime: 7,
+		CoinValue:  78,
+		Count:      1,
+	}, {
+		RewardType: "user_tag",
+		RewardID:   "18",
+		ExpireTime: 4,
+		CoinValue:  48,
+		Count:      1,
+	}, {
+		RewardType: "prize",
+		RewardID:   "66",
+		ExpireTime: 3,
+		CoinValue:  34,
+		Count:      1,
+	}, {
+		RewardType: "coin_package",
+		RewardID:   "gravitycoin_50coin_120jpy",
+		ExpireTime: 0,
+		CoinValue:  0,
+		Count:      0,
+	}}
+	bytes, _ := json.Marshal(t)
+	fmt.Println(string(bytes))
 
 }
