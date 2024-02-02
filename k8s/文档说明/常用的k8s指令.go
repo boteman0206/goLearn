@@ -76,6 +76,11 @@ kubectl exec - 在pod中的容器环境内执行命令(和命令docker exec 类�
 	# 在名称为nginx-pod-xxxxxx的Pod中运行bash
 	kubectl exec -it nginx-pod-xxxxxx /bin/bash
 
+	TODO: 进入某一个特定名称空间的pod
+	kubectl exec -it -n <namespace> <pod_name> -- /bin/sh
+
+kubectl delete 需要重启某一个pod，只需要删除即可，k8s会根据其定义自动创建
+	kubectl delete pod <pod_name> -n  <name_space>
 
 
 查看指定名称空间下的pods信息
