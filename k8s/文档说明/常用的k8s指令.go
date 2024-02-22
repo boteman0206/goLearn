@@ -88,7 +88,8 @@ kubectl delete 需要重启某一个pod，只需要删除即可，k8s会根据�
 kubectl get pods -n <namespace>
 kubectl get pods -n my-namespace -o wide
 kubectl describe pod <pod-name> -n <namespace>
-
+// 查看某个名称空间下的pod的信息
+kubectl get po gdp-creative-appui-1-0-2502-change-8114-76f67f44cb-7pvqt -o yaml   -n gravity-dev-pengwei01
 
 
 

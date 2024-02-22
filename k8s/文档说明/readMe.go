@@ -1,5 +1,8 @@
 package 文档说明
 
+// github文档
+// https://github.com/chaseSpace/k8s-tutorial-cn/blob/main/doc_tutorial.md
+
 /**
 Kubernetes 的 11 个部分
 1: pod
