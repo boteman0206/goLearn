@@ -1,3 +1,7 @@
+pprof使用文档：
+  https://blog.wolfogre.com/posts/go-ppof-practice/#%E6%8E%92%E6%9F%A5%E9%94%81%E7%9A%84%E4%BA%89%E7%94%A8
+  https://juejin.cn/post/7122473470424219656
+
 1. 先登陆到跳板机、再执行指令：ssh work@jp01-ime-qa01.jp01
 2. kubectl get pods -n gravity-online 查看都有哪些是appui的部署容器
 3. kubectl top pods -n gravity-online 查看哪些pod的 CPU(cores)以及MEMORY(bytes)较高

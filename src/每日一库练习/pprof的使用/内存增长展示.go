@@ -9,7 +9,6 @@ import (
 	"net/http"
 	_ "net/http/pprof"
 	"os"
-	"time"
 )
 
 // 运行一段时间：fatal error: runtime: out of memory
@@ -23,14 +22,22 @@ func main() {
 		}
 	}()
 
-	tick := time.Tick(time.Second / 100)
-	var buf []byte
-	for range tick {
-		buf = append(buf, make([]byte, 1024*1024)...)
+	go doWhile()
+
+	_ = http.ListenAndServe("0.0.0.0:8880", nil)
+}
+
+func doWhile() {
+	loop := 10000000000
+	for i := 0; i < loop; i++ {
+		fmt.Println("----", i)
 	}
 }
 
 /**
+https://graphviz.org/download/
+
+
 1: go tool pprof http://localhost:6060/debug/pprof/heap
 
 2: top命令 按指标大小列出前10个函数，比如内存是按内存占用多少，CPU是按执行时间多少。
@@ -44,6 +51,9 @@ cum%: 是累计量占总量的百分比。
 
 4： traces  打印所有调用栈，以及调用栈的指标信息。
 
+
+
+需要安装 brew install graphviz
 
 todo go tool pprof -http=:8000 http://127.0.0.1:6060/debug/pprof/profile  // 可以查看分析内存
 */
