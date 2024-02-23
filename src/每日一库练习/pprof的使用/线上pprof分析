@@ -1,0 +1,16 @@
+1. 先登陆到跳板机、再执行指令：ssh work@jp01-ime-qa01.jp01
+2. kubectl get pods -n gravity-online 查看都有哪些是appui的部署容器
+3. kubectl top pods -n gravity-online 查看哪些pod的 CPU(cores)以及MEMORY(bytes)较高
+4. 再执行指令:kubectl exec -it gdp-creative-appui-6c6946ff7f-fzbxf /bin/bash -n gravity-online 进入相应容器查看报警日志 
+5. 登录对应的pod生成火焰图 【heap内存,cpu,协程pprof】
+  a. curl http://127.0.0.1:8082/debug/pprof/heap -o cron-heap-base.out  
+  b. curl http://127.0.0.1:8082/debug/pprof/profile > cpu.out
+  c. curl http://127.0.0.1:8082/debug/pprof/profile/goroutine > goroutine.out
+6. 拷贝pod的pprof2.out文件到当前机器
+  a. kubectl cp -n gravity-online  gdp-creative-appui-6c6946ff7f-fzbxf:/home/work/gdp-creative-appui/pprof2.out ./pprof2.out
+7. scp 当前机器的文件放入开发机中
+     scp /home/work/pprof2.out  xiangshang@jp01-simeji-dev11.jp01:/home/disk1/xiangshang/pprof2.out
+8. 开发机查看pprof 火焰图
+  a. go tool pprof cron-heap-base.out
+  b. 或者开发机 icoding 执行该文件，打开一个界面查看
+  c. go tool pprof -http=:9999 pprof2.out
