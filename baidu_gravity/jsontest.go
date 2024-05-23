@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	// "log"
+	"math"
 	"strconv"
 	"strings"
 	"time"
-	// "time"
+	// "unicode/utf8"
 )
 
 func VersionCompare(version1 string, version2 string) int {
@@ -114,4 +116,69 @@ func main() {
 	fmt.Println("0<=0: ", 0 < 0)
 
 	fmt.Println("----", 153107586%100)
+
+	t := VersionCompare("9.2.9", "9.3")
+	fmt.Println("版本比较-----", t, t < 0)
+
+	fmt.Println(math.MaxInt32, math.MaxUint32)
+
+	var x1 map[string]string = nil
+	fmt.Println("map----:", x1["name"])
+	// x1["name"] = "jack"
+	// var s11 []int64 = nil
+	// fmt.Println(s11)
+
+	s11 := "我..是神"
+	runes := []rune(s11)
+
+	fmt.Println("rune:", runes)
+	runes[0] = rune(31070)
+	fmt.Println("rune2:", string(runes))
+
+	// log.Fatalln("Fatalln----")
+	// log.Panicln("panic-----")
+
+	bubble01 := bubuleTest([]int64{99, 23, 4, 73, 2, 34, 44})
+	fmt.Println("bubble01: ", bubble01)
+	quick001 := quickTest([]int64{99, 23, 4, 73, 2, 34, 44})
+	fmt.Println("quick001: ", quick001)
+
+}
+
+func bubuleTest(list []int64) []int64 {
+
+	for i := 0; i < len(list)-1; i++ {
+		for j := 0; j < len(list)-1-i; j++ {
+			if list[j+1] < list[j] {
+				temp := list[j]
+				list[j] = list[j+1]
+				list[j+1] = temp
+			}
+		}
+	}
+
+	return list
+}
+
+func quickTest(list []int64) []int64 {
+
+	if len(list) <= 1 {
+		return list
+	}
+
+	provid := list[0]
+	left, right := []int64{}, []int64{}
+
+	for _, v := range list[1:] {
+		if v <= provid {
+			left = append(left, v)
+		} else {
+			right = append(right, v)
+		}
+	}
+
+	left = quickTest(left)
+	right = quickTest(right)
+
+	return append(append(left, provid), right...)
 }
