@@ -7,6 +7,10 @@ import (
 )
 
 // 生成格式化的sql
+/**
+**表按照user_id来进行分表查询的，将一批user_id分组合并起来，这样可以减少查询的次数
+**
+ */
 
 // 1: 定义userID
 var userIDs = []int64{
