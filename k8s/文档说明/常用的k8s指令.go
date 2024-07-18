@@ -2,6 +2,17 @@ package 文档说明
 
 /**
 
+
+获取集群的信息
+kubectl cluster-info
+这将列出所有节点的名称、状态、IP地址等详细信息。
+kubectl get nodes -o wide
+查看所有命名空间（namespaces）的列表：
+kubectl get namespaces
+
+
+
+
 创建更新pod资源
 kubectl apply -f deployment.yaml
 
