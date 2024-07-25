@@ -93,6 +93,11 @@ kubectl exec - 在pod中的容器环境内执行命令(和命令docker exec 类�
 kubectl delete 需要重启某一个pod，只需要删除即可，k8s会根据其定义自动创建
 	kubectl delete pod <pod_name> -n  <name_space>
 
+重启资源：deployment
+k get deployment -n gravity-dev-pengwei01
+kubectl  rollout restart deployment gdp-creative-appui-1-0-2904-change-8010 -n gravity-dev-pengwei01
+监听pod的变化
+kubectl get pods -w -n gravity-dev-pengwei01
 
 查看指定名称空间下的pods信息
 注意： 当您使用 kubectl get pods 命令而没有显式指定命名空间时，它会默认查询当前上下文下的默认命名空间
@@ -115,6 +120,15 @@ service设置：
 
 	3: kubectl get pod -o wide
 	4: kubectl get service
+
+
+
+
+获取daemonsets信息
+kubectl get daemonsets --all-namespaces
+
+
+
 
 
 */
