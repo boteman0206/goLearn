@@ -94,8 +94,8 @@ kubectl delete 需要重启某一个pod，只需要删除即可，k8s会根据�
 	kubectl delete pod <pod_name> -n  <name_space>
 
 重启资源：deployment
-k get deployment -n gravity-dev-pengwei01
-kubectl  rollout restart deployment gdp-creative-appui-1-0-2904-change-8010 -n gravity-dev-pengwei01
+k get deployment -n dev-pengwei01
+kubectl  rollout restart deployment xxx-8010 -n gravity-dev-pengwei01
 监听pod的变化
 kubectl get pods -w -n gravity-dev-pengwei01
 
@@ -116,7 +116,7 @@ service设置：
 	2: 被selector选中的app会被绑定起来
 		kubectl get endpoints
 		# NAME                         ENDPOINTS                                          AGE
-		# service-hellok8s-clusterip   172.17.0.10:3000,172.17.0.2:3000,172.17.0.3:3000   10s
+		# service-hellok8s-clusterip   132.17.0.10:3000,132.17.0.2:3000,132.17.0.3:3000   10s
 
 	3: kubectl get pod -o wide
 	4: kubectl get service
@@ -129,7 +129,7 @@ kubectl get daemonsets --all-namespaces
 
 在k8s的集群内可以通过
 svc的名称 + svc的名称空间 + 端口号访问集群内的其他pod
-比如： curl http://gdp-creative-appui-1-0-2904-change-8010.gravity-dev-pengwei01:8082
+比如： curl http://xxxchange-8010.gravity-dev-pengwei01:8082
 
 
 
