@@ -21,24 +21,6 @@ func main() {
 		ExpireTime: 7,
 		CoinValue:  78,
 		Count:      1,
-	}, {
-		RewardType: "user_tag",
-		RewardID:   "18",
-		ExpireTime: 4,
-		CoinValue:  48,
-		Count:      1,
-	}, {
-		RewardType: "prize",
-		RewardID:   "66",
-		ExpireTime: 3,
-		CoinValue:  34,
-		Count:      1,
-	}, {
-		RewardType: "coin_package",
-		RewardID:   "gravitycoin_50coin_120jpy",
-		ExpireTime: 0,
-		CoinValue:  0,
-		Count:      0,
 	}}
 	bytes, _ := json.Marshal(t)
 	fmt.Println(string(bytes))

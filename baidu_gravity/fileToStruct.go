@@ -76,7 +76,7 @@ func main() {
 	//}
 	//fmt.Println("fileStr", fileStr)
 
-	data := ScanFile("/Users/v_pengwei01/sdk/gitProject/goLearn/baidu_gravity/wenjian.txt")
+	data := ScanFile("/Users/v_pengwei01/sdk/gitProject/goLearn/wenjian.txt")
 	td, _ := json.Marshal(data)
 	//fmt.Println(string(td))
 
@@ -85,7 +85,7 @@ func main() {
 		panic(err)
 	}
 
-	dir = filepath.Join(dir, "baidu_gravity")
+	dir = filepath.Join(dir, "")
 	fileName := filepath.Join(dir, "myfileTest.txt")
 	fmt.Println(fileName)
 
