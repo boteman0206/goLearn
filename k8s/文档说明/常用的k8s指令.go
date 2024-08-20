@@ -127,7 +127,9 @@ service设置：
 获取daemonsets信息
 kubectl get daemonsets --all-namespaces
 
-
+在k8s的集群内可以通过
+svc的名称 + svc的名称空间 + 端口号访问集群内的其他pod
+比如： curl http://gdp-creative-appui-1-0-2904-change-8010.gravity-dev-pengwei01:8082
 
 
 
